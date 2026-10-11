@@ -1,0 +1,1023 @@
+<!DOCTYPE html>
+<html lang="es" id="exe-page-mtpmhm5f-nmokgzffq">
+<head>
+<meta charset="utf-8">
+<meta name="generator" content="eXeLearning v4.0.5">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="license" type="text/html" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+<title>3. Simplificación de funciones lógicas | Electrónica digital</title>
+<link rel="icon" type="image/x-icon" href="../libs/favicon.ico">
+<meta name="description" content="Electrónica digital. Tecnología e Ingeniería II.">
+<script>document.querySelector("html").classList.add("js");</script><script src="../libs/jquery/jquery.min.js"> </script><script src="../libs/common_i18n.js"> </script><script src="../libs/common.js"> </script><script src="../libs/exe_export.js"> </script><script src="../libs/bootstrap/bootstrap.bundle.min.js"> </script><link rel="stylesheet" href="../libs/bootstrap/bootstrap.min.css">
+<script src="../idevices/text/text.js"></script><link rel="stylesheet" href="../idevices/text/text.css">
+<script src="../libs/exe_effects/exe_effects.js"> </script>
+<link rel="stylesheet" href="../libs/exe_effects/exe_effects.css">
+<link rel="stylesheet" href="../content/css/base.css"><script src="../theme/style.js"> </script><script src="../theme/zzz-majuelo.js"> </script><link rel="stylesheet" href="../theme/style.css"><link rel="stylesheet" href="../theme/zzz-majuelo.css">
+<script src="../libs/exe_math/tex-mml-svg.js"> </script>
+</head>
+<body class="exe-export exe-web-site">
+<script>document.body.className+=" js"</script>
+<div class="exe-content exe-export pre-js siteNav-hidden"><a href="#page-mtpmhm5f-nmokgzffq" id="skipNav">Skip to content</a> <nav id="siteNav">
+<ul>
+<li> <a href="../index.html" class="main-node no-ch">Electrónica digital</a>
+</li>
+<li> <a href="../html/0-sistemas-de-numeracion.html" class="no-ch">0. Sistemas de numeración</a>
+</li>
+<li> <a href="../html/1-algebra-de-boole.html" class="no-ch">1. Álgebra de Boole</a>
+</li>
+<li> <a href="../html/2-funciones-logicas.html" class="no-ch">2. Funciones lógicas</a>
+</li>
+<li class="active"> <a href="../html/3-simplificacion-de-funciones-logicas.html" class="active no-ch">3. Simplificación de funciones lógicas</a>
+</li>
+<li> <a href="../html/4-puertas-logicas.html" class="no-ch">4. Puertas lógicas</a>
+</li>
+<li> <a href="../html/5-diseno-de-circuitos-logicos-combinacionales.html" class="daddy">5. Diseño de circuitos lógicos combinacionales</a>
+<ul class="other-section">
+<li> <a href="../html/51-ejemplos-de-circuitos-combinacionales-integrado.html" class="no-ch">5.1. Ejemplos de circuitos combinacionales integrados</a>
+</li>
+<li> <a href="../html/52-herramientas-de-simulacion.html" class="no-ch">5.2. Herramientas de simulación</a>
+</li>
+</ul>
+</li>
+<li> <a href="../html/6-ejercicios-finales.html" class="no-ch">6. Ejercicios finales</a>
+</li>
+<li> <a href="../html/7-ampliacion-circuitos-secuenciales.html" class="no-ch">7. Ampliación: circuitos secuenciales</a>
+</li>
+</ul>
+</nav><main id="page-mtpmhm5f-nmokgzffq" class="page"> 
+<header class="main-header">
+<div class="package-header"><p class="package-title">Electrónica digital</p></div>
+<div class="page-header"><h1 class="page-title">3. Simplificación de funciones lógicas</h1></div>
+</header><div id="page-content-page-mtpmhm5f-nmokgzffq" class="page-content">
+<article id="block-mtpmhm5g-jbs4meam6" class="box no-header">
+<header class="box-head no-icon">
+<button class="box-toggle box-toggle-on" title="Toggle content">
+<span>Toggle content</span>
+</button></header>
+<div class="box-content">
+<div id="idevice-mtpmhm5g-a32v877yw" class="idevice_node text" data-idevice-path="../idevices/text/" data-idevice-type="text" data-idevice-component-type="json" data-idevice-json-data="{&quot;ideviceId&quot;:&quot;idevice-mtpmhm5g-a32v877yw&quot;}">
+<style class="chrome-sda">.exe-content{--chrome:#6b3d94;--chrome-osc:#522975;--chrome-tinte:#f4eff8;--chrome-linea:#d9c9e5}</style><p>Como ya sabemos, <strong>existen múltiples expresiones algebraicas de una función lógica que pueden tener la misma tabla de verdad.</strong> Si encontramos la expresión más sencilla de todas ellas, podremos analizar el problema de la manera más simple.</p>
+<p>Además, como veremos en el apartado siguiente, <strong>las funciones lógicas las implementaremos en el mundo real mediante circuitos electrónicos</strong> que funcionarán según la tabla de verdad de la función. Por consiguiente, <strong>una función lógica con una expresión algebraica simplificada significará tener circuitos electrónicos más sencillos y, por tanto, más baratos y eficientes</strong>.</p>
+<p>Al proceso de encontrar la expresión algebraica más simple se le denomina <strong>simplificación de la función lógica</strong> y veremos dos formas de hacerlo: manipulando directamente la expresión inicial para simplificar <strong>aplicando leyes y teoremas del álgebra de Boole</strong> o bien usando un método mucho más mecánico utilizando los denominados <strong>mapas de Karnaugh.</strong></p>
+</div>
+</div>
+</article><article id="block-mtpmhm5g-etefav29i" class="box">
+<header class="box-head no-icon">
+<h1 class="box-title">Método algebraico</h1>
+<button class="box-toggle box-toggle-on" title="Toggle content">
+<span>Toggle content</span>
+</button></header>
+<div class="box-content">
+<div id="idevice-mtpmhm5g-oju7kii0u" class="idevice_node text" data-idevice-path="../idevices/text/" data-idevice-type="text" data-idevice-component-type="json" data-idevice-json-data="{&quot;ideviceId&quot;:&quot;idevice-mtpmhm5g-oju7kii0u&quot;}">
+<p>Utilizaremos las leyes, propiedades y teoremas del álgebra de Boole para simplificar lo máximo posible.</p>
+<p>Por ejemplo, imagina que queremos simplificar la siguiente función:</p>
+<p class="formula-bloque">\[S = \overline{(B+C)\cdot(A\cdot \overline{B}\cdot C)}\]</p>
+<p>Para empezar, podríamos aplicar la <strong>ley de Morgan del producto</strong> para eliminar la negación que afecta a toda la función:</p>
+<p class="formula-bloque">\[\begin{matrix}S = \overline{(B+C)\cdot(A\cdot \overline{B}\cdot C)}=\\=\overline{(B+C)}+\overline{(A\cdot \overline{B}\cdot C)}\end{matrix}\]</p>
+<p>A continuación, aplicamos la <strong>ley de Morgan de la suma</strong> a los dos términos negados que nos han quedado:</p>
+<p class="formula-bloque">\[\overline{(B+C)}=\overline{B}\cdot \overline{C}\]</p>
+<p class="formula-bloque">\[\overline{(A\cdot \overline{B}\cdot C)} = \overline{A}+B+\overline{C}\]</p>
+<p>Así, la función valdría ahora lo siguiente:</p>
+<p class="formula-bloque">\[\begin{matrix}S = (\overline{B}\cdot \overline{C})+(\overline{A}+B+\overline{C})=\\=\overline{A}+B+\overline{C}+\overline{B}\cdot \overline{C}\end{matrix}\]</p>
+<p>Para finalizar, aplicando la <strong>propiedad distributiva del producto</strong>, podemos sacar factor común a <span style="text-decoration: overline;">C</span> y, seguidamente, utilizando la <strong>ley de dominación de la suma</strong> (1 +&nbsp;<span style="text-decoration: overline;">B</span>&nbsp;= 1) y el <strong>elemento neutro del producto</strong> (<span style="text-decoration: overline;">C</span> · 1 =&nbsp;<span style="text-decoration: overline;">C</span>) la expresión se simplifica mucho:</p>
+<p class="formula-bloque">\[\begin{matrix}S = \overline{A}+B+\overline{C}+\overline{B}\cdot \overline{C}=\\=\overline{A}+B+\overline{C}\cdot (1+ \overline{B})=\\=\overline{A}+B+\overline{C}\cdot 1=\overline{A}+B+\overline{C}\end{matrix}\]</p>
+<p>Este método para simplificar funciones lógicas es muy eficaz pero, en ocasiones, puede ser bastante complejo. Mientras más ejercicios de simplificación hagas con este método, más sencillo te resultará aplicarlo.</p>
+</div>
+</div>
+</article><article id="block-mtpmhm5g-cbc0uxnnr" class="box">
+<header class="box-head no-icon">
+<h1 class="box-title">Ejercicios de simplificación mediante el método algebraico</h1>
+<button class="box-toggle box-toggle-on" title="Toggle content">
+<span>Toggle content</span>
+</button></header>
+<div class="box-content">
+<div id="idevice-mtpmhm5g-lcruonv4c" class="idevice_node text" data-idevice-path="../idevices/text/" data-idevice-type="text" data-idevice-component-type="json" data-idevice-json-data="{&quot;ideviceId&quot;:&quot;idevice-mtpmhm5g-lcruonv4c&quot;}">
+<div class="bloque bloque-actividad"><p class="bloque-titulo">Ejercicio 1</p><p>Simplificar las siguientes funciones lógicas mediante manipulación algebraica:</p>
+<p class="formula-bloque">\[\begin{matrix}S_{1} = A\cdot B + A\cdot (B+C)+\\+B\cdot (B+C)\end{matrix}\]</p>
+<p class="formula-bloque">\[\begin{matrix}S_{2} = \overline{A}\cdot B\cdot C+A\cdot B\cdot C+\\+ B\cdot \overline{C}\end{matrix}\]</p>
+<p class="formula-bloque">\[S_{3} = \overline{(A+B)\cdot \overline{(A\cdot \overline{B}+C)}}\]</p>
+<p class="formula-bloque">\[S_{4} = \overline{A\cdot (\overline{B}+C)+\overline{B}\cdot \overline{D}+A\cdot (\overline{C}+\overline{D})\cdot \overline{B}}\cdot \overline{(C+B)\cdot A}\]</p></div>
+<div class="bloque bloque-actividad"><p class="bloque-titulo">Ejercicio 2</p><p>Escribe la función lógica más simplificada que puedas, que cumpla esta tabla de verdad:</p>
+<table class="tabla-datos">
+<thead>
+<tr>
+<th style="text-align: center;">A</th>
+<th style="text-align: center;">B</th>
+<th style="text-align: center;">C</th>
+<th style="text-align: center;">D</th>
+<th style="text-align: center;">S</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><strong>1</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;"><strong>1</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><strong>1</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;"><strong>1</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><strong>1</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;"><strong>1</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><strong>1</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;"><strong>0</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><strong>0</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;"><strong>0</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><strong>1</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;"><strong>1</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><strong>1</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;"><strong>0</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><strong>1</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;"><strong>0</strong></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</article><article id="block-mtpmhm5g-6pyn5biz1" class="box">
+<header class="box-head no-icon">
+<h1 class="box-title">Método gráfico de Karnaugh</h1>
+<button class="box-toggle box-toggle-on" title="Toggle content">
+<span>Toggle content</span>
+</button></header>
+<div class="box-content">
+<div id="idevice-mtpmhm5g-cw3ps98nv" class="idevice_node text" data-idevice-path="../idevices/text/" data-idevice-type="text" data-idevice-component-type="json" data-idevice-json-data="{&quot;ideviceId&quot;:&quot;idevice-mtpmhm5g-cw3ps98nv&quot;}">
+<p>El método de Karnaugh es uno de los métodos más sencillos de simplificación de funciones lógicas. Para su aplicación, debemos partir de la <strong>tabla de verdad</strong> de la función lógica, la cual reescribiremos en forma de <strong>mapa bidimensional</strong>, colocando algunas variables en las columnas y otras en las filas del mapa.</p>
+<p>Según el número de variables, podríamos tener mapas de Karnaugh de diferentes formas:</p>
+<h3>Con tres variables:</h3>
+<div class="exe-layout-2-cols exe-layout-2-50-50 exe-clear">
+<div class="exe-col exe-col-1">
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;En horizontal:</p>
+<table border="1" style="height: 56px; width: 39.097%; min-width: 165px; border-collapse: collapse; margin-left: auto; margin-right: auto;">
+<tbody>
+<tr style="height: 10px;">
+<td style="width: 20.8107%; position: relative; height: 10px; background: linear-gradient(to right top, #ffffff 0%, #ffffff 49.9%, #000000 50%, #000000 51%, #ffffff 51.1%, #ffffff 100%) !important;"><strong>&nbsp; </strong>&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;<strong>BC</strong> <strong>&nbsp; &nbsp; <strong>A</strong></strong></td>
+<td style="width: 4.23729%; height: 10px; text-align: center; background-color: #ebf3ff;">00</td>
+<td style="width: 6.71296%; height: 10px; text-align: center; background-color: #ebf3ff;">01</td>
+<td style="width: 7.55668%; height: 10px; text-align: center; background-color: #ebf3ff;">11</td>
+<td style="width: 7.32588%; height: 10px; text-align: center; background-color: #ebf3ff;">10</td>
+</tr>
+<tr style="height: 23px;">
+<td style="width: 20.8107%; height: 23px; text-align: center; background-color: #ebf3ff;">0</td>
+<td style="width: 4.23729%; height: 23px;"></td>
+<td style="width: 6.71296%; height: 23px;"></td>
+<td style="width: 7.55668%; height: 23px;"></td>
+<td style="width: 7.32588%; height: 23px;"></td>
+</tr>
+<tr style="height: 23px;">
+<td style="width: 20.8107%; height: 23px; text-align: center; background-color: #ebf3ff;">1</td>
+<td style="width: 4.23729%; height: 23px;"></td>
+<td style="width: 6.71296%; height: 23px;"></td>
+<td style="width: 7.55668%; height: 23px;"></td>
+<td style="width: 7.32588%; height: 23px;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="exe-col exe-col-2">
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;En vertical:</p>
+<table border="1" style="height: 56px; width: 29.9961%; min-width: 127px; border-collapse: collapse; margin-left: auto; margin-right: auto;">
+<tbody>
+<tr style="height: 10px;">
+<td style="width: 33.1568%; position: relative; height: 10px; background: linear-gradient(to right top, #ffffff 0%, #ffffff 49.9%, #000000 50%, #000000 51%, #ffffff 51.1%, #ffffff 100%) !important;"><strong>&nbsp; </strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<strong>C</strong> <strong>&nbsp; &nbsp; <strong>AB</strong></strong></td>
+<td style="width: 13.4264%; height: 10px; text-align: center; background-color: #ebf3ff;">0</td>
+<td style="width: 11.1336%; height: 10px; text-align: center; background-color: #ebf3ff;">1</td>
+</tr>
+<tr style="height: 23px;">
+<td style="width: 33.1568%; height: 23px; text-align: center; background-color: #ebf3ff;">00</td>
+<td style="width: 13.4264%; height: 23px;"></td>
+<td style="width: 11.1336%; height: 23px;"></td>
+</tr>
+<tr>
+<td style="width: 33.1568%; text-align: center; background-color: #ebf3ff;">01</td>
+<td style="width: 13.4264%;"></td>
+<td style="width: 11.1336%;"></td>
+</tr>
+<tr>
+<td style="width: 33.1568%; text-align: center; background-color: #ebf3ff;">11</td>
+<td style="width: 13.4264%;"></td>
+<td style="width: 11.1336%;"></td>
+</tr>
+<tr style="height: 23px;">
+<td style="width: 33.1568%; height: 23px; text-align: center; background-color: #ebf3ff;">10</td>
+<td style="width: 13.4264%; height: 23px;"></td>
+<td style="width: 11.1336%; height: 23px;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<h3>Con cuatro variables:</h3>
+<table border="1" style="height: 171px; width: 27.3885%; min-width: 235px; border-collapse: collapse; margin-left: auto; margin-right: auto;">
+<tbody>
+<tr style="height: 10px;">
+<td style="width: 6.52411%; position: relative; height: 10px; background: linear-gradient(to right top, #ffffff 0%, #ffffff 49.9%, #000000 50%, #000000 51%, #ffffff 51.1%, #ffffff 100%) !important;"><strong>&nbsp; </strong>&nbsp; &nbsp; &nbsp;&nbsp;<strong>&nbsp;CD</strong> <strong>&nbsp; &nbsp;<strong>AB</strong></strong></td>
+<td style="width: 4.49911%; height: 10px; text-align: center; background-color: #ebf3ff;">00</td>
+<td style="width: 5.29921%; height: 10px; text-align: center; background-color: #ebf3ff;">01</td>
+<td style="width: 5.96048%; height: 10px; text-align: center; background-color: #ebf3ff;">11</td>
+<td style="width: 5.1071%; height: 10px; text-align: center; background-color: #ebf3ff;">10</td>
+</tr>
+<tr style="height: 23px;">
+<td style="width: 6.52411%; height: 39px; text-align: center; background-color: #ebf3ff;">00</td>
+<td style="width: 4.49911%; height: 39px;"></td>
+<td style="width: 5.29921%; height: 39px;"></td>
+<td style="width: 5.96048%; height: 39px;"></td>
+<td style="width: 5.1071%; height: 39px;"></td>
+</tr>
+<tr style="height: 23px;">
+<td style="width: 6.52411%; height: 40px; text-align: center; background-color: #ebf3ff;">01</td>
+<td style="width: 4.49911%; height: 40px;"></td>
+<td style="width: 5.29921%; height: 40px;"></td>
+<td style="width: 5.96048%; height: 40px;"></td>
+<td style="width: 5.1071%; height: 40px;"></td>
+</tr>
+<tr style="height: 23px;">
+<td style="width: 6.52411%; text-align: center; height: 41px; background-color: #ebf3ff;">11</td>
+<td style="width: 4.49911%; height: 41px;"></td>
+<td style="width: 5.29921%; height: 41px;"></td>
+<td style="width: 5.96048%; height: 41px;"></td>
+<td style="width: 5.1071%; height: 41px;"></td>
+</tr>
+<tr style="height: 23px;">
+<td style="width: 6.52411%; text-align: center; height: 41px; background-color: #ebf3ff;">10</td>
+<td style="width: 4.49911%; height: 41px;"></td>
+<td style="width: 5.29921%; height: 41px;"></td>
+<td style="width: 5.96048%; height: 41px;"></td>
+<td style="width: 5.1071%; height: 41px;"></td>
+</tr>
+</tbody>
+</table>
+<p><strong><em>Con menos de dos variables no tendría sentido usar este método y con más de cuatro no los vamos a hacer a mano, por lo que nos centraremos en problemas con 3 o 4 variables nada más.</em></strong></p>
+<p>Las consideraciones más importantes a tener en cuenta para dibujar el mapa de Karnaugh son las siguientes:</p>
+<ul>
+<li>Si hay parejas de variables en filas o columnas, los valores posibles pueden ponerse en el orden que se quiera, pero siempre teniendo en cuenta que <strong>no pueden cambiar de valor los dos bits a la vez entre columnas/filas contiguas</strong>.</li>
+<li><strong>El orden de las variables es indiferente.</strong> En el mapa de cuatro variables podríamos haber puesto por filas A con D y por columnas B con C, por ejemplo. Sin embargo, es recomendable ponerlas en el orden en que estén en la tabla de verdad para que sea más fácil trasladar los valores de la tabla al mapa.</li>
+<li>Las casillas del mapa de Karnaugh se rellenarán con los valores de la salida de la tabla de verdad, <strong>teniendo cuidado de respetar los valores de las variables de la fila y la columna de cada casilla</strong>.</li>
+</ul>
+<h1>Simplificación en el mapa de Karnaugh</h1>
+<p>Hay dos formas de aplicar el método de Karnaugh: para obtener la función como <strong>suma de productos lógicos</strong> o para obtener la función como <strong>productos de sumas lógicas</strong>. Sería como hacerlo al estilo de la primera forma canónica o al estilo de la segunda. Si sabes aplicar uno de los métodos, el otro es exactamente igual pero de manera <strong>dual</strong> (cambiando "1" por "0", sumas por productos y productos por sumas)</p>
+<p>Vamos a explicar cómo aplicar el método de Karnaugh ayudándonos de un ejemplo:</p>
+<div class="bloque bloque-resuelto"><p class="bloque-titulo">Ejemplo resuelto</p><p><strong>Ejercicio de ejemplo:</strong> simplificar la siguiente función lógica mediante el método de Karnaugh:</p>
+<p style="text-align: center;">S = <span style="text-decoration: overline;">A</span>·B·<span style="text-decoration: overline;">C</span>·D +&nbsp;<span style="text-decoration: overline;">A</span>·B·C·D +&nbsp;A·B·<span style="text-decoration: overline;">C</span>·D +&nbsp;A·B·C·D +&nbsp;<span style="text-decoration: overline;">A</span>·<span style="text-decoration: overline;">B</span>·<span style="text-decoration: overline;">C</span>·<span style="text-decoration: overline;">D</span> +&nbsp;<span style="text-decoration: overline;">A</span>·<span style="text-decoration: overline;">B</span>·C·<span style="text-decoration: overline;">D</span> +&nbsp;A·<span style="text-decoration: overline;">B</span>·<span style="text-decoration: overline;">C</span>·<span style="text-decoration: overline;">D</span> +&nbsp;A·<span style="text-decoration: overline;">B</span>·C·<span style="text-decoration: overline;">D</span> +&nbsp;A·<span style="text-decoration: overline;">B</span>·C·D</p></div>
+<p>Lo primero que tenemos que hacer es <strong>escribir la tabla de verdad</strong> de esta función, ya que el método de Karnaugh necesita partir de la tabla de verdad. Como la función nos la han dado en forma de primera forma canónica, escribir la tabla de verdad es muy sencillo (solo hay que poner los "1" en las filas correspondientes a cada minitérmino):</p>
+<table class="tabla-datos">
+<thead>
+<tr>
+<th style="text-align: center;">A</th>
+<th style="text-align: center;">B</th>
+<th style="text-align: center;">C</th>
+<th style="text-align: center;">D</th>
+<th style="text-align: center;">S</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+</tr>
+</tbody>
+</table>
+<p>Una vez rellena la tabla de verdad, ya podemos dibujar el mapa de Karnaugh y escribir en sus casillas los valores de la salida de la función S:</p>
+<table border="1" style="height: 153px; width: 25.5378%; min-width: 220px; border-collapse: collapse; margin-left: auto; margin-right: auto;">
+<tbody>
+<tr style="height: 10px;">
+<td style="width: 7.37763%; position: relative; height: 10px; background: linear-gradient(to right top, #ffffff 0%, #ffffff 49.9%, #000000 50%, #000000 51%, #ffffff 51.1%, #ffffff 100%) !important;"><strong>&nbsp; </strong>&nbsp; &nbsp; &nbsp; <strong>AB</strong> <strong>&nbsp; &nbsp;<strong>CD</strong></strong></td>
+<td style="width: 4.04858%; height: 10px; text-align: center; background-color: #ebf3ff;">00</td>
+<td style="width: 4.43043%; height: 10px; text-align: center; background-color: #ebf3ff;">01</td>
+<td style="width: 5.19711%; height: 10px; text-align: center; background-color: #ebf3ff;">11</td>
+<td style="width: 4.48581%; height: 10px; text-align: center; background-color: #ebf3ff;">10</td>
+</tr>
+<tr style="height: 23px;">
+<td style="width: 7.37763%; height: 37px; text-align: center; background-color: #ebf3ff;">00</td>
+<td style="width: 4.04858%; height: 37px; text-align: center;">1</td>
+<td style="width: 4.43043%; height: 37px; text-align: center;">0</td>
+<td style="width: 5.19711%; height: 37px; text-align: center;">0</td>
+<td style="width: 4.48581%; height: 37px; text-align: center;">1</td>
+</tr>
+<tr style="height: 23px;">
+<td style="width: 7.37763%; height: 36px; text-align: center; background-color: #ebf3ff;">01</td>
+<td style="width: 4.04858%; height: 36px; text-align: center;">0</td>
+<td style="width: 4.43043%; height: 36px; text-align: center;">1</td>
+<td style="width: 5.19711%; height: 36px; text-align: center;">1</td>
+<td style="width: 4.48581%; height: 36px; text-align: center;">0</td>
+</tr>
+<tr style="height: 23px;">
+<td style="width: 7.37763%; text-align: center; height: 35px; background-color: #ebf3ff;">11</td>
+<td style="width: 4.04858%; height: 35px; text-align: center;">0</td>
+<td style="width: 4.43043%; height: 35px; text-align: center;">1</td>
+<td style="width: 5.19711%; height: 35px; text-align: center;">1</td>
+<td style="width: 4.48581%; height: 35px; text-align: center;">1</td>
+</tr>
+<tr style="height: 23px;">
+<td style="width: 7.37763%; text-align: center; height: 35px; background-color: #ebf3ff;">10</td>
+<td style="width: 4.04858%; height: 35px; text-align: center;">1</td>
+<td style="width: 4.43043%; height: 35px; text-align: center;">0</td>
+<td style="width: 5.19711%; height: 35px; text-align: center;">0</td>
+<td style="width: 4.48581%; height: 35px; text-align: center;">1</td>
+</tr>
+</tbody>
+</table>
+<p>Fíjate que ahora hemos puesto <strong>A</strong> y <strong>B</strong> en las columnas y <strong>C</strong> y <strong>D</strong> en las filas, al revés del ejemplo que viste al principio de la página. Así puedes comprobar que el orden de las variables no importa.</p>
+<p>A partir de este momento, iniciamos el proceso de simplificación propiamente dicho. Como ahora el método es distinto si vamos a buscar sumas de productos o productos de sumas, vamos a ver las dos formas de hacerlo:</p>
+<div class="exe-fx exe-tabs">
+<h2>Para obtener sumas de productos lógicos</h2>
+<p>Buscamos en el mapa de Karnaugh <strong>grupos de&nbsp;unos (1) contiguos</strong>&nbsp;lo más grandes posibles, con las siguiente consideraciones:</p>
+<ol>
+<li>Los grupos deben estar compuestos por una <strong>cantidad de unos que sea potencia de 2</strong>. Es decir, podemos encontrar grupos de 1, 2, 4, 8, etc., pero nunca de 6 o de 10 por ejemplo.</li>
+<li>Los unos se consideran contiguos si están en celdas unidas en vertical o en horizontal, nunca en diagonal. Por lo tanto, <strong>los grupos siempre tienen que tener forma rectangular</strong>. No puede haber grupos con forma de "L", ni en diagonal.</li>
+<li><strong>Cada "uno" puede pertenecer a uno o a varios grupos a la vez.</strong></li>
+<li>Las casillas de la fila superior se consideran contiguas a las de la fila inferior.</li>
+<li>Las casillas de la primera columna de la izquierda se consideran contiguas a las de la última, a la derecha del todo.</li>
+<li>Hay que tomar la <strong>cantidad mínima</strong> posible de grupos y que sean <strong>lo más grande posibles.</strong></li>
+</ol>
+<p>Con todas estas consideraciones, <strong>comenzamos a agrupar unos en nuestro mapa:</strong></p>
+<ul>
+<li>Como tenemos 4 variables, el grupo más numeroso posible sería de 2<sup>4</sup> = 16 unos, algo que obviamente nunca va a pasar.&nbsp;</li>
+<li>El siguiente grupo más numeroso sería de 2<sup>3</sup> = 8 unos. En este caso vemos que no hay ninguno.</li>
+<li><span style="font-size: 1.05em;">A continuación, buscamos </span><strong>grupos de 4 elementos</strong><span style="font-size: 1.05em;"> y, en este caso, sí que <strong>encontramos dos grupos de 4</strong>. Uno está en las casillas centrales del mapa, señalado en rojo, y otro se forma por los unos de las esquinas, señalado en azul (se cumplen las consideraciones números 4 y 5 de los grupos).</span><span style="font-size: 1.05em;"></span></li>
+</ul>
+<p style="padding-left: 30px;"><span style="font-size: 1.05em;"><img src="../content/resources/Karnaugh_1-1.png" width="300" height="247" style="display: block; margin-left: auto; margin-right: auto;"></span></p>
+<ul>
+<li>Por último, como aún nos queda un uno sin agrupar, tenemos que buscar grupos de 2 elementos que lo contengan y, efectivamente, hay uno, señalado aquí en verde (podíamos haber agrupado el uno con el que tiene debajo o con el de su izquierda, que es el que hemos tomado. Aunque el resultado será una función diferente, estará igual de simplificada):</li>
+</ul>
+<p><img src="../content/resources/Karnaugh_1-2.png" alt="" width="300" height="247" style="display: block; margin-left: auto; margin-right: auto;"></p>
+<p>Como ya hemos agrupado todos los unos, ya hemos terminado esta fase. Ahora solo queda asignar a cada uno de los grupos una expresión algebraica, siguiendo un método análogo al de la primera forma canónica.</p>
+<p>Estudiamos el valor de las variables dentro de cada grupo y escribimos un <strong>producto de variables para cada grupo</strong>, siguiendo estas reglas:</p>
+<ul>
+<li>Si la variable solo puede valer <strong>cero</strong>, se pone <strong>negada</strong>.</li>
+<li>Si la variable solo puede valer <strong>uno</strong>, se pone <strong>sin negar</strong>.</li>
+<li>Si la variable puede valer <strong>tanto cero como uno</strong>, <strong>no se incluye</strong> en la expresión.</li>
+</ul>
+<p>Analizando cada uno de los grupos, en este caso razonaríamos así:</p>
+<p><span style="color: #ff0000;"><strong>Grupo rojo</strong></span></p>
+<ul>
+<li><strong>A</strong> puede valer cero o uno: <strong>no se pone</strong></li>
+<li><strong>B</strong> siempre vale <strong>uno</strong>: se pone <strong>tal cual</strong></li>
+<li><strong>C</strong> puede valer cero o uno: <strong>no se pone</strong></li>
+<li><strong>D</strong> siempre vale <strong>uno</strong>: se pone <strong>tal cual</strong></li>
+</ul>
+<p>Por lo tanto, la expresión de este grupo será <strong>B·D</strong></p>
+<p><strong>Grupo azul</strong></p>
+<ul>
+<li><strong>A</strong> puede valer cero o uno: <strong>no se pone</strong></li>
+<li><strong>B</strong> siempre vale <strong>cero</strong>: se pone <strong>negada</strong></li>
+<li><strong>C</strong> puede valer cero o uno: <strong>no se pone</strong></li>
+<li><strong>D</strong> siempre vale <strong>cero</strong>: se pone <strong>negada</strong></li>
+</ul>
+<p>Por lo tanto, la expresión de este grupo será <strong><span style="text-decoration: overline;">B</span>·<span style="text-decoration: overline;">D</span></strong></p>
+<p><strong>Grupo verde</strong></p>
+<ul>
+<li><strong>A</strong> siempre vale <strong>uno</strong>: se pone <strong>tal cual</strong></li>
+<li><strong>B</strong> puede valer cero o uno: <strong>no se pone</strong></li>
+<li><strong>C</strong> siempre vale <strong>uno</strong>: se pone <strong>tal cual</strong></li>
+<li><strong>D</strong> siempre vale <strong>uno</strong>: se pone <strong>tal cual</strong></li>
+</ul>
+<p>Por lo tanto, la expresión de este grupo será <strong>A·C·D</strong></p>
+<p>Lo único que nos falta ya es <strong>sumar las expresiones de cada grupo</strong> y ya tenemos la expresión de la <strong>función lógica simplificada</strong>:</p>
+<p class="formula-bloque" style="text-align: center;"><strong>S =&nbsp;B·D +&nbsp;<span style="text-decoration: overline;">B</span>·<span style="text-decoration: overline;">D</span>&nbsp;+&nbsp;A·C·D</strong></p>
+<h2>Para obtener productos de sumas lógicas</h2>
+<p>Buscamos en el mapa de Karnaugh <strong>grupos de&nbsp;ceros (0) contiguos</strong>&nbsp;lo más grandes posibles, con las siguiente consideraciones:</p>
+<ol>
+<li>Los grupos deben estar compuestos por una <strong>cantidad de ceros que sea potencia de 2</strong>. Es decir, podemos encontrar grupos de 1, 2, 4, 8, etc., pero nunca de 6 o de 10 por ejemplo.</li>
+<li>Los ceros se consideran contiguos si están en celdas unidas en vertical o en horizontal, nunca en diagonal. Por lo tanto, <strong>los grupos siempre tienen que tener forma rectangular</strong>. No puede haber grupos con forma de "L", ni en diagonal.</li>
+<li><strong>Cada "cero" puede pertenecer a uno o a varios grupos a la vez.</strong></li>
+<li>Las casillas de la fila superior se consideran contiguas a las de la fila inferior.</li>
+<li>Las casillas de la primera columna de la izquierda se consideran contiguas a las de la última, a la derecha del todo.</li>
+<li>Hay que tomar la <strong>cantidad mínima</strong> posible de grupos y que sean <strong>lo más grande posibles.</strong></li>
+</ol>
+<p>Con todas estas consideraciones, <strong>comenzamos a agrupar ceros en nuestro mapa:</strong></p>
+<ul>
+<li>Como tenemos 4 variables, el grupo más numeroso posible sería de 2<sup>4</sup> = 16 ceros, algo que obviamente nunca va a pasar.&nbsp;</li>
+<li>El siguiente grupo más numeroso sería de 2<sup>3</sup> = 8 ceros. En este caso vemos que no hay ninguno.</li>
+<li>El siguiente grupo más numeroso sería de 2<sup>2</sup> = 4 ceros. Hay un grupo que cumple la consideración 4 y que se indica marcado en rojo:</li>
+</ul>
+<p><img src="../content/resources/Karnaugh2-1.png" alt="" width="300" height="247" style="display: block; margin-left: auto; margin-right: auto;"></p>
+<ul>
+<li><span style="font-size: 1.05em;">A continuación, buscamos </span><strong>grupos de 2 elementos</strong><span style="font-size: 1.05em;"> y, en este caso,&nbsp;<strong>encontramos dos grupos de 2</strong>. Uno de ellos se identifican directamente (marcado en azul) y el otro (marcado en verde) está entre la primera y la última columna (la consideración número 5 para hacer grupos):</span><span style="font-size: 1.05em;"></span></li>
+</ul>
+<p style="padding-left: 30px;"><span style="font-size: 1.05em;"><img src="../content/resources/Karnaugh2-2.png" width="300" height="247" style="display: block; margin-left: auto; margin-right: auto;"></span></p>
+
+<p>Como ya hemos agrupado todos los ceros, ya hemos terminado esta fase. Ahora solo queda asignar a cada uno de los grupos una expresión algebraica, siguiendo un método análogo al de la <strong>segunda forma canónica</strong>.</p>
+<p>Estudiamos el valor de las variables dentro de cada grupo y escribimos una&nbsp;<strong>suma de variables para cada grupo</strong>, siguiendo estas reglas:</p>
+<ul>
+<li>Si la variable solo puede valer <strong>cero</strong>, se pone <strong>sin negar</strong>.</li>
+<li>Si la variable solo puede valer <strong>uno</strong>, se pone <strong>negada</strong>.</li>
+<li>Si la variable puede valer <strong>tanto cero como uno</strong>, <strong>no se incluye</strong> en la expresión.</li>
+</ul>
+<p>Analizando cada uno de los grupos, en este caso razonaríamos así:</p>
+<p><span style="color: #ff0000;"><strong>Grupo rojo</strong></span></p>
+<ul>
+<li><strong>A</strong> puede valer cero o uno: <strong>no se pone</strong></li>
+<li><strong>B</strong> siempre vale <strong>uno</strong>: se pone <strong>negado</strong></li>
+<li><strong>C</strong> puede valer cero o uno: <strong>no se pone</strong></li>
+<li><strong>D</strong> siempre vale <strong>cero</strong>: se pone&nbsp;<strong>tal cual</strong></li>
+</ul>
+<p>Por lo tanto, la expresión de este grupo será&nbsp;<strong><span style="text-decoration: overline;">B</span></strong><strong>+D</strong></p>
+<p><strong>Grupo azul</strong></p>
+
+<ul>
+<li><strong>A</strong> siempre vale <strong>cero</strong>: se pone <strong>tal cual</strong></li>
+<li><strong>B</strong> siempre vale <strong>cero</strong>: se pone&nbsp;<strong>tal cual</strong></li>
+<li><strong>C</strong> puede valer cero o uno: <strong>no se pone</strong></li>
+<li><strong>D</strong> siempre vale <strong>uno</strong>: se pone&nbsp;<strong>negado</strong></li>
+</ul>
+<p>Por lo tanto, la expresión de este grupo será <strong>A+B+<span style="text-decoration: overline;">D</span></strong></p>
+<p><strong>Grupo verde</strong></p>
+<ul>
+<li><strong>A&nbsp;</strong>puede valer cero o uno: <strong>no se pone</strong></li>
+<li><strong>B</strong> siempre vale <strong>cero</strong>: se pone&nbsp;<strong>tal cual</strong></li>
+<li><strong>C</strong> siempre vale <strong>cero</strong>: se pone&nbsp;<strong>tal cual</strong></li>
+<li><strong>D</strong> siempre vale <strong>uno</strong>: se pone&nbsp;<strong>negado</strong></li>
+</ul>
+<p>Por lo tanto, la expresión de este grupo será:&nbsp;<strong>B+C+<span style="text-decoration: overline;">D</span></strong></p>
+<p>Lo único que nos falta ya es <strong>multiplicar las expresiones de cada grupo</strong> y ya tenemos la expresión de la <strong>función lógica simplificada</strong>:</p>
+<p class="formula-bloque" style="text-align: center;"><strong>S = (<span style="text-decoration: overline;">B</span>+D)·(A+B+<span style="text-decoration: overline;">D</span>)·(B+C+<span style="text-decoration: overline;">D</span>)</strong></p>
+</div>
+<p>Como ves, por cualquiera de los dos métodos obtenemos una función simplificada. No es necesario aplicar los dos métodos, se elegirá el que nos resulte más sencillo, aunque normalmente siempre se utiliza el primer método si no se dice lo contrario por ser quizás algo más intuitivo.</p>
+</div>
+</div>
+</article><article id="block-mtpmhm5g-lkurc99b1" class="box">
+<header class="box-head no-icon">
+<h1 class="box-title">Ejercicios simplificación mediante mapas de Karnaugh</h1>
+<button class="box-toggle box-toggle-on" title="Toggle content">
+<span>Toggle content</span>
+</button></header>
+<div class="box-content">
+<div id="idevice-mtpmhm5g-bys0z0rsw" class="idevice_node text" data-idevice-path="../idevices/text/" data-idevice-type="text" data-idevice-component-type="json" data-idevice-json-data="{&quot;ideviceId&quot;:&quot;idevice-mtpmhm5g-bys0z0rsw&quot;}">
+<div class="bloque bloque-actividad"><p class="bloque-titulo">Ejercicio 1</p><p>Dada la siguiente función lógica:</p>
+<p class="formula-bloque">\[\begin{matrix}S_{2} = \overline{A}\cdot B\cdot C+A\cdot B\cdot C+\\+ B\cdot \overline{C}\end{matrix}\]</p>
+<p style="padding-left: 90px;">a) Manipularla algebraicamente para ponerla en primera forma canónica</p>
+<p style="padding-left: 90px;">b) Escribir su tabla de verdad</p>
+<p style="padding-left: 90px;">c) Obtener la función simplificada aplicando el método de Karnaugh</p></div>
+<div class="bloque bloque-actividad"><p class="bloque-titulo">Ejercicio 2</p><p>Dada la siguiente tabla de verdad:</p>
+<table class="tabla-datos">
+<thead>
+<tr>
+<th style="text-align: center;">A</th>
+<th style="text-align: center;">B</th>
+<th style="text-align: center;">C</th>
+<th style="text-align: center;">D</th>
+<th style="text-align: center;">S</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><strong>1</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;"><strong>1</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><strong>1</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;"><strong>0</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><strong>0</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;"><strong>0</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><strong>0</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;"><strong>0</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><strong>1</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;"><strong>1</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><strong>1</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;"><strong>0</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><strong>1</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;"><strong>1</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><strong>0</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;"><strong>0</strong></td>
+</tr>
+</tbody>
+</table>
+<p style="padding-left: 90px;">a) Escribir la primera y segunda forma canónica de la función lógica correspondiente</p>
+<p style="padding-left: 90px;">b) Obtener la función lógica simplificada mediante el método de Karnaugh</p></div>
+</div>
+</div>
+</article><article id="block-mtpmhm5g-ohh7xzgjk" class="box">
+<header class="box-head no-icon">
+<h1 class="box-title">Simplificación con estados imposibles</h1>
+<button class="box-toggle box-toggle-on" title="Toggle content">
+<span>Toggle content</span>
+</button></header>
+<div class="box-content">
+<div id="idevice-mtpmhm5g-t7xhd1mwi" class="idevice_node text" data-idevice-path="../idevices/text/" data-idevice-type="text" data-idevice-component-type="json" data-idevice-json-data="{&quot;ideviceId&quot;:&quot;idevice-mtpmhm5g-t7xhd1mwi&quot;}">
+<p>En ocasiones, tendremos algunos estados que serán <strong>imposibles</strong>. Es decir, que <strong>no se podrán dar en el mundo real</strong>. Imagina, por ejemplo, que tienes dos sensores de humedad en un depósito, que generan un "1" si detectan humedad y un "0" si no la detectan. Si los sensores A y B están colocados de esta forma en el depósito:</p>
+<p><img src="../content/resources/deposito.jpeg" width="200" height="226" style="display: block; margin-left: auto; margin-right: auto;"><strong>Será imposible que el sensor B detecte humedad y el sensor A no la detecte.</strong> Como nunca se dará esa combinación de entradas, nos da igual si la salida de nuestro circuito de control es un 0 o un 1. Esto podemos utilizarlo a nuestro favor para hacer circuitos más simplificados.&nbsp;</p>
+<p>Lo que haremos será indicar la salida de estos estados imposibles como una "<strong>X</strong>" en la tabla de verdad. Cuando dibujemos el mapa de Karnaugh y vayamos buscando grupos, decidiremos entonces si cada X es un 0 o un 1. En caso de que estemos aplicando el método de Karnaugh en la primera forma (suma de productos), podemos tener dos escenarios:</p>
+<ul>
+<li>Si una "X" está rodeada por "1", podemos considerarla como un "1" y esto nos permitirá completar grupos más grandes (que generan expresiones más simples)</li>
+<li>Si una "X" está rodeada por "0", podemos considerarla como un "0" y así no tendremos que gastar un grupo más para rodearla, con lo que tendremos un producto menos en la expresión final.</li>
+</ul>
+<p>Análogamente podemos asignar los valores si hacemos el método de Karnaugh buscando productos de sumas. Sea como sea, los estados imposibles permiten siempre simplificar mucho la función lógica si se asignan cuidadosamente los valores.</p>
+<p>Es importante que estemos muy seguros de que nunca se va a dar un estado para considerarlo imposible. Si puede ocurrir, por ejemplo, que se de un error en las lecturas y se pueda dar ese estado, entonces tendremos que decidir si generar un 1 o un 0 en ese caso y no dejarlo al "azar" diseñando con una "X".</p>
+<div class="bloque bloque-resuelto"><p class="bloque-titulo">Ejemplo resuelto</p><p>Simplificar mediante el método de Karnaugh la función lógica cuya tabla de verdad se incluye:</p>
+<table class="tabla-datos">
+<thead>
+<tr>
+<th style="text-align: center;">A</th>
+<th style="text-align: center;">B</th>
+<th style="text-align: center;">C</th>
+<th style="text-align: center;">D</th>
+<th style="text-align: center;">S</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><strong>X</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;"><strong>X</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><strong>0</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;"><strong>1</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><strong>X</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;"><strong>X</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><strong>1</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;"><strong>1</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><strong>0</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;"><strong>1</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><strong>0</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;"><strong>1</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><strong>1</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;"><strong>X</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><strong>1</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;"><strong>X</strong></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h1>Solución</h1>
+<p>Dibujamos el mapa de Karnaugh a partir de la tabla:</p>
+<table border="1" style="height: 171px; width: 27.3885%; min-width: 235px; border-collapse: collapse; margin-left: auto; margin-right: auto;">
+<tbody>
+<tr style="height: 10px;">
+<td style="width: 6.52411%; position: relative; height: 10px; background: linear-gradient(to right top, #ffffff 0%, #ffffff 49.9%, #000000 50%, #000000 51%, #ffffff 51.1%, #ffffff 100%) !important;"><strong>&nbsp; </strong>&nbsp; &nbsp; &nbsp;&nbsp;<strong>&nbsp;CD</strong> <strong>&nbsp; &nbsp;<strong>AB</strong></strong></td>
+<td style="width: 4.49911%; height: 10px; text-align: center; background-color: #ebf3ff;">00</td>
+<td style="width: 5.29921%; height: 10px; text-align: center; background-color: #ebf3ff;">01</td>
+<td style="width: 5.96048%; height: 10px; text-align: center; background-color: #ebf3ff;">11</td>
+<td style="width: 5.1071%; height: 10px; text-align: center; background-color: #ebf3ff;">10</td>
+</tr>
+<tr style="height: 23px;">
+<td style="width: 6.52411%; height: 39px; text-align: center; background-color: #ebf3ff;">00</td>
+<td style="width: 4.49911%; height: 39px; text-align: center;">X</td>
+<td style="width: 5.29921%; height: 39px; text-align: center;">X</td>
+<td style="width: 5.96048%; height: 39px; text-align: center;">1</td>
+<td style="width: 5.1071%; height: 39px; text-align: center;">0</td>
+</tr>
+<tr style="height: 23px;">
+<td style="width: 6.52411%; height: 40px; text-align: center; background-color: #ebf3ff;">01</td>
+<td style="width: 4.49911%; height: 40px; text-align: center;">X</td>
+<td style="width: 5.29921%; height: 40px; text-align: center;">X</td>
+<td style="width: 5.96048%; height: 40px; text-align: center;">1</td>
+<td style="width: 5.1071%; height: 40px; text-align: center;">1</td>
+</tr>
+<tr style="height: 23px;">
+<td style="width: 6.52411%; text-align: center; height: 41px; background-color: #ebf3ff;">11</td>
+<td style="width: 4.49911%; height: 41px; text-align: center;">1</td>
+<td style="width: 5.29921%; height: 41px; text-align: center;">X</td>
+<td style="width: 5.96048%; height: 41px; text-align: center;">X</td>
+<td style="width: 5.1071%; height: 41px; text-align: center;">1</td>
+</tr>
+<tr style="height: 23px;">
+<td style="width: 6.52411%; text-align: center; height: 41px; background-color: #ebf3ff;">10</td>
+<td style="width: 4.49911%; height: 41px; text-align: center;">0</td>
+<td style="width: 5.29921%; height: 41px; text-align: center;">1</td>
+<td style="width: 5.96048%; height: 41px; text-align: center;">1</td>
+<td style="width: 5.1071%; height: 41px; text-align: center;">0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Aplicando Karnaugh para buscar sumas de productos</strong></p>
+<p>Elegimos los valores necesarios de las X para poder hacer los grupos más grandes posible. En este caso, podemos conseguir dos grupos de 8 unos cada uno, y nos quedaría una X que podemos tomar como cero para no gastar ningún grupo más:</p>
+<table border="1" style="height: 171px; width: 27.3885%; min-width: 235px; border-collapse: collapse; margin-left: auto; margin-right: auto;">
+<tbody>
+<tr style="height: 10px;">
+<td style="width: 6.52411%; position: relative; height: 10px; background: linear-gradient(to right top, #ffffff 0%, #ffffff 49.9%, #000000 50%, #000000 51%, #ffffff 51.1%, #ffffff 100%) !important;"><strong>&nbsp; </strong>&nbsp; &nbsp;&nbsp;<strong>&nbsp;CD</strong> <strong>&nbsp; &nbsp;<strong>AB</strong></strong></td>
+<td style="width: 4.49911%; height: 10px; text-align: center; background-color: #ebf3ff;">00</td>
+<td style="width: 5.29921%; height: 10px; text-align: center; background-color: #ebf3ff;">01</td>
+<td style="width: 5.96048%; height: 10px; text-align: center; background-color: #ebf3ff;">11</td>
+<td style="width: 5.1071%; height: 10px; text-align: center; background-color: #ebf3ff;">10</td>
+</tr>
+<tr style="height: 23px;">
+<td style="width: 6.52411%; height: 39px; text-align: center; background-color: #ebf3ff;">00</td>
+<td style="width: 4.49911%; height: 39px; text-align: center;"><span style="color: #ff0000;">X(0)</span></td>
+<td style="width: 5.29921%; height: 39px; text-align: center;"><span style="color: #0000ff;">X(1)</span></td>
+<td style="width: 5.96048%; height: 39px; text-align: center;">1</td>
+<td style="width: 5.1071%; height: 39px; text-align: center;">0</td>
+</tr>
+<tr style="height: 23px;">
+<td style="width: 6.52411%; height: 40px; text-align: center; background-color: #ebf3ff;">01</td>
+<td style="width: 4.49911%; height: 40px; text-align: center;"><span style="color: #0000ff;">X(1)</span></td>
+<td style="width: 5.29921%; height: 40px; text-align: center;"><span style="color: #0000ff;">X(1)</span></td>
+<td style="width: 5.96048%; height: 40px; text-align: center;">1</td>
+<td style="width: 5.1071%; height: 40px; text-align: center;">1</td>
+</tr>
+<tr style="height: 23px;">
+<td style="width: 6.52411%; text-align: center; height: 41px; background-color: #ebf3ff;">11</td>
+<td style="width: 4.49911%; height: 41px; text-align: center;">1</td>
+<td style="width: 5.29921%; height: 41px; text-align: center;"><span style="color: #0000ff;">X(1)</span></td>
+<td style="width: 5.96048%; height: 41px; text-align: center;"><span style="color: #0000ff;">X(1)</span></td>
+<td style="width: 5.1071%; height: 41px; text-align: center;">1</td>
+</tr>
+<tr style="height: 23px;">
+<td style="width: 6.52411%; text-align: center; height: 41px; background-color: #ebf3ff;">10</td>
+<td style="width: 4.49911%; height: 41px; text-align: center;">0</td>
+<td style="width: 5.29921%; height: 41px; text-align: center;">1</td>
+<td style="width: 5.96048%; height: 41px; text-align: center;">1</td>
+<td style="width: 5.1071%; height: 41px; text-align: center;">0</td>
+</tr>
+</tbody>
+</table>
+<p>Los grupos serán:</p>
+<p><img src="../content/resources/imp01.png" width="275" height="230" style="display: block; margin-left: auto; margin-right: auto;">Y, por lo tanto, la función queda muy simplificada:</p>
+<p class="formula-bloque" style="text-align: center;"><strong>S = <strong>B</strong> + <span style="color: #ff0000;">D</span></strong></p>
+</div>
+</div>
+</article>
+</div></main><div class="nav-buttons">
+<a href="../html/2-funciones-logicas.html" title="Anterior" class="nav-button nav-button-left"><span>Anterior</span></a>
+<a href="../html/4-puertas-logicas.html" title="Siguiente" class="nav-button nav-button-right"><span>Siguiente</span></a>
+</div>
+<footer id="siteFooter"><div id="siteFooterContent"> <div id="packageLicense" class="cc cc-by-nc-sa"> <p> <span class="license-label">Licencia: </span><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="license">Creative Commons: Reconocimiento - no comercial - compartir igual 4.0</a></p>
+</div>
+</div></footer>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="es" id="exe-page-mtpmhm5f-mwwqbnthm">
+<head>
+<meta charset="utf-8">
+<meta name="generator" content="eXeLearning v4.0.5">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="license" type="text/html" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+<title>5. Diseño de circuitos lógicos combinacionales | Electrónica digital</title>
+<link rel="icon" type="image/x-icon" href="../libs/favicon.ico">
+<meta name="description" content="Electrónica digital. Tecnología e Ingeniería II.">
+<script>document.querySelector("html").classList.add("js");</script><script src="../libs/jquery/jquery.min.js"> </script><script src="../libs/common_i18n.js"> </script><script src="../libs/common.js"> </script><script src="../libs/exe_export.js"> </script><script src="../libs/bootstrap/bootstrap.bundle.min.js"> </script><link rel="stylesheet" href="../libs/bootstrap/bootstrap.min.css">
+<script src="../idevices/text/text.js"></script><link rel="stylesheet" href="../idevices/text/text.css">
+<script src="../libs/exe_effects/exe_effects.js"> </script>
+<link rel="stylesheet" href="../libs/exe_effects/exe_effects.css">
+<link rel="stylesheet" href="../content/css/base.css"><script src="../theme/style.js"> </script><script src="../theme/zzz-majuelo.js"> </script><link rel="stylesheet" href="../theme/style.css"><link rel="stylesheet" href="../theme/zzz-majuelo.css">
+<script src="../libs/exe_math/tex-mml-svg.js"> </script>
+</head>
+<body class="exe-export exe-web-site">
+<script>document.body.className+=" js"</script>
+<div class="exe-content exe-export pre-js siteNav-hidden"><a href="#page-mtpmhm5f-mwwqbnthm" id="skipNav">Skip to content</a> <nav id="siteNav">
+<ul>
+<li> <a href="../index.html" class="main-node no-ch">Electrónica digital</a>
+</li>
+<li> <a href="../html/0-sistemas-de-numeracion.html" class="no-ch">0. Sistemas de numeración</a>
+</li>
+<li> <a href="../html/1-algebra-de-boole.html" class="no-ch">1. Álgebra de Boole</a>
+</li>
+<li> <a href="../html/2-funciones-logicas.html" class="no-ch">2. Funciones lógicas</a>
+</li>
+<li> <a href="../html/3-simplificacion-de-funciones-logicas.html" class="no-ch">3. Simplificación de funciones lógicas</a>
+</li>
+<li> <a href="../html/4-puertas-logicas.html" class="no-ch">4. Puertas lógicas</a>
+</li>
+<li class="active"> <a href="../html/5-diseno-de-circuitos-logicos-combinacionales.html" class="active daddy">5. Diseño de circuitos lógicos combinacionales</a>
+<ul class="other-section">
+<li> <a href="../html/51-ejemplos-de-circuitos-combinacionales-integrado.html" class="no-ch">5.1. Ejemplos de circuitos combinacionales integrados</a>
+</li>
+<li> <a href="../html/52-herramientas-de-simulacion.html" class="no-ch">5.2. Herramientas de simulación</a>
+</li>
+</ul>
+</li>
+<li> <a href="../html/6-ejercicios-finales.html" class="no-ch">6. Ejercicios finales</a>
+</li>
+<li> <a href="../html/7-ampliacion-circuitos-secuenciales.html" class="no-ch">7. Ampliación: circuitos secuenciales</a>
+</li>
+</ul>
+</nav><main id="page-mtpmhm5f-mwwqbnthm" class="page"> 
+<header class="main-header">
+<div class="package-header"><p class="package-title">Electrónica digital</p></div>
+<div class="page-header"><h1 class="page-title">5. Diseño de circuitos lógicos combinacionales</h1></div>
+</header><div id="page-content-page-mtpmhm5f-mwwqbnthm" class="page-content">
+<article id="block-mtpmhm5g-3k5daci3t" class="box no-header">
+<header class="box-head no-icon">
+<button class="box-toggle box-toggle-on" title="Toggle content">
+<span>Toggle content</span>
+</button></header>
+<div class="box-content">
+<div id="idevice-mtpmhm5g-vzzk302m5" class="idevice_node text" data-idevice-path="../idevices/text/" data-idevice-type="text" data-idevice-component-type="json" data-idevice-json-data="{&quot;ideviceId&quot;:&quot;idevice-mtpmhm5g-vzzk302m5&quot;}">
+<style class="chrome-sda">.exe-content{--chrome:#6b3d94;--chrome-osc:#522975;--chrome-tinte:#f4eff8;--chrome-linea:#d9c9e5}</style><p>Son aquellos circuitos que se construyen con las <strong>puertas lógicas</strong> descritas anteriormente. Se les llama <strong>combinacionales</strong> porque <strong>la salida depende únicamente de las distintas combinaciones entre las entradas y no de estados anteriores ni del tiempo.</strong></p>
+<p>El <strong>diseño</strong> de circuitos combinacionales implica varios pasos que se centran en definir la función de salida deseada y luego implementar esa función utilizando <strong>componentes lógicos</strong>. Los pasos típicos en el diseño de circuitos combinacionales son los siguientes:</p>
+<ul>
+<li><strong>Requisitos del sistema:</strong>&nbsp;comprender completamente los requisitos del sistema y las especificaciones de entrada/salida. Esto implica identificar las <strong>señales de entrada</strong>, las <strong>señales de salida</strong> y las <strong>relaciones lógicas</strong> entre ellas. Esta etapa es crucial y será posiblemente la parte más complicada a la hora de resolver los problemas de circuitos combinacionales. Es importante entender perfectamente los enunciados y ser metódicos para tener en cuenta todas las posibilidades.</li>
+<li><strong>Tabla de verdad:</strong> crear una tabla de verdad que muestre todas las posibles combinaciones de entrada junto con los valores de salida correspondientes. Si se ha realizado correctamente el paso anterior, esto será una simple formalidad.</li>
+<li><strong>Expresión algebraica booleana:</strong>&nbsp;utilizando la tabla de verdad, desarrollar una expresión booleana que describa la función de salida en términos de las señales de entrada. Esto suele implicar <strong>simplificar la expresión booleana utilizando técnicas como el álgebra booleana o mapas de Karnaugh. </strong>Lo más normal será usar el método de Karnaugh, pues ya contaremos con la tabla de verdad del problema.</li>
+<li><strong>Diagrama del circuito lógico:</strong>&nbsp;utilizar la <strong>expresión booleana simplificada</strong> para diseñar un diagrama de circuito lógico que represente la función de salida deseada. Esto implica seleccionar y conectar componentes lógicos como puertas AND, OR, NOT, XOR, etc., según sea necesario para implementar la función lógica. En el caso de resolución de problemas en este curso, normalmente podremos diseñarlo todo usando solo las puertas lógicas básicas (AND, OR y NOT) siguiendo simplemente el orden de operaciones que nos dicte la expresión algebraica, aunque es posible que tengamos que usar solo puertas NAND (o solo puertas NOR) <strong>si el problema nos lo indica</strong>.</li>
+<li><strong>Simulación y verificación:</strong>&nbsp;utilizar herramientas de simulación para verificar el diseño del circuito combinacional y asegurarse de que produce los resultados esperados para todas las combinaciones de entrada posibles. Haremos algunas prácticas en las que simularemos nuestros circuitos una vez diseñados usando diferentes herramientas.</li>
+<li><strong>Implementación física:</strong> una vez que el diseño ha sido simulado y verificado, se procede a la implementación física del circuito combinacional utilizando componentes electrónicos reales, como transistores, resistencias, circuitos integrados con puertas lógicas, etc. Esto puede implicar <strong>diseñar una placa de circuito impreso (PCB)</strong> o integrar el diseño en un chip de silicio, según sea necesario. Nosotros en el instituto podríamos diseñar y construir una PCB, pues es una tecnología que puede realizarse de forma "artesanal", pero no implementar un diseño en chip de silicio, para lo que se necesitan grandes instalaciones industriales.</li>
+</ul>
+<p>Ya sabemos hacer muchas de las fases del diseño de circuitos combinacionales. En lo que queda completaremos lo que necesitamos para resolver completamente problemas de circuitos.</p>
+</div>
+</div>
+</article><article id="block-mtpmhm5g-97om0nzjl" class="box">
+<header class="box-head no-icon">
+<h1 class="box-title">Obtención de la función lógica de un circuito combinacional dado</h1>
+<button class="box-toggle box-toggle-on" title="Toggle content">
+<span>Toggle content</span>
+</button></header>
+<div class="box-content">
+<div id="idevice-mtpmhm5g-fymo7dypb" class="idevice_node text" data-idevice-path="../idevices/text/" data-idevice-type="text" data-idevice-component-type="json" data-idevice-json-data="{&quot;ideviceId&quot;:&quot;idevice-mtpmhm5g-fymo7dypb&quot;}">
+<p>Dado un circuito combinacional, podemos obtener su función lógica directamente siguiendo las salidas de cada puerta. Para hacer el proceso lo más metódico posible y evitar en la medida de lo posible errores, identificaremos la salida de cada puerta lógica con una <strong>variable booleana X<sub>i</sub> </strong>e iremos dándoles valores por orden hasta obtener la expresión final de la salida S.</p>
+<p>Vamos a resolver un ejemplo para comprender mejor la metodología.</p>
+<div class="bloque bloque-resuelto"><p class="bloque-titulo">Ejemplo resuelto</p><p>Dado el siguiente circuito combinacional:</p>
+<p><img src="../content/resources/EjCirc1-01.png" alt="" width="601" height="215" style="display: block; margin-left: auto; margin-right: auto;">Obtener la expresión algebraica de su función lógica.</p></div>
+<p>Primero asignamos una variable booleana X<sub>i</sub> a la salida de cada puerta lógica del circuito (la salida de la última puerta ya es "S", por lo que no hace falta asignarle ninguna X<sub>i</sub>):</p>
+<p><img src="../content/resources/EjerCirc1-02.png" alt="" width="601" height="204" style="display: block; margin-left: auto; margin-right: auto;"></p>
+<p>Escribimos la expresión lógica de cada X<sub>i</sub> según las entradas de sus puertas:</p>
+<ul>
+<li>X<sub>1</sub> = A · B</li>
+<li>X<sub>2</sub> = <span style="text-decoration: overline;">B</span></li>
+<li>X<sub>3</sub> =&nbsp;<span style="text-decoration: overline;">C</span></li>
+<li>X<sub>4</sub> = B + X<sub>3</sub></li>
+<li>X<sub>5</sub> = X<sub>2</sub> · X<sub>4</sub></li>
+<li>S = X<sub>1</sub> + X<sub>5</sub></li>
+</ul>
+<p>Para obtener la expresión final de S, tan solo nos queda ir sustituyendo cada expresión X<sub>i</sub> por su valor:</p>
+<p class="formula-bloque" style="text-align: center;"><strong><strong>S</strong> = X<sub>1</sub> + X<sub>5</sub> = A · B +&nbsp;X<sub>2</sub> · X<sub>4</sub> = A · B +&nbsp;<span style="text-decoration: overline;">B</span>&nbsp;· (B + X<sub>3</sub>) =&nbsp;<strong>A · B +&nbsp;<span style="text-decoration: overline;">B</span>&nbsp;· (B +&nbsp;<span style="text-decoration: overline;">C</span>)</strong></strong></p>
+</div>
+</div>
+</article><article id="block-mtpmhm5g-4fllwur2g" class="box">
+<header class="box-head no-icon">
+<h1 class="box-title">Obtención de la tabla de verdad de un circuito combinacional dado</h1>
+<button class="box-toggle box-toggle-on" title="Toggle content">
+<span>Toggle content</span>
+</button></header>
+<div class="box-content">
+<div id="idevice-mtpmhm5g-esxmncuqg" class="idevice_node text" data-idevice-path="../idevices/text/" data-idevice-type="text" data-idevice-component-type="json" data-idevice-json-data="{&quot;ideviceId&quot;:&quot;idevice-mtpmhm5g-esxmncuqg&quot;}">
+<p>Para obtener la tabla de verdad de un circuito combinacional dado, podríamos obtener primero la expresión booleana del circuito, como vimos en la sección anterior, y después obtener la tabla de verdad a partir de ella con alguno de los métodos que vimos en el apartado 2 (funciones lógicas).</p>
+<p>Sin embargo, hay una forma más sencilla de obtener la tabla de verdad directamente, utilizando las variables lógicas intermedias X<sub>i</sub> que ya utilizamos en la sección anterior. Como cada X<sub>i</sub> tiene una expresión muy simple, es sencillo y rápido ir calculando sus valores para cada fila de la tabla de verdad. Una vez se tengan todas calculadas, será igual de sencillo calcular la salida "S".</p>
+<p>Como antes, lo veremos más claro con un ejemplo. Utilizaremos el mismo circuito de antes.</p>
+<div class="bloque bloque-resuelto"><p class="bloque-titulo">Ejemplo resuelto</p><p>Dado el siguiente circuito combinacional:</p>
+<p><img src="../content/resources/EjCirc1-01.png" alt="" width="601" height="215" style="display: block; margin-left: auto; margin-right: auto;">Obtener su tabla de verdad.</p></div>
+<p>Como hicimos antes, asignamos una variable booleana X<sub>i</sub> a la salida de cada puerta lógica del circuito:</p>
+<p><img src="../content/resources/EjerCirc1-02.png" alt="" width="601" height="204" style="display: block; margin-left: auto; margin-right: auto;"></p>
+<p>Escribimos la tabla de verdad, incluyendo una columna para cada una de las X<sub>i</sub>:</p>
+<table class="tabla-datos">
+<thead>
+<tr>
+<th style="text-align: center;">A</th>
+<th style="text-align: center;">B</th>
+<th style="text-align: center;">C</th>
+<th style="text-align: center;">X<sub>1</sub></th>
+<th style="text-align: center;">X<sub>2</sub><br></th>
+<th style="text-align: center;">X<sub>3</sub><br></th>
+<th style="text-align: center;">X<sub>4</sub><br></th>
+<th style="text-align: center;">X<sub>5</sub><br></th>
+<th style="text-align: center;">S</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td><strong>&nbsp;</strong></td>
+<td><strong>&nbsp;</strong></td>
+<td><strong>&nbsp;</strong></td>
+<td><strong>&nbsp;</strong></td>
+<td><strong>&nbsp;</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td></td>
+<td><strong>&nbsp;</strong></td>
+<td><strong>&nbsp;</strong></td>
+<td><strong>&nbsp;</strong></td>
+<td><strong>&nbsp;</strong></td>
+<td><strong>&nbsp;</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td><strong>&nbsp;</strong></td>
+<td><strong>&nbsp;</strong></td>
+<td><strong>&nbsp;</strong></td>
+<td><strong>&nbsp;</strong></td>
+<td><strong>&nbsp;</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td></td>
+<td><strong>&nbsp;</strong></td>
+<td><strong>&nbsp;</strong></td>
+<td><strong>&nbsp;</strong></td>
+<td><strong>&nbsp;</strong></td>
+<td><strong>&nbsp;</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td><strong>&nbsp;</strong></td>
+<td><strong>&nbsp;</strong></td>
+<td><strong>&nbsp;</strong></td>
+<td><strong>&nbsp;</strong></td>
+<td><strong>&nbsp;</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td></td>
+<td><strong>&nbsp;</strong></td>
+<td><strong>&nbsp;</strong></td>
+<td><strong>&nbsp;</strong></td>
+<td><strong>&nbsp;</strong></td>
+<td><strong>&nbsp;</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td><strong>&nbsp;</strong></td>
+<td><strong>&nbsp;</strong></td>
+<td><strong>&nbsp;</strong></td>
+<td><strong>&nbsp;</strong></td>
+<td><strong>&nbsp;</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td></td>
+<td><strong>&nbsp;</strong></td>
+<td><strong>&nbsp;</strong></td>
+<td><strong>&nbsp;</strong></td>
+<td><strong>&nbsp;</strong></td>
+<td><strong>&nbsp;</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Rellenamos la tabla <strong>columna a columna</strong>, cada X<sub>i</sub> a partir de las columnas que ya tenemos (despliega cada paso para ver la tabla en ese momento):</p>
+<div class="exe-fx exe-accordion">
+<h2>Paso 1 · X<sub>1</sub> = A · B</h2>
+<p>Vamos rellenando cada columna evaluando la expresión que corresponda para todas las filas. Por ejemplo, como <strong>X<sub>1</sub> = A · B</strong>, podemos rellenar rápidamente su columna fijándonos únicamente en las valores de <strong>A</strong> y <strong>B</strong> y <strong>multiplicándolos</strong> (0 · 0 = 0 · 1 = 1 · 0 = 0, 1 · 1 = 1):</p>
+<table class="tabla-datos">
+<thead>
+<tr>
+<th style="text-align: center;">A</th>
+<th style="text-align: center;">B</th>
+<th style="text-align: center;">C</th>
+<th style="text-align: center;">X<sub>1</sub></th>
+<th style="text-align: center;">X<sub>2</sub><br></th>
+<th style="text-align: center;">X<sub>3</sub><br></th>
+<th style="text-align: center;">X<sub>4</sub><br></th>
+<th style="text-align: center;">X<sub>5</sub><br></th>
+<th style="text-align: center;">S</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><span style="color: #0000ff;">0</span></td>
+<td style="text-align: center;"><span style="color: #0000ff;">0</span></td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><span style="color: #ff0000;">0</span></td>
+<td><strong>&nbsp;</strong></td>
+<td><strong>&nbsp;</strong></td>
+<td><strong>&nbsp;</strong></td>
+<td><strong>&nbsp;</strong></td>
+<td><strong>&nbsp;</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;"><span style="color: #0000ff;">0</span></td>
+<td style="text-align: center;"><span style="color: #0000ff;">0</span></td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;"><span style="color: #ff0000;">0</span></td>
+<td><strong>&nbsp;</strong></td>
+<td><strong>&nbsp;</strong></td>
+<td><strong>&nbsp;</strong></td>
+<td><strong>&nbsp;</strong></td>
+<td><strong>&nbsp;</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;"><span style="color: #0000ff;">0</span></td>
+<td style="text-align: center;"><span style="color: #0000ff;">1</span></td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><span style="color: #ff0000;">0</span></td>
+<td><strong>&nbsp;</strong></td>
+<td><strong>&nbsp;</strong></td>
+<td><strong>&nbsp;</strong></td>
+<td><strong>&nbsp;</strong></td>
+<td><strong>&nbsp;</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;"><span style="color: #0000ff;">0</span></td>
+<td style="text-align: center;"><span style="color: #0000ff;">1</span></td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;"><span style="color: #ff0000;">0</span></td>
+<td><strong>&nbsp;</strong></td>
+<td><strong>&nbsp;</strong></td>
+<td><strong>&nbsp;</strong></td>
+<td><strong>&nbsp;</strong></td>
+<td><strong>&nbsp;</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;"><span style="color: #0000ff;">1</span></td>
+<td style="text-align: center;"><span style="color: #0000ff;">0</span></td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><span style="color: #ff0000;">0</span></td>
+<td><strong>&nbsp;</strong></td>
+<td><strong>&nbsp;</strong></td>
+<td><strong>&nbsp;</strong></td>
+<td><strong>&nbsp;</strong></td>
+<td><strong>&nbsp;</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;"><span style="color: #0000ff;">1</span></td>
+<td style="text-align: center;"><span style="color: #0000ff;">0</span></td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;"><span style="color: #ff0000;">0</span></td>
+<td><strong>&nbsp;</strong></td>
+<td><strong>&nbsp;</strong></td>
+<td><strong>&nbsp;</strong></td>
+<td><strong>&nbsp;</strong></td>
+<td><strong>&nbsp;</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;"><span style="color: #0000ff;">1</span></td>
+<td style="text-align: center;"><span style="color: #0000ff;">1</span></td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><span style="color: #ff0000;">1</span></td>
+<td><strong>&nbsp;</strong></td>
+<td><strong>&nbsp;</strong></td>
+<td><strong>&nbsp;</strong></td>
+<td><strong>&nbsp;</strong></td>
+<td><strong>&nbsp;</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;"><span style="color: #ff0000;">1</span></td>
+<td><strong>&nbsp;</strong></td>
+<td><strong>&nbsp;</strong></td>
+<td><strong>&nbsp;</strong></td>
+<td><strong>&nbsp;</strong></td>
+<td><strong>&nbsp;</strong></td>
+</tr>
+</tbody>
+</table>
+<h2>Paso 2 · X<sub>2</sub> = B negada</h2>
+<p>Ahora rellenamos <strong>X<sub>2</sub> = <span style="text-decoration: overline;">B</span></strong>, que no es más que escribir la columna <strong>B</strong> <strong>invertida</strong> (cambiando unos por ceros y viceversa):</p>
+<table class="tabla-datos">
+<thead>
+<tr>
+<th style="text-align: center;">A</th>
+<th style="text-align: center;">B</th>
+<th style="text-align: center;">C</th>
+<th style="text-align: center;">X<sub>1</sub></th>
+<th style="text-align: center;">X<sub>2</sub><br></th>
+<th style="text-align: center;">X<sub>3</sub><br></th>
+<th style="text-align: center;">X<sub>4</sub><br></th>
+<th style="text-align: center;">X<sub>5</sub><br></th>
+<th style="text-align: center;">S</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><span style="color: #0000ff;">0</span></td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><span style="color: #ff0000;"><strong>1</strong></span></td>
+<td><strong>&nbsp;</strong></td>
+<td><strong>&nbsp;</strong></td>
+<td><strong>&nbsp;</strong></td>
+<td><strong>&nbsp;</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><span style="color: #0000ff;">0</span></td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><span style="color: #ff0000;"><strong>1</strong></span></td>
+<td><strong>&nbsp;</strong></td>
+<td><strong>&nbsp;</strong></td>
+<td><strong>&nbsp;</strong></td>
+<td><strong>&nbsp;</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><span style="color: #0000ff;">1</span></td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><span style="color: #ff0000;"><strong>0</strong></span></td>
+<td><strong>&nbsp;</strong></td>
+<td><strong>&nbsp;</strong></td>
+<td><strong>&nbsp;</strong></td>
+<td><strong>&nbsp;</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><span style="color: #0000ff;">1</span></td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><span style="color: #ff0000;"><strong>0</strong></span></td>
+<td><strong>&nbsp;</strong></td>
+<td><strong>&nbsp;</strong></td>
+<td><strong>&nbsp;</strong></td>
+<td><strong>&nbsp;</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;"><span style="color: #0000ff;">0</span></td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><span style="color: #ff0000;"><strong>1</strong></span></td>
+<td><strong>&nbsp;</strong></td>
+<td><strong>&nbsp;</strong></td>
+<td><strong>&nbsp;</strong></td>
+<td><strong>&nbsp;</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;"><span style="color: #0000ff;">0</span></td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><span style="color: #ff0000;"><strong>1</strong></span></td>
+<td><strong>&nbsp;</strong></td>
+<td><strong>&nbsp;</strong></td>
+<td><strong>&nbsp;</strong></td>
+<td><strong>&nbsp;</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;"><span style="color: #0000ff;">1</span></td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;"><span style="color: #ff0000;"><strong>0</strong></span></td>
+<td><strong>&nbsp;</strong></td>
+<td><strong>&nbsp;</strong></td>
+<td><strong>&nbsp;</strong></td>
+<td><strong>&nbsp;</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;"><span style="color: #0000ff;">1</span></td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;"><span style="color: #ff0000;"><strong>0</strong></span></td>
+<td><strong>&nbsp;</strong></td>
+<td><strong>&nbsp;</strong></td>
+<td><strong>&nbsp;</strong></td>
+<td><strong>&nbsp;</strong></td>
+</tr>
+</tbody>
+</table>
+<h2>Paso 3 · X<sub>3</sub> = C negada</h2>
+<p>Análogamente, <strong>X<sub>3</sub> =&nbsp;<span style="text-decoration: overline;">C</span></strong> se rellena igual pero <strong>invirtiendo</strong> ahora la columna <strong>C</strong>:</p>
+<table class="tabla-datos">
+<thead>
+<tr>
+<th style="text-align: center;">A</th>
+<th style="text-align: center;">B</th>
+<th style="text-align: center;">C</th>
+<th style="text-align: center;">X<sub>1</sub></th>
+<th style="text-align: center;">X<sub>2</sub><br></th>
+<th style="text-align: center;">X<sub>3</sub><br></th>
+<th style="text-align: center;">X<sub>4</sub><br></th>
+<th style="text-align: center;">X<sub>5</sub><br></th>
+<th style="text-align: center;">S</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><span style="color: #0000ff;">0</span></td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><strong>1</strong></td>
+<td style="text-align: center;"><span style="color: #ff0000;"><strong>1</strong></span></td>
+<td><strong>&nbsp;</strong></td>
+<td><strong>&nbsp;</strong></td>
+<td><strong>&nbsp;</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><span style="color: #0000ff;">1</span></td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><strong>1</strong></td>
+<td style="text-align: center;"><span style="color: #ff0000;"><strong>0</strong></span></td>
+<td><strong>&nbsp;</strong></td>
+<td><strong>&nbsp;</strong></td>
+<td><strong>&nbsp;</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;"><span style="color: #0000ff;">0</span></td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><strong>0</strong></td>
+<td style="text-align: center;"><span style="color: #ff0000;"><strong>1</strong></span></td>
+<td><strong>&nbsp;</strong></td>
+<td><strong>&nbsp;</strong></td>
+<td><strong>&nbsp;</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;"><span style="color: #0000ff;">1</span></td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><strong>0</strong></td>
+<td style="text-align: center;"><span style="color: #ff0000;"><strong>0</strong></span></td>
+<td><strong>&nbsp;</strong></td>
+<td><strong>&nbsp;</strong></td>
+<td><strong>&nbsp;</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><span style="color: #0000ff;">0</span></td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><strong>1</strong></td>
+<td style="text-align: center;"><span style="color: #ff0000;"><strong>1</strong></span></td>
+<td><strong>&nbsp;</strong></td>
+<td><strong>&nbsp;</strong></td>
+<td><strong>&nbsp;</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><span style="color: #0000ff;">1</span></td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><strong>1</strong></td>
+<td style="text-align: center;"><span style="color: #ff0000;"><strong>0</strong></span></td>
+<td><strong>&nbsp;</strong></td>
+<td><strong>&nbsp;</strong></td>
+<td><strong>&nbsp;</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;"><span style="color: #0000ff;">0</span></td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;"><strong>0</strong></td>
+<td style="text-align: center;"><span style="color: #ff0000;"><strong>1</strong></span></td>
+<td><strong>&nbsp;</strong></td>
+<td><strong>&nbsp;</strong></td>
+<td><strong>&nbsp;</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;"><span style="color: #0000ff;">1</span></td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;"><strong>0</strong></td>
+<td style="text-align: center;"><span style="color: #ff0000;"><strong>0</strong></span></td>
+<td><strong>&nbsp;</strong></td>
+<td><strong>&nbsp;</strong></td>
+<td><strong>&nbsp;</strong></td>
+</tr>
+</tbody>
+</table>
+<h2>Paso 4 · X<sub>4</sub> = B + X<sub>3</sub></h2>
+<p>Para rellenar <strong>X<sub>4</sub> = B + X<sub>3</sub></strong>, nos fijamos solo en las columnas <strong>B</strong> y <strong>X<sub>3</sub></strong> y <strong>sumamos</strong> sus valores (salvo 0 + 0 = 0, cualquier otro caso da 1):</p>
+<table class="tabla-datos">
+<thead>
+<tr>
+<th style="text-align: center;">A</th>
+<th style="text-align: center;">B</th>
+<th style="text-align: center;">C</th>
+<th style="text-align: center;">X<sub>1</sub></th>
+<th style="text-align: center;">X<sub>2</sub><br></th>
+<th style="text-align: center;">X<sub>3</sub><br></th>
+<th style="text-align: center;">X<sub>4</sub><br></th>
+<th style="text-align: center;">X<sub>5</sub><br></th>
+<th style="text-align: center;">S</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><span style="color: #0000ff;">0</span></td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><strong>1</strong></td>
+<td style="text-align: center;"><span style="color: #0000ff;"><strong>1</strong></span></td>
+<td style="text-align: center;"><span style="color: #ff0000;"><strong>1</strong></span></td>
+<td><strong>&nbsp;</strong></td>
+<td><strong>&nbsp;</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><span style="color: #0000ff;">0</span></td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><strong>1</strong></td>
+<td style="text-align: center;"><span style="color: #0000ff;"><strong>0</strong></span></td>
+<td style="text-align: center;"><span style="color: #ff0000;"><strong>0</strong></span></td>
+<td><strong>&nbsp;</strong></td>
+<td><strong>&nbsp;</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><span style="color: #0000ff;">1</span></td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><strong>0</strong></td>
+<td style="text-align: center;"><span style="color: #0000ff;"><strong>1</strong></span></td>
+<td style="text-align: center;"><span style="color: #ff0000;"><strong>1</strong></span></td>
+<td><strong>&nbsp;</strong></td>
+<td><strong>&nbsp;</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><span style="color: #0000ff;">1</span></td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><strong>0</strong></td>
+<td style="text-align: center;"><span style="color: #0000ff;"><strong>0</strong></span></td>
+<td style="text-align: center;"><span style="color: #ff0000;"><strong>1</strong></span></td>
+<td><strong>&nbsp;</strong></td>
+<td><strong>&nbsp;</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;"><span style="color: #0000ff;">0</span></td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><strong>1</strong></td>
+<td style="text-align: center;"><span style="color: #0000ff;"><strong>1</strong></span></td>
+<td style="text-align: center;"><span style="color: #ff0000;"><strong>1</strong></span></td>
+<td><strong>&nbsp;</strong></td>
+<td><strong>&nbsp;</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;"><span style="color: #0000ff;">0</span></td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><strong>1</strong></td>
+<td style="text-align: center;"><span style="color: #0000ff;"><strong>0</strong></span></td>
+<td style="text-align: center;"><span style="color: #ff0000;"><strong>0</strong></span></td>
+<td><strong>&nbsp;</strong></td>
+<td><strong>&nbsp;</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;"><span style="color: #0000ff;">1</span></td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;"><strong>0</strong></td>
+<td style="text-align: center;"><span style="color: #0000ff;"><strong>1</strong></span></td>
+<td style="text-align: center;"><span style="color: #ff0000;"><strong>1</strong></span></td>
+<td><strong>&nbsp;</strong></td>
+<td><strong>&nbsp;</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;"><span style="color: #0000ff;">1</span></td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;"><strong>0</strong></td>
+<td style="text-align: center;"><span style="color: #0000ff;"><strong>0</strong></span></td>
+<td style="text-align: center;"><span style="color: #ff0000;"><strong>1</strong></span></td>
+<td><strong>&nbsp;</strong></td>
+<td><strong>&nbsp;</strong></td>
+</tr>
+</tbody>
+</table>
+<h2>Paso 5 · X<sub>5</sub> = X<sub>2</sub> · X<sub>4</sub></h2>
+<p>Para rellenar la columna de <strong>X<sub>5</sub> = X<sub>2</sub> · X<sub>4</sub></strong> <strong>multiplicamos</strong> las columnas <strong>X<sub>2</sub></strong> y <strong>X<sub>4</sub></strong>&nbsp;(salvo el caso 1 · 1 = 1, todo lo demás será 0):</p>
+<table class="tabla-datos">
+<thead>
+<tr>
+<th style="text-align: center;">A</th>
+<th style="text-align: center;">B</th>
+<th style="text-align: center;">C</th>
+<th style="text-align: center;">X<sub>1</sub></th>
+<th style="text-align: center;">X<sub>2</sub><br></th>
+<th style="text-align: center;">X<sub>3</sub><br></th>
+<th style="text-align: center;">X<sub>4</sub><br></th>
+<th style="text-align: center;">X<sub>5</sub><br></th>
+<th style="text-align: center;">S</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><span style="color: #0000ff;"><strong>1</strong></span></td>
+<td style="text-align: center;"><strong>1</strong></td>
+<td style="text-align: center;"><span style="color: #0000ff;"><strong>1</strong></span></td>
+<td style="text-align: center;"><span style="color: #ff0000;"><strong>1</strong></span></td>
+<td><strong>&nbsp;</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><span style="color: #0000ff;"><strong>1</strong></span></td>
+<td style="text-align: center;"><strong>0</strong></td>
+<td style="text-align: center;"><span style="color: #0000ff;"><strong>0</strong></span></td>
+<td style="text-align: center;"><span style="color: #ff0000;"><strong>0</strong></span></td>
+<td><strong>&nbsp;</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><span style="color: #0000ff;"><strong>0</strong></span></td>
+<td style="text-align: center;"><strong>1</strong></td>
+<td style="text-align: center;"><span style="color: #0000ff;"><strong>1</strong></span></td>
+<td style="text-align: center;"><span style="color: #ff0000;"><strong>0</strong></span></td>
+<td><strong>&nbsp;</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><span style="color: #0000ff;"><strong>0</strong></span></td>
+<td style="text-align: center;"><strong>0</strong></td>
+<td style="text-align: center;"><span style="color: #0000ff;"><strong>1</strong></span></td>
+<td style="text-align: center;"><span style="color: #ff0000;"><strong>0</strong></span></td>
+<td><strong>&nbsp;</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><span style="color: #0000ff;"><strong>1</strong></span></td>
+<td style="text-align: center;"><strong>1</strong></td>
+<td style="text-align: center;"><span style="color: #0000ff;"><strong>1</strong></span></td>
+<td style="text-align: center;"><span style="color: #ff0000;"><strong>1&nbsp;</strong></span></td>
+<td><strong>&nbsp;</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><span style="color: #0000ff;"><strong>1</strong></span></td>
+<td style="text-align: center;"><strong>0</strong></td>
+<td style="text-align: center;"><span style="color: #0000ff;"><strong>0</strong></span></td>
+<td style="text-align: center;"><span style="color: #ff0000;"><strong>0</strong></span></td>
+<td><strong>&nbsp;</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;"><span style="color: #0000ff;"><strong>0</strong></span></td>
+<td style="text-align: center;"><strong>1</strong></td>
+<td style="text-align: center;"><span style="color: #0000ff;"><strong>1</strong></span></td>
+<td style="text-align: center;"><span style="color: #ff0000;"><strong>0</strong></span></td>
+<td><strong>&nbsp;</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;"><span style="color: #0000ff;"><strong>0</strong></span></td>
+<td style="text-align: center;"><strong>0</strong></td>
+<td style="text-align: center;"><span style="color: #0000ff;"><strong>1</strong></span></td>
+<td style="text-align: center;"><span style="color: #ff0000;"><strong>0</strong></span></td>
+<td><strong>&nbsp;</strong></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Por último, la salida <strong>S</strong> que buscamos se calcula <strong>sumando</strong> las columnas <strong>X<sub>1</sub></strong> y <strong>X<sub>5</sub></strong>:</p>
+<table class="tabla-datos">
+<thead>
+<tr>
+<th style="text-align: center;">A</th>
+<th style="text-align: center;">B</th>
+<th style="text-align: center;">C</th>
+<th style="text-align: center;">X<sub>1</sub></th>
+<th style="text-align: center;">X<sub>2</sub><br></th>
+<th style="text-align: center;">X<sub>3</sub><br></th>
+<th style="text-align: center;">X<sub>4</sub><br></th>
+<th style="text-align: center;">X<sub>5</sub><br></th>
+<th style="text-align: center;">S</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><span style="color: #0000ff;">0</span></td>
+<td style="text-align: center;"><strong>1</strong></td>
+<td style="text-align: center;"><strong>1</strong></td>
+<td style="text-align: center;"><strong>1</strong></td>
+<td style="text-align: center;"><span style="color: #0000ff;"><strong>1</strong></span></td>
+<td style="text-align: center;"><span style="color: #ff0000;"><strong>1</strong></span></td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;"><span style="color: #0000ff;">0</span></td>
+<td style="text-align: center;"><strong>1</strong></td>
+<td style="text-align: center;"><strong>0</strong></td>
+<td style="text-align: center;"><strong>0</strong></td>
+<td style="text-align: center;"><span style="color: #0000ff;"><strong>0</strong></span></td>
+<td style="text-align: center;"><span style="color: #ff0000;"><strong>0</strong></span></td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><span style="color: #0000ff;">0</span></td>
+<td style="text-align: center;"><strong>0</strong></td>
+<td style="text-align: center;"><strong>1</strong></td>
+<td style="text-align: center;"><strong>1</strong></td>
+<td style="text-align: center;"><span style="color: #0000ff;"><strong>0</strong></span></td>
+<td style="text-align: center;"><span style="color: #ff0000;"><strong>0</strong></span></td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;"><span style="color: #0000ff;">0</span></td>
+<td style="text-align: center;"><strong>0</strong></td>
+<td style="text-align: center;"><strong>0</strong></td>
+<td style="text-align: center;"><strong>1</strong></td>
+<td style="text-align: center;"><span style="color: #0000ff;"><strong>0</strong></span></td>
+<td style="text-align: center;"><span style="color: #ff0000;"><strong>0</strong></span></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><span style="color: #0000ff;">0</span></td>
+<td style="text-align: center;"><strong>1</strong></td>
+<td style="text-align: center;"><strong>1</strong></td>
+<td style="text-align: center;"><strong>1</strong></td>
+<td style="text-align: center;"><span style="color: #0000ff;"><strong>1&nbsp;</strong></span></td>
+<td style="text-align: center;"><span style="color: #ff0000;"><strong>1</strong></span></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;"><span style="color: #0000ff;">0</span></td>
+<td style="text-align: center;"><strong>1</strong></td>
+<td style="text-align: center;"><strong>0</strong></td>
+<td style="text-align: center;"><strong>0</strong></td>
+<td style="text-align: center;"><span style="color: #0000ff;"><strong>0</strong></span></td>
+<td style="text-align: center;"><span style="color: #ff0000;"><strong>0</strong></span></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><span style="color: #0000ff;">1</span></td>
+<td style="text-align: center;"><strong>0</strong></td>
+<td style="text-align: center;"><strong>1</strong></td>
+<td style="text-align: center;"><strong>1</strong></td>
+<td style="text-align: center;"><span style="color: #0000ff;"><strong>0</strong></span></td>
+<td style="text-align: center;"><span style="color: #ff0000;"><strong>1</strong></span></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;"><span style="color: #0000ff;">1</span></td>
+<td style="text-align: center;"><strong>0</strong></td>
+<td style="text-align: center;"><strong>0</strong></td>
+<td style="text-align: center;"><strong>1</strong></td>
+<td style="text-align: center;"><span style="color: #0000ff;"><strong>0</strong></span></td>
+<td style="text-align: center;"><span style="color: #ff0000;"><strong>1</strong></span></td>
+</tr>
+</tbody>
+</table>
+<div class="exe-fx exe-accordion">
+<h2>Comprobación algebraica</h2>
+<p>Podemos comprobar que hemos hecho bien el ejercicio manipulando la función lógica que obtuvimos directamente del circuito, <strong>S =&nbsp;A · B +&nbsp;<span style="text-decoration: overline;">B</span>&nbsp;· (B +&nbsp;<span style="text-decoration: overline;">C</span>)</strong>, para ponerla en forma de 1ª forma canónica:</strong></p>
+<p><strong>1 - Aplicamos la propiedad <strong>distributiva</strong>: </strong></p>
+<p style="padding-left: 90px;"><strong>S = A · B +&nbsp;<span style="text-decoration: overline;">B</span>&nbsp;· B +&nbsp;<span style="text-decoration: overline;">B</span></strong>&nbsp;·&nbsp;<strong><span style="text-decoration: overline;">C</span></strong></p>
+<p>2 - Según el elemento <strong>complementario</strong> para el <strong>producto</strong>,&nbsp;<strong><span style="text-decoration: overline;">B</span>&nbsp;· B = 0 y se puede eliminar de la expresión:&nbsp;</strong></p>
+<p style="padding-left: 90px;"><strong>S = A · B +&nbsp;<span style="text-decoration: overline;">B</span></strong>&nbsp;·&nbsp;<strong><span style="text-decoration: overline;">C</span></strong></p>
+<p>3 - Añadimos a cada término la variable que le falta, aprovechando el elemento complementario de la suma (A +&nbsp;<strong><span style="text-decoration: overline;">A</span>&nbsp;= 1 y&nbsp;C +&nbsp;<span style="text-decoration: overline;">C</span>&nbsp;= 1)</strong></p>
+<p style="padding-left: 90px;"><strong>S = A · B · (C +&nbsp;<span style="text-decoration: overline;">C</span></strong>) + (<strong>A +&nbsp;<span style="text-decoration: overline;">A</span></strong>) ·&nbsp;<strong><span style="text-decoration: overline;">B</span></strong>&nbsp;·&nbsp;<strong><span style="text-decoration: overline;">C</span></strong></p>
+<p>4 - Aplicamos la propiedad distributiva:</p>
+<p style="padding-left: 90px;"><strong>S =&nbsp;A · B · C +&nbsp;A · B · <span style="text-decoration: overline;">C</span>&nbsp;+ A&nbsp;·&nbsp;<span style="text-decoration: overline;">B</span>&nbsp;·&nbsp;<span style="text-decoration: overline;">C</span> +&nbsp;<span style="text-decoration: overline;">A</span>&nbsp;·&nbsp;<span style="text-decoration: overline;">B</span>&nbsp;·&nbsp;<span style="text-decoration: overline;">C</span></strong>&nbsp;= m<sub>7</sub> + m<sub>6</sub> + m<sub>4</sub> + m<sub>0</sub></p>
+<p>Se comprueba que los minitérminos corresponden a las filas 0, 4, 6 y 7, lo que coincide con la tabla de verdad que hemos obtenido.</p>
+</div>
+</div>
+</div>
+</article><article id="block-mtpmhm5g-cpih1evbt" class="box">
+<header class="box-head no-icon">
+<h1 class="box-title">Resolución de problemas de circuitos combinacionales</h1>
+<button class="box-toggle box-toggle-on" title="Toggle content">
+<span>Toggle content</span>
+</button></header>
+<div class="box-content">
+<div id="idevice-mtpmhm5g-z468vv06o" class="idevice_node text" data-idevice-path="../idevices/text/" data-idevice-type="text" data-idevice-component-type="json" data-idevice-json-data="{&quot;ideviceId&quot;:&quot;idevice-mtpmhm5g-z468vv06o&quot;}">
+<p>Los problemas de diseño de circuitos combinacionales siguen normalmente la siguiente estructura:</p>
+<p><strong>1 - Planteamiento del problema</strong></p>
+<p>Partimos de una situación inicial en la que se describe el problema. Declararemos las <strong>variables</strong> que necesitemos para definir el problema: A, B, C, etc.</p>
+<p>Por regla general, utilizaremos lógica positiva y asignaremos <strong>0 a falso (apagado)</strong> y <strong>1 a verdadero (encendido)</strong>.</p>
+<p><strong>2 - Tabla de verdad</strong></p>
+<p>Escribiremos la tabla de verdad y completaremos los unos y ceros de la salida.</p>
+<p><strong>3 - Función lógica</strong></p>
+<p>Si nos lo pide el problema, obtendremos la función lógica correspondiente a partir de la tabla, usando la forma canónica más simple. Si hay mayoría de "1" en la salida se utilizará la 2ª FC y si hay mayoría de "0", la 1ª FC.</p>
+<p><strong>4 - Simplificación de la función lógica</strong></p>
+<p>Este paso lo haremos normalmente mediante el método de Karnaugh, pues ya tendremos la tabla de verdad del sistema.</p>
+<p><strong>5 - Esquema del circuito lógico</strong></p>
+<p>A partir de la función lógica simplificada, dibujaremos el esquema con puertas lógicas. Tendremos que utilizar las puertas que nos pida el problema. En general:</p>
+<ul>
+<li>Si no se especifica nada, utilizaremos directamente las puertas básicas (AND, OR, NOT) y podremos ponerlas con más de dos entradas si queremos (por ejemplo, si tenemos un término del tipo A · B · C · D, podremos usar directamente una puerta AND con 4 entradas).</li>
+<li>Si se especifica que se utilicen puertas de dos entradas, tendremos que hacer las sumas y productos múltiples en varias etapas, siempre de dos en dos señales.</li>
+<li>Si nos piden que usemos solo puertas NAND o solo puertas NOR, usaremos cualquiera de los dos métodos que ya conocemos para hacerlo.</li>
+</ul>
+</div>
+</div>
+</article>
+</div></main><div class="nav-buttons">
+<a href="../html/4-puertas-logicas.html" title="Anterior" class="nav-button nav-button-left"><span>Anterior</span></a>
+<a href="../html/51-ejemplos-de-circuitos-combinacionales-integrado.html" title="Siguiente" class="nav-button nav-button-right"><span>Siguiente</span></a>
+</div>
+<footer id="siteFooter"><div id="siteFooterContent"> <div id="packageLicense" class="cc cc-by-nc-sa"> <p> <span class="license-label">Licencia: </span><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="license">Creative Commons: Reconocimiento - no comercial - compartir igual 4.0</a></p>
+</div>
+</div></footer>
+</div>
+
+</body>
+</html>

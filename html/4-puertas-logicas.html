@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="es" id="exe-page-mtpmhm5f-bbige8t2a">
+<head>
+<meta charset="utf-8">
+<meta name="generator" content="eXeLearning v4.0.5">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="license" type="text/html" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+<title>4. Puertas lógicas | Electrónica digital</title>
+<link rel="icon" type="image/x-icon" href="../libs/favicon.ico">
+<meta name="description" content="Electrónica digital. Tecnología e Ingeniería II.">
+<script>document.querySelector("html").classList.add("js");</script><script src="../libs/jquery/jquery.min.js"> </script><script src="../libs/common_i18n.js"> </script><script src="../libs/common.js"> </script><script src="../libs/exe_export.js"> </script><script src="../libs/bootstrap/bootstrap.bundle.min.js"> </script><link rel="stylesheet" href="../libs/bootstrap/bootstrap.min.css">
+<script src="../idevices/text/text.js"></script><link rel="stylesheet" href="../idevices/text/text.css">
+<script src="../libs/exe_effects/exe_effects.js"> </script>
+<link rel="stylesheet" href="../libs/exe_effects/exe_effects.css">
+<link rel="stylesheet" href="../content/css/base.css"><script src="../theme/style.js"> </script><script src="../theme/zzz-majuelo.js"> </script><link rel="stylesheet" href="../theme/style.css"><link rel="stylesheet" href="../theme/zzz-majuelo.css">
+<script src="../libs/exe_math/tex-mml-svg.js"> </script>
+</head>
+<body class="exe-export exe-web-site">
+<script>document.body.className+=" js"</script>
+<div class="exe-content exe-export pre-js siteNav-hidden"><a href="#page-mtpmhm5f-bbige8t2a" id="skipNav">Skip to content</a> <nav id="siteNav">
+<ul>
+<li> <a href="../index.html" class="main-node no-ch">Electrónica digital</a>
+</li>
+<li> <a href="../html/0-sistemas-de-numeracion.html" class="no-ch">0. Sistemas de numeración</a>
+</li>
+<li> <a href="../html/1-algebra-de-boole.html" class="no-ch">1. Álgebra de Boole</a>
+</li>
+<li> <a href="../html/2-funciones-logicas.html" class="no-ch">2. Funciones lógicas</a>
+</li>
+<li> <a href="../html/3-simplificacion-de-funciones-logicas.html" class="no-ch">3. Simplificación de funciones lógicas</a>
+</li>
+<li class="active"> <a href="../html/4-puertas-logicas.html" class="active no-ch">4. Puertas lógicas</a>
+</li>
+<li> <a href="../html/5-diseno-de-circuitos-logicos-combinacionales.html" class="daddy">5. Diseño de circuitos lógicos combinacionales</a>
+<ul class="other-section">
+<li> <a href="../html/51-ejemplos-de-circuitos-combinacionales-integrado.html" class="no-ch">5.1. Ejemplos de circuitos combinacionales integrados</a>
+</li>
+<li> <a href="../html/52-herramientas-de-simulacion.html" class="no-ch">5.2. Herramientas de simulación</a>
+</li>
+</ul>
+</li>
+<li> <a href="../html/6-ejercicios-finales.html" class="no-ch">6. Ejercicios finales</a>
+</li>
+<li> <a href="../html/7-ampliacion-circuitos-secuenciales.html" class="no-ch">7. Ampliación: circuitos secuenciales</a>
+</li>
+</ul>
+</nav><main id="page-mtpmhm5f-bbige8t2a" class="page"> 
+<header class="main-header">
+<div class="package-header"><p class="package-title">Electrónica digital</p></div>
+<div class="page-header"><h1 class="page-title">4. Puertas lógicas</h1></div>
+</header><div id="page-content-page-mtpmhm5f-bbige8t2a" class="page-content">
+<article id="block-mtpmhm5g-g6xadqpqt" class="box no-header">
+<header class="box-head no-icon">
+<button class="box-toggle box-toggle-on" title="Toggle content">
+<span>Toggle content</span>
+</button></header>
+<div class="box-content">
+<div id="idevice-mtpmhm5g-0kve079ay" class="idevice_node text" data-idevice-path="../idevices/text/" data-idevice-type="text" data-idevice-component-type="json" data-idevice-json-data="{&quot;ideviceId&quot;:&quot;idevice-mtpmhm5g-0kve079ay&quot;}">
+<style class="chrome-sda">.exe-content{--chrome:#6b3d94;--chrome-osc:#522975;--chrome-tinte:#f4eff8;--chrome-linea:#d9c9e5}</style><p>Una puerta lógica es un dispositivo que aplica una función lógica sobre una o más señales de entrada, para obtener una señal de salida.&nbsp;</p>
+<p>Una puerta lógica puede ser un dispositivo eléctrico, hidráulico, mecánico, etc, siempre que se asigne la magnitud correspondiente (o la ausencia de ella) a los dos valores lógicos 1 y 0 utilizados en el álgebra de Boole. Nosotros nos centraremos en las puertas lógicas electrónicas.</p>
+<p>Las <strong>puertas lógicas electrónicas</strong> se fabrican utilizando diodos y transistores a modo de interruptores. Las tecnologías que han ido utilizándose para fabricar puertas lógicas electrónicas son:</p>
+<ul>
+<li><strong>RTL (Resistor-Transistor Logic).</strong> Fueron las primeras en utilizarse en circuitos integrados y se fabricaban con transistores bipolares y resistencias.</li>
+<li><strong>DTL (Diode-Transistor Logic).</strong> Se sustituyeron las resistencias de las RTL por diodos, consiguiéndose así mayor integración (menor tamaño) y mayores velocidades de respuesta.</li>
+<li><strong>TTL (Transistor-Transistor Logic).</strong> Sustituyendo los diodos por transistores se consiguió un nivel de integración aún mayor. Esta tecnología sustituyó a la DTL y <strong>aún se usa hoy en día en muchas aplicaciones</strong>, aunque no es ya la más usada.</li>
+<li><strong>CMOS (Complementary Metal–Oxide–Semiconductor).</strong> Es la <strong>tecnología más usada hoy en día</strong> y utiliza transistores de efecto de campo en vez de bipolares, lo que permite un menor consumo, mayores integraciones y mayores velocidades de operación.</li>
+</ul>
+<p>Las puertas lógicas se fabrican de manera que se pueden combinar entre sí y utilizar las salidas de algunas como entradas de otras. Esto permite <strong>implementar cualquier función lógica que se nos pueda ocurrir usando puertas lógicas muy simples. </strong>En teoría, solo necesitaríamos una puerta para hacer cada una de las operaciones booleanas básicas: la <strong>unión (producto lógico)</strong> (Y), la <strong>disyunción (suma lógica)</strong> (O) y la <strong>negación</strong> (NO).</p>
+<p>En la práctica, se fabrican también otras puertas lógicas que realizan algunas funciones lógicas compuestas por varias operaciones, porque resulta más sencillo fabricarlas así con las lógicas TTL y CMOS. Además, normalmente no se fabrican puertas lógicas discretas, sino que se fabrican <strong>circuitos integrados</strong> que contienen múltiples puertas en su interior accesibles a través de diferentes terminales.</p>
+</div>
+</div>
+</article><article id="block-mtpmhm5g-tq3uhqer1" class="box">
+<header class="box-head no-icon">
+<h1 class="box-title">Estudio de las puertas lógicas</h1>
+<button class="box-toggle box-toggle-on" title="Toggle content">
+<span>Toggle content</span>
+</button></header>
+<div class="box-content">
+<div id="idevice-mtpmhm5g-as87lchm9" class="idevice_node text" data-idevice-path="../idevices/text/" data-idevice-type="text" data-idevice-component-type="json" data-idevice-json-data="{&quot;ideviceId&quot;:&quot;idevice-mtpmhm5g-as87lchm9&quot;}">
+<h1>Tipos de puertas lógicas</h1>
+<p>Ya hemos visto que, en realidad, cualquier función lógica se podría construir con tres puertas lógicas, correspondientes a las operaciones lógicas básicas (suma, producto y negación). Sin embargo, en la práctica existen 8 puertas lógicas diferentes, que son las siguientes:</p>
+<ul>
+<li><strong>Puerta IF (si) o buffer:</strong> es una puerta cuya salida es la misma que la entrada. En los circuitos se utiliza como amplificador o para adaptar impedancias y permitir conectar otros dispositivos. <strong>Como no implica ninguna operación lógica, no la vamos a estudiar.</strong></li>
+<li><strong>Puertas lógicas <span style="text-decoration: underline;">básicas</span>:</strong> son las correspondientes a las operaciones lógicas básicas. Se llaman <strong>NOT</strong> (para la negación), <strong>AND</strong> (para el producto lógico) y <strong>OR</strong> (para la suma lógica)</li>
+<li><strong>Puertas lógicas <span style="text-decoration: underline;">universales</span>:</strong> se llaman así porque permiten construir cualquier función lógica que se nos ocurra utilizando únicamente un tipo de puerta. Son las puertas <strong>NAND</strong> (producto negado) y <strong>NOR</strong> (suma negada).</li>
+<li><strong>Puertas lógicas exclusivas:</strong> se utilizan para saber si las entradas son iguales o no. Combinando varias, se pueden hacer detectores de paridad. Se usan mucho en procesamiento de señales. Son las puertas <strong>XOR</strong> (suma exclusiva) y <strong>XNOR</strong> (suma exclusiva negada)</li>
+</ul>
+<p>Veremos a continuación con detalle cada una de estas puertas. Para cada una de ellas veremos la siguiente información:</p>
+<ul>
+<li><strong>Función lógica</strong> que representan: tanto su <strong>expresión algebraica</strong> como su <strong>tabla de verdad</strong></li>
+<li><strong>Símbolo</strong>: estudiaremos dos tipos de símbolos:
+<ul>
+<li><strong>ANSI</strong> (americano o "militar"): son los símbolos tradicionales y tienen formas diversas, por lo que se distinguen muy bien unos de otros. <strong>Son los que usaremos siempre que diseñemos circuitos con puertas lógicas.</strong></li>
+<li><strong>IEC </strong>(europeo): son símbolos internacionales, aunque son todos rectangulares y son más fáciles de confundir. Tenían sentido en los 90 (cuando surgieron) porque eran mucho más fáciles de tratar por los ordenadores e impresoras de la época, pero ahora no tienen esa ventaja. Los estudiamos porque son oficiales y te los podrás encontrar en muchos sitios, por lo que <strong>debes conocerlos, pero no los usaremos en general para diseñar circuitos</strong>.</li>
+</ul>
+</li>
+<li><strong>Circuitos integrados</strong> comerciales donde es posible encontrarlas.</li>
+</ul>
+<div class="bloque bloque-teoria"><p class="bloque-titulo">Simulador de puertas lógicas</p>
+<p>Elige una puerta en la fila de miniaturas, cambia el símbolo entre <strong>ANSI</strong> e <strong>IEC</strong> y conmuta las entradas <strong>A</strong> y <strong>B</strong> con los interruptores: la salida <strong>S</strong> se enciende o se apaga y la fila activa de la tabla de verdad se resalta.</p>
+<p>Úsalo para comprobar la función lógica de cada puerta mientras lees su ficha, y para repasar los dos símbolos antes de dibujar circuitos.</p>
+<style>.sda06-sim{width:100%;max-width:100%;border:0;height:960px;display:block}</style>
+<script>(function(){function ajusta(){var fs=document.querySelectorAll("iframe.sda06-sim");for(var i=0;i<fs.length;i++){var f=fs[i];if(!f.getBoundingClientRect().width)continue;try{var d=f.contentDocument,a=d&&d.querySelector(".panel");if(!a)continue;var h=Math.ceil(a.getBoundingClientRect().height+12);if(h>200&&Math.abs(h-f.clientHeight)>4)f.style.height=h+"px";}catch(e){}}}document.addEventListener("click",function(){setTimeout(ajusta,120);setTimeout(ajusta,600);},true);window.addEventListener("load",function(){ajusta();setTimeout(ajusta,400);});window.addEventListener("resize",function(){setTimeout(ajusta,150);});setInterval(ajusta,1000);})();</script>
+<iframe class="sda06-sim" src="../content/resources/panel_puertas_logicas.html" title="Simulador de puertas lógicas: símbolo, entradas y tabla de verdad" width="100%" loading="lazy"></iframe>
+<p><a href="#" onclick="var f=this.closest('.bloque').querySelector('iframe'); window.open(f.src,'_blank','noopener'); return false;" rel="noopener">Abrir el simulador en una pestaña nueva</a></p>
+</div>
+<h1>Puertas lógicas básicas</h1>
+<div class="exe-fx exe-accordion">
+<h2>Puerta NOT</h2>
+<p>También se conoce como <strong>inversor</strong>. Sólo tiene una entrada. Su salida es 1 si la entrada es 0.</p>
+<div class="marco-formula"><p class="formula-bloque">\[S = \overline{A}\]</p></div>
+<h2>Puerta AND</h2>
+<p>Realiza el <strong>producto lógico</strong> de sus entradas. Puede tener dos o más entradas. <strong>Su salida es 1 solamente si todas las entradas valen 1.</strong></p>
+<div class="marco-formula"><p class="formula-bloque">\[S = A\cdot B\]</p></div>
+<h2>Puerta OR</h2>
+<p>Realiza la <strong>suma lógica</strong> de sus entradas. Puede tener dos o más entradas. <strong>Su salida es 1 cuando al menos una de sus entradas vale 1.</strong></p>
+<div class="marco-formula"><p class="formula-bloque">\[S = A+ B\]</p></div>
+
+</div>
+<h1>Puertas lógicas universales</h1>
+<div class="exe-fx exe-accordion">
+<h2>Puerta NAND</h2>
+<p>Realiza el <strong>producto lógico</strong> de sus entradas y luego <strong>invierte</strong> la salida. Es equivalente a una puerta AND con una puerta NOT a la salida. Puede tener dos o más entradas. <strong>Su salida siempre es 1 salvo si todas las entradas valen 1, en cuyo caso la salida es 0.</strong></p>
+<div class="marco-formula"><p class="formula-bloque">\[S = \overline{A\cdot B}\]</p></div>
+<h2>Puerta NOR</h2>
+<p>Realiza la <strong>suma lógica</strong> de sus entradas y luego <strong>invierte</strong> la salida. Es equivalente a una puerta OR con una puerta NOT a la salida. Puede tener dos o más entradas. <strong>Su salida solo es 1 cuando todas sus entradas valen 0.</strong></p>
+<div class="marco-formula"><p class="formula-bloque">\[S = \overline{A+ B}\]</p></div>
+
+</div>
+<h1>Puertas lógicas exclusivas</h1>
+<div class="exe-fx exe-accordion">
+<h2>Puerta XOR</h2>
+<p>Realiza una operación de&nbsp;<strong>disyunción exclusiva (o desigualdad material)</strong>&nbsp;con sus entradas. Esta operación se indica con el símbolo&nbsp;<strong>⊕</strong>, que recuerda al símbolo de la suma porque es una operación relacionada con ella. <strong>Su salida es 1 cuando sus dos entradas son diferentes y 0 cuando son iguales.</strong></p>
+<p>Esta puerta solo tiene dos entradas. Si se quieren combinar varias señales con XOR, se realizan las operaciones dos a dos, tomando la salida de una puerta como una de las entradas de la siguiente. En ese caso, la salida final <strong>será 1 si el número de entradas a 1 es impar</strong> y <strong>0 si el número de entradas a 1 es par</strong>.</p>
+<div class="marco-formula"><p class="formula-bloque">\[S = A\oplus B\]</p></div>
+<p>Si te fijas en su tabla de verdad (compruébala en el simulador), podemos sacar la primera forma canónica de la función para tener la expresión algebraica de la operación XOR, que puede expresarse con las tres operaciones básicas del álgebra de Boole:</p>
+<div class="marco-formula"><p class="formula-bloque">\[\begin{matrix}S = A\oplus B =\\= A\cdot \overline{B}+\overline{A}\cdot B\end{matrix}\]</p></div>
+<h2>Puerta XNOR</h2>
+<p>Realiza una operación de&nbsp;<strong>disyunción exclusiva (o desigualdad material)</strong>&nbsp;con sus entradas y luego <strong>invierte</strong> la salida. <strong>Su salida es 0 cuando sus dos entradas son diferentes y 1 cuando son iguales,&nbsp;</strong>por lo que detecta la <strong>igualdad</strong> de las entradas.</p>
+<p>Esta puerta solo tiene dos entradas. Si se quieren combinar varias señales con XNOR, se realizan las operaciones dos a dos, tomando la salida de una puerta como una de las entradas de la siguiente. En ese caso, la salida final <strong>será 1 si el número de entradas a 1 es par</strong> y <strong>0 si el número de entradas a 1 es impar</strong>.</p>
+<div class="marco-formula"><p class="formula-bloque">\[S = \overline{A\oplus B}\]</p></div>
+<p>Si te fijas en su tabla de verdad (compruébala en el simulador), podemos sacar la primera forma canónica de la función para tener la expresión algebraica de la operación XNOR, que puede expresarse con las tres operaciones básicas del álgebra de Boole:</p>
+<div class="marco-formula"><p class="formula-bloque">\[\begin{matrix}S = \overline{A\oplus B} =\\= \overline{A}\cdot \overline{B}+A\cdot B\end{matrix}\]</p></div>
+
+</div>
+<h1>Circuitos integrados comerciales</h1>
+<p>Las puertas lógicas se compran dentro de <strong>circuitos integrados</strong> (chips) que agrupan varias puertas iguales. Las dos familias clásicas son la <strong>TTL</strong> (serie 74xx) y la <strong>CMOS</strong> (serie 40xx). En todos los de la tabla, 2 pines se utilizan para la alimentación/referencia y el resto son las entradas y salidas de las puertas (el 4049 tiene 16 pines, 2 de ellos sin conexión).</p>
+<table class="tabla-datos">
+<thead>
+<tr>
+<th style="text-align: center;">Puerta</th>
+<th style="text-align: center;">Puertas por chip</th>
+<th style="text-align: center;">TTL</th>
+<th style="text-align: center;">CMOS</th>
+<th>Pines</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>NOT</strong></td>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">7404</td>
+<td style="text-align: center;">4049</td>
+<td>14 · 16</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>AND</strong></td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">7408</td>
+<td style="text-align: center;">4081</td>
+<td>14</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>OR</strong></td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">7432</td>
+<td style="text-align: center;">4071</td>
+<td>14</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>NAND</strong></td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">7400</td>
+<td style="text-align: center;">4011</td>
+<td>14</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>NOR</strong></td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">7402</td>
+<td style="text-align: center;">4001</td>
+<td>14</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>XOR</strong></td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">7486</td>
+<td style="text-align: center;">4070</td>
+<td>14</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>XNOR</strong></td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">74266</td>
+<td style="text-align: center;">4077</td>
+<td>14</td>
+</tr>
+</tbody>
+</table>
+<p>El chip de puertas NOT se llama <strong>inversor séxtuple</strong> (<em>hex inverter</em>) porque contiene seis inversores. Como ejemplo de cómo se reparten los pines, aquí tienes el esquema del circuito integrado CMOS 4081, con cuatro puertas AND de dos entradas: dos pines son la alimentación y los otros doce, las entradas (2) y la salida (1) de cada una de las cuatro puertas.</p>
+<p><img src="../content/resources/4081_Pinout.svg.png" alt="Esquema de pines del circuito integrado CMOS 4081: cuatro puertas AND de dos entradas en un encapsulado de 14 pines" width="300" height="300" style="display: block; margin-left: auto; margin-right: auto;"></p>
+</div>
+</div>
+</article><article id="block-mtpmhm5g-woods5rmg" class="box">
+<header class="box-head no-icon">
+<h1 class="box-title">Cuadro-resumen de las puertas lógicas principales</h1>
+<button class="box-toggle box-toggle-on" title="Toggle content">
+<span>Toggle content</span>
+</button></header>
+<div class="box-content">
+<div id="idevice-mtpmhm5g-zw0a7t1wa" class="idevice_node text" data-idevice-path="../idevices/text/" data-idevice-type="text" data-idevice-component-type="json" data-idevice-json-data="{&quot;ideviceId&quot;:&quot;idevice-mtpmhm5g-zw0a7t1wa&quot;}">
+<table class="tabla-datos">
+<thead>
+<tr>
+<th style="text-align: center;">PUERTA</th>
+<th style="text-align: center;">OPERACIÓN</th>
+<th style="text-align: center;">SÍMBOLO ANSI</th>
+<th style="text-align: center;">SÍMBOLO IEC</th>
+<th style="text-align: center;">TABLA DE VERDAD</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>NOT</strong></td>
+<td style="text-align: center;"><strong>S = <span style="text-decoration: overline;">A</span></strong></td>
+<td><img src="../content/resources/2880px-NOT_ANSI.svg.png" alt="" width="150" height="75"></td>
+<td><img src="../content/resources/2880px-NOT_IEC.svg.png" alt="" width="150" height="75"></td>
+<td>
+<div>
+<table class="tabla-datos">
+<thead>
+<tr>
+<th style="text-align: center;">A</th>
+<th style="text-align: center;">S</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><strong>1</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;"><strong>0</strong></td>
+</tr>
+</tbody>
+</table>
+</div>
+</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>AND</strong></td>
+<td style="text-align: center;"><strong>S = A · B</strong></td>
+<td><img src="../content/resources/2880px-AND_ANSI.svg.png" alt="" width="150" height="75"></td>
+<td><img src="../content/resources/AND_IEC.svg.png" alt="" width="150" height="75"></td>
+<td>
+<div>
+<table class="tabla-datos">
+<thead>
+<tr>
+<th style="text-align: center;">A</th>
+<th style="text-align: center;">B</th>
+<th style="text-align: center;">S</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><strong>0</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;"><strong>0</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><strong>0</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;"><strong>1</strong></td>
+</tr>
+</tbody>
+</table>
+</div>
+</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>OR</strong></td>
+<td style="text-align: center;"><strong>S = A + B</strong></td>
+<td><img src="../content/resources/2880px-OR_ANSI.svg.png" alt="" width="150" height="75"></td>
+<td><img src="../content/resources/2880px-OR_IEC.svg.png" alt="" width="150" height="75"></td>
+<td>
+<div>
+<table class="tabla-datos">
+<thead>
+<tr>
+<th style="text-align: center;">A</th>
+<th style="text-align: center;">B</th>
+<th style="text-align: center;">S</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><strong>0</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;"><strong>1</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><strong>1</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;"><strong>1</strong></td>
+</tr>
+</tbody>
+</table>
+</div>
+</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>NAND</strong></td>
+<td style="text-align: center;"><strong>S = <span style="text-decoration: overline;">A · B</span></strong></td>
+<td><img src="../content/resources/2880px-NAND_ANSI.svg.png" alt="" width="150" height="75"></td>
+<td><img src="../content/resources/2880px-NAND_IEC.svg.png" alt="" width="150" height="75"></td>
+<td>
+<div>
+<table class="tabla-datos">
+<thead>
+<tr>
+<th style="text-align: center;">A</th>
+<th style="text-align: center;">B</th>
+<th style="text-align: center;">S</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><strong>1</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;"><strong>1</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><strong>1</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;"><strong>0</strong></td>
+</tr>
+</tbody>
+</table>
+</div>
+</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>NOR</strong></td>
+<td style="text-align: center;"><strong>S = <span style="text-decoration: overline;">A + B</span></strong></td>
+<td><img src="../content/resources/2880px-NOR_ANSI.svg.png" alt="" width="150" height="75"></td>
+<td><img src="../content/resources/2880px-NOR_IEC.svg.png" alt="" width="150" height="75"></td>
+<td>
+<div>
+<table class="tabla-datos">
+<thead>
+<tr>
+<th style="text-align: center;">A</th>
+<th style="text-align: center;">B</th>
+<th style="text-align: center;">S</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><strong>1</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;"><strong>0</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><strong>0</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;"><strong>0</strong></td>
+</tr>
+</tbody>
+</table>
+</div>
+</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>XOR</strong></td>
+<td style="text-align: center;"><strong>S = A&nbsp;⊕ B = <span style="text-decoration: overline;">A</span> · B + A · <span style="text-decoration: overline;">B</span></strong></td>
+<td><img src="../content/resources/2880px-XOR_ANSI.svg.png" alt="" width="150" height="75"></td>
+<td><img src="../content/resources/2880px-XOR_IEC.svg.png" alt="" width="150" height="75"></td>
+<td>
+<div>
+<table class="tabla-datos">
+<thead>
+<tr>
+<th style="text-align: center;">A</th>
+<th style="text-align: center;">B</th>
+<th style="text-align: center;">S</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><strong>0</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;"><strong>1</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><strong>1</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;"><strong>0</strong></td>
+</tr>
+</tbody>
+</table>
+</div>
+</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>XNOR</strong></td>
+<td style="text-align: center;">
+<p><strong>S&nbsp;= <span style="text-decoration: overline;">A&nbsp;⊕ B</span>&nbsp;= <span style="text-decoration: overline;">A</span> · <span style="text-decoration: overline;">B</span> + A · B</strong></p>
+</td>
+<td><img src="../content/resources/2880px-XNOR_ANSI.svg.png" alt="" width="150" height="75"></td>
+<td><img src="../content/resources/2880px-XNOR_IEC.svg.png" alt="" width="150" height="75"></td>
+<td>
+<div>
+<table class="tabla-datos">
+<thead>
+<tr>
+<th style="text-align: center;">A</th>
+<th style="text-align: center;">B</th>
+<th style="text-align: center;">S</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><strong>1</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;"><strong>0</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><strong>0</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;"><strong>1</strong></td>
+</tr>
+</tbody>
+</table>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</article><article id="block-mtpmhm5g-39w10l8ve" class="box">
+<header class="box-head no-icon">
+<h1 class="box-title">Lógica NAND</h1>
+<button class="box-toggle box-toggle-on" title="Toggle content">
+<span>Toggle content</span>
+</button></header>
+<div class="box-content">
+<div id="idevice-mtpmhm5g-e0dsvylp6" class="idevice_node text" data-idevice-path="../idevices/text/" data-idevice-type="text" data-idevice-component-type="json" data-idevice-json-data="{&quot;ideviceId&quot;:&quot;idevice-mtpmhm5g-e0dsvylp6&quot;}">
+<p>La&nbsp;lógica NAND&nbsp;hace referencia al hecho de que, debido a que la función NAND tiene una <strong>funcionalidad completa</strong>, todos los sistemas lógicos se pueden diseñar utilizando únicamente puertas NAND.</p>
+<p>En efecto, podemos construir las tres operaciones lógicas básicas (NOT, AND y OR) solo con puertas NAND. Por lo tanto, cualquier función lógica (que es siempre una combinación de NOT, AND y OR) se puede implementar utilizando solo puertas NAND.</p>
+<p>Vamos a ver aquí cómo podemos construir las puertas lógicas básicas solo con puertas NAND:</p>
+<div class="exe-fx exe-tabs">
+<h2>Puerta NOT</h2>
+<p>Queremos obtener la función lógica S = <span style="text-decoration: overline;">A</span>. Si utilizamos la ley de <strong>idempotencia del producto (A = A · A)</strong>, podemos decir que S = <span style="text-decoration: overline;">A</span> =&nbsp;<span style="text-decoration: overline;">A · A</span>, por lo que la operación lógica NOT es igual que el NAND de una señal consigo misma.</p>
+<p>La puerta NOT, por tanto, se puede implementar simplemente metiendo la señal que queremos negar por las dos entradas de una puerta NAND:</p>
+<p><img src="../content/resources/NAND-NOT.png" width="399" height="142" style="display: block; margin-left: auto; margin-right: auto;"></p>
+<h2>Puerta AND</h2>
+<p>En esta ocasión, queremos obtener la función S = A · B. Ahora podemos aplicar la ley de la <strong>involución (<span style="text-decoration: overline; text-decoration-style: double;">A</span> = A)</strong>, por lo que podemos decir que S = A · B = <span style="text-decoration: overline; text-decoration-style: double;">A · B</span>&nbsp;, es decir, que la operación lógica AND equivale a hacer un NAND y después invertirlo.</p>
+<p>Así, podemos hacer una puerta AND usando simplemente una NAND y negando su salida metiéndola en ambas entradas de otra NAND como hemos visto en el anterior caso:</p>
+<p><img src="../content/resources/NAND-AND.png" alt="" width="402" height="96" style="display: block; margin-left: auto; margin-right: auto;"></p>
+<h2>Puerta OR</h2>
+<p>Ahora hay que lograr la función lógica S = A + B. En esta ocasión tenemos que cambiar el operador suma por el producto (para usar puertas NAND), por lo que aplicaremos la <strong>ley de Morgan para el producto (<span style="text-decoration: overline;">A · B</span> = <span style="text-decoration: overline;">A</span> + <span style="text-decoration: overline;">B</span>)</strong> pero <strong>a las señales previamente negadas</strong>: así conseguiremos obtener la suma de las señales A y B y no de sus negadas.</p>
+<p>Por lo tanto, podemos implementar la puerta OR negando las señales por separado (como ya sabemos hacer con puertas NAND) y luego haciendo el NAND de esas señales negadas:</p>
+<p><img src="../content/resources/NAND-OR.png" alt="" width="401" height="159" style="display: block; margin-left: auto; margin-right: auto;"></p>
+</div>
+<p>En general, siempre podremos manipular algebraicamente la expresión de cualquier función lógica para dejarla sola con operaciones NAND pero puede llegar a ser muy complicado. Puede ser más sencillo implementar las operaciones de la función con estas puertas equivalentes y simplificar luego el circuito (por ejemplo, si se quedan dos inversiones seguidas que dejarían la señal como estaba).</p>
+<p>Vemos un ejemplo resuelto de cómo se haría de las dos formas:</p>
+<div class="bloque bloque-resuelto"><p class="bloque-titulo">Ejemplo resuelto</p><p>implementar la función lógica \(S = A\cdot B+\overline{C}\) empleando únicamente puertas NAND</p></div>
+<p><strong>1ª forma:</strong> manipulamos la expresión booleana para expresarla mediante operaciones NAND.</p>
+<p>Para cambiar la suma por un producto, necesitaremos aplicar la ley de Morgan de la suma. Para hacerlo, primero vamos a aplicar una doble negación, que no afecta para nada a la función:</p>
+<p class="formula-bloque">\[S = A\cdot B+\overline{C}=\overline{\overline{A\cdot B+\overline{C}}}\]</p>
+<p>Ahora aplicamos la ley de Morgan de la suma:</p>
+<p class="formula-bloque">\[\begin{matrix}S = A\cdot B+\overline{C}=\overline{\overline{A\cdot B+\overline{C}}}=\\=\overline{\overline{A\cdot B}\cdot C}\end{matrix}\]</p>
+<p>Ahora tenemos la expresión formada únicamente por puertas NAND. Primero se realiza el NAND de <strong>A</strong> y <strong>B</strong>, obteniéndose el término <strong><span style="text-decoration: overline;">A·B</span></strong>, y luego se hace el NAND de ese término con la señal <strong>C</strong>, obteniendo la expresión final de la función lógica. Por lo tanto, el circuito con puertas NAND será:</p>
+<p><img src="../content/resources/NAND-res01.png" alt="" width="400" height="132" style="display: block; margin-left: auto; margin-right: auto;">2ª forma: diseñamos el circuito con las puertas lógicas básicas (AND, OR, NOT) y las sustituimos luego por sus equivalentes con puertas NAND.</p>
+<p>El circuito con puertas básicas sería:</p>
+<p><img src="../content/resources/NAND-res02.png" alt="" width="449" height="137" style="display: block; margin-left: auto; margin-right: auto;">Sustituimos cada puerta por su equivalente con puertas NAND:</p>
+<p><img src="../content/resources/NAND-res03.png" alt="" width="600" height="232" style="display: block; margin-left: auto; margin-right: auto;"></p>
+<p>Vemos que quedan algunas parejas de puertas equivalentes a NOT seguidas, que negarían dos veces consecutivas la señal, dejándola igual. Pueden, por lo tanto, eliminarse del diseño y no afectará en nada:</p>
+<p><img src="../content/resources/NAND-res04.png" alt="" width="600" height="230" style="display: block; margin-left: auto; margin-right: auto;"></p>
+<p>Por lo que nos queda exactamente el mismo circuito que diseñamos de la primera forma (como no podía ser de otra manera):</p>
+<p><img src="../content/resources/NAND-res01.png" alt="" width="400" height="132" style="display: block; margin-left: auto; margin-right: auto;"></p>
+</div>
+</div>
+</article><article id="block-mtpmhm5g-kvawind5l" class="box">
+<header class="box-head no-icon">
+<h1 class="box-title">Lógica NOR</h1>
+<button class="box-toggle box-toggle-on" title="Toggle content">
+<span>Toggle content</span>
+</button></header>
+<div class="box-content">
+<div id="idevice-mtpmhm5g-9ijxoj2ny" class="idevice_node text" data-idevice-path="../idevices/text/" data-idevice-type="text" data-idevice-component-type="json" data-idevice-json-data="{&quot;ideviceId&quot;:&quot;idevice-mtpmhm5g-9ijxoj2ny&quot;}">
+<p>Al igual que ocurre con la función NAND, la función NOR también tiene una <strong>funcionalidad completa</strong>, por lo que todos los sistemas lógicos se pueden diseñar utilizando únicamente puertas NOR.</p>
+<p>En efecto, podemos construir las tres operaciones lógicas básicas (NOT, AND y OR) solo con puertas NOR. Por lo tanto, cualquier función lógica (que es siempre una combinación de NOT, AND y OR) se puede implementar utilizando solo puertas NOR.</p>
+<p>Vamos a ver aquí cómo podemos construir las puertas lógicas básicas solo con puertas NOR:</p>
+<div class="exe-fx exe-tabs">
+<h2>Puerta NOT</h2>
+<p>Queremos obtener la función lógica S = <span style="text-decoration: overline;">A</span>. Si utilizamos la ley de <strong>idempotencia de la suma (A = A + A)</strong>, podemos decir que S = <span style="text-decoration: overline;">A</span> =&nbsp;<span style="text-decoration: overline;">A + A</span>, por lo que la operación lógica NOT es igual que el NOR de una señal consigo misma.</p>
+<p>La puerta NOT, por tanto, se puede implementar simplemente metiendo la señal que queremos negar por las dos entradas de una puerta NOR:</p>
+<p><img src="../content/resources/NOR-NOT.png" width="399" height="138" style="display: block; margin-left: auto; margin-right: auto;"></p>
+<h2>Puerta AND</h2>
+<p>Ahora hay que lograr la función lógica S = A · B. En esta ocasión tenemos que cambiar el operador producto por la suma (para usar puertas NOR), por lo que aplicaremos la <strong>ley de Morgan para la suma (<span style="text-decoration: overline;">A + B</span> = <span style="text-decoration: overline;">A</span> · <span style="text-decoration: overline;">B</span>)</strong> pero <strong>a las señales previamente negadas</strong>: así conseguiremos obtener el producto de las señales A y B y no de sus negadas.</p>
+<p>Por lo tanto, podemos implementar la puerta AND negando las señales por separado (como ya sabemos hacer con puertas NOR) y luego haciendo el NOR de esas señales negadas:</p>
+<p><img src="../content/resources/NOR-AND.png" width="399" height="148" style="display: block; margin-left: auto; margin-right: auto;"></p>
+<h2>Puerta OR</h2>
+<p>En esta ocasión, queremos obtener la función S = A + B. Ahora podemos aplicar la ley de la <strong>involución (<span style="text-decoration: overline; text-decoration-style: double;">A</span> = A)</strong>, por lo que podemos decir que S = A + B = <span style="text-decoration: overline; text-decoration-style: double;">A + B</span>&nbsp;, es decir, que la operación lógica OR equivale a hacer un NOR y después invertirlo.</p>
+<p>Así, podemos hacer una puerta OR usando simplemente una NOR y negando su salida metiéndola en ambas entradas de otra NOR como hemos visto en el anterior caso:</p>
+<p><img src="../content/resources/NOR-OR.png" width="398" height="97" style="display: block; margin-left: auto; margin-right: auto;"></p>
+</div>
+<p>En general, siempre podremos manipular algebraicamente la expresión de cualquier función lógica para dejarla sola con operaciones NOR pero puede llegar a ser muy complicado. Puede ser más sencillo implementar las operaciones de la función con estas puertas equivalentes y simplificar luego el circuito (por ejemplo, si se quedan dos inversiones seguidas que dejarían la señal como estaba).</p>
+<p>Vemos un ejemplo resuelto de cómo se haría de las dos formas:</p>
+<div class="bloque bloque-resuelto"><p class="bloque-titulo">Ejemplo resuelto</p><p>implementar la función lógica \(S = A\cdot B+\overline{C}\) empleando únicamente puertas NOR</p></div>
+<p><strong>1ª forma:</strong> manipulamos la expresión booleana para expresarla mediante operaciones NOR.</p>
+<p>Para cambiar el producto por una suma, necesitaremos aplicar la ley de Morgan del producto. Para hacerlo, primero vamos a aplicar una doble negación, que no afecta para nada a la función:</p>
+<p class="formula-bloque">\[S = A\cdot B+\overline{C}=\overline{\overline{A\cdot B}}+\overline{C}\]</p>
+<p>Ahora aplicamos la ley de Morgan del producto:</p>
+<p class="formula-bloque">\[\begin{matrix}S = A\cdot B+\overline{C}=\overline{\overline{A\cdot B}}+\overline{C}=\\=\overline{\overline{A}+\overline{B}}+\overline{C}\end{matrix}\]</p>
+<p>Por último, negamos de nuevo dos veces la expresión:</p>
+<p class="formula-bloque">\[S = \overline{\overline{A}+\overline{B}}+\overline{C}=\overline{\overline{\overline{\overline{A}+\overline{B}}+\overline{C}}}\]</p>
+<p>Ahora tenemos la expresión formada únicamente por puertas NOR, aunque es bastante más compleja que la que obtuvimos con puertas NAND. Primero hay que obtener las señales A, B y C negadas, lo que hacemos simplemente metiéndolas en ambas entradas de una puerta NOR. A continuación, se realiza el NOR de&nbsp;<strong><span style="text-decoration: overline;">A</span></strong>&nbsp;y&nbsp;<strong><span style="text-decoration: overline;">B</span></strong>,&nbsp;y luego se hace el NOR de esa señal con la señal&nbsp;<strong><span style="text-decoration: overline;">C</span>.</strong>&nbsp;Para obtener la expresión final de la función lógica, hay que negar la señal una vez más, con una última puerta NOR. Por lo tanto, el circuito con puertas NOR será:</p>
+<p><img src="../content/resources/NOR-res01.png" width="599" height="231" style="display: block; margin-left: auto; margin-right: auto;"><strong>2ª forma:</strong> diseñamos el circuito con las puertas lógicas básicas (AND, OR, NOT) y las sustituimos luego por sus equivalentes con puertas NOR.</p>
+<p>El circuito con puertas básicas sería:</p>
+<p><img src="../content/resources/NAND-res02.png" alt="" width="449" height="137" style="display: block; margin-left: auto; margin-right: auto;">Sustituimos cada puerta por su equivalente con puertas NOR:</p>
+<p><img src="../content/resources/NOR-res02.png" width="601" height="288" style="display: block; margin-left: auto; margin-right: auto;"></p>
+<p><span style="font-size: 12pt;">Ahora no podemos simplificar nada, por lo que el circuito quedaría tal cual. Podemos comprobar que es exactamente el mismo circuito que diseñamos de la primera forma, como esperábamos.</span></p>
+</div>
+</div>
+</article>
+</div></main><div class="nav-buttons">
+<a href="../html/3-simplificacion-de-funciones-logicas.html" title="Anterior" class="nav-button nav-button-left"><span>Anterior</span></a>
+<a href="../html/5-diseno-de-circuitos-logicos-combinacionales.html" title="Siguiente" class="nav-button nav-button-right"><span>Siguiente</span></a>
+</div>
+<footer id="siteFooter"><div id="siteFooterContent"> <div id="packageLicense" class="cc cc-by-nc-sa"> <p> <span class="license-label">Licencia: </span><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="license">Creative Commons: Reconocimiento - no comercial - compartir igual 4.0</a></p>
+</div>
+</div></footer>
+</div>
+
+</body>
+</html>

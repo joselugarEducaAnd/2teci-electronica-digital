@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es" id="exe-page-mtpmhm5f-ly2vtdh3z">
+<head>
+<meta charset="utf-8">
+<meta name="generator" content="eXeLearning v4.0.5">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="license" type="text/html" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+<title>5.2. Herramientas de simulación | Electrónica digital</title>
+<link rel="icon" type="image/x-icon" href="../libs/favicon.ico">
+<meta name="description" content="Electrónica digital. Tecnología e Ingeniería II.">
+<script>document.querySelector("html").classList.add("js");</script><script src="../libs/jquery/jquery.min.js"> </script><script src="../libs/common_i18n.js"> </script><script src="../libs/common.js"> </script><script src="../libs/exe_export.js"> </script><script src="../libs/bootstrap/bootstrap.bundle.min.js"> </script><link rel="stylesheet" href="../libs/bootstrap/bootstrap.min.css">
+<script src="../idevices/text/text.js"></script><link rel="stylesheet" href="../idevices/text/text.css">
+<link rel="stylesheet" href="../content/css/base.css"><script src="../theme/style.js"> </script><script src="../theme/zzz-majuelo.js"> </script><link rel="stylesheet" href="../theme/style.css"><link rel="stylesheet" href="../theme/zzz-majuelo.css">
+<script src="../libs/exe_math/tex-mml-svg.js"> </script>
+</head>
+<body class="exe-export exe-web-site">
+<script>document.body.className+=" js"</script>
+<div class="exe-content exe-export pre-js siteNav-hidden"><a href="#page-mtpmhm5f-ly2vtdh3z" id="skipNav">Skip to content</a> <nav id="siteNav">
+<ul>
+<li> <a href="../index.html" class="main-node no-ch">Electrónica digital</a>
+</li>
+<li> <a href="../html/0-sistemas-de-numeracion.html" class="no-ch">0. Sistemas de numeración</a>
+</li>
+<li> <a href="../html/1-algebra-de-boole.html" class="no-ch">1. Álgebra de Boole</a>
+</li>
+<li> <a href="../html/2-funciones-logicas.html" class="no-ch">2. Funciones lógicas</a>
+</li>
+<li> <a href="../html/3-simplificacion-de-funciones-logicas.html" class="no-ch">3. Simplificación de funciones lógicas</a>
+</li>
+<li> <a href="../html/4-puertas-logicas.html" class="no-ch">4. Puertas lógicas</a>
+</li>
+<li class="current-page-parent"> <a href="../html/5-diseno-de-circuitos-logicos-combinacionales.html" class="daddy">5. Diseño de circuitos lógicos combinacionales</a>
+<ul class="other-section">
+<li> <a href="../html/51-ejemplos-de-circuitos-combinacionales-integrado.html" class="no-ch">5.1. Ejemplos de circuitos combinacionales integrados</a>
+</li>
+<li class="active"> <a href="../html/52-herramientas-de-simulacion.html" class="active no-ch">5.2. Herramientas de simulación</a>
+</li>
+</ul>
+</li>
+<li> <a href="../html/6-ejercicios-finales.html" class="no-ch">6. Ejercicios finales</a>
+</li>
+<li> <a href="../html/7-ampliacion-circuitos-secuenciales.html" class="no-ch">7. Ampliación: circuitos secuenciales</a>
+</li>
+</ul>
+</nav><main id="page-mtpmhm5f-ly2vtdh3z" class="page"> 
+<header class="main-header">
+<div class="package-header"><p class="package-title">Electrónica digital</p></div>
+<div class="page-header"><h1 class="page-title">5.2. Herramientas de simulación</h1></div>
+</header><div id="page-content-page-mtpmhm5f-ly2vtdh3z" class="page-content">
+<article id="block-mtpmhm5g-x23jfo44y" class="box no-header">
+<header class="box-head no-icon">
+<button class="box-toggle box-toggle-on" title="Toggle content">
+<span>Toggle content</span>
+</button></header>
+<div class="box-content">
+<div id="idevice-mtpmhm5g-0nmyy4zyr" class="idevice_node text" data-idevice-path="../idevices/text/" data-idevice-type="text" data-idevice-component-type="json" data-idevice-json-data="{&quot;ideviceId&quot;:&quot;idevice-mtpmhm5g-0nmyy4zyr&quot;}">
+<style class="chrome-sda">.exe-content{--chrome:#6b3d94;--chrome-osc:#522975;--chrome-tinte:#f4eff8;--chrome-linea:#d9c9e5}</style><h3>MAPAS DE KARNAUGH</h3>
+<p>En este enlace tenéis una web para simplificar mapas de Karnaugh. Muy útil para comprobar ejercicios en casa:<br><a href="https://charlie-coleman.com/experiments/kmap/" target="_blank" id="yui_3_17_2_1_1709970628667_53" rel="noopener">https://charlie-coleman.com/experiments/kmap/</a><br><br></p>
+<h3>SIMULADORES ONLINE DE CIRCUITOS DIGITALES</h3>
+<p data-circuitjs="DEC7SEG">Para la tarea de esta página usaremos <strong>CircuitJS</strong>, un simulador de circuitos que funciona en el navegador sin instalar nada. Sus gestos básicos (cambiar un valor, dibujar un cable y entregar) están en la ficha <a href="../content/resources/ficha_circuitjs_3_gestos.pdf" target="_blank" rel="noopener">CircuitJS en 3 gestos (PDF)</a>.</p>
+<p>Para practicar en casa con puertas lógicas también sirven estas otras herramientas online:<br><a href="https://www.opencircuits.io/" target="_blank" rel="noopener">https://www.opencircuits.io</a><br><a href="https://circuitverse.org/simulator" target="_blank" rel="noopener">https://circuitverse.org/simulator</a><br><a href="https://logic.ly/demo/" target="_blank" rel="noopener">https://logic.ly/demo/</a></p>
+<p>Por último, en TinkerCAD (<a href="https://www.tinkercad.com" target="_blank" rel="noopener">https://www.tinkercad.com</a>) también podemos simular circuitos lógicos, pero de forma <strong>realista</strong> porque podemos usar circuitos integrados de varias puertas. Así, podemos <strong>simular el montaje físico</strong> antes de realizarlo con componentes reales.</p>
+</div>
+</div>
+</article><article id="block-mtpmhm5g-wcqafbjb1" class="box">
+<header class="box-head no-icon">
+<h1 class="box-title">TAREA: diseñar un circuito decodificador para un display de 7 segmentos</h1>
+<button class="box-toggle box-toggle-on" title="Toggle content">
+<span>Toggle content</span>
+</button></header>
+<div class="box-content">
+<div id="idevice-mtpmhm5g-q8ntcey5a" class="idevice_node text" data-idevice-path="../idevices/text/" data-idevice-type="text" data-idevice-component-type="json" data-idevice-json-data="{&quot;ideviceId&quot;:&quot;idevice-mtpmhm5g-q8ntcey5a&quot;}">
+<div class="bloque bloque-actividad"><p>La tarea consiste en diseñar un circuito lógico que reciba como entrada <strong>un número del 0 al 15 codificado en binario</strong> (con 4 bits) y genere 7 salidas que puedan conectarse a un <strong>display de 7 segmentos</strong> para que se muestre en el display <strong>la cifra hexadecimal</strong> correspondiente a dicho número.</p>
+<p><strong>Se hace en equipo:</strong> el equipo entrega un solo proyecto y, además, cada persona entrega su propia memoria técnica (paso 8). Para hacerlo correctamente necesitáis lo siguiente:</p>
+<p>1 - Diseñaremos el circuito con puertas lógicas en <strong>CircuitJS</strong>, partiendo del <a href="https://www.falstad.com/circuit/circuitjs.html?lang=es&amp;whiteBackground=true&amp;conventionalCurrent=true&amp;ctz=CQAgzCAMB0l3BWK0AsBGATGMCME48B2DANjwA4M0IFIQlb6BTAWjTQCgAZesEkNiToI+AtORQgMUEADMAhgBsAzk3pRu9CWKFbJbbdLoKVapJE0kw0wXSs3xko3KWr1FniXJ1bILz8cpGRM3cw4AD3oMQjEiehQkNjxJSTR+AEEI+kJEtDiEPAgklJA0kAAhLJIsWJiSdFiSsoBhKsI0Wr9yPEaQVP4AEQ40BBiifhY8fjRIKYE5uhi6C0jybx06dkIA0b7SyQBlNABeeQAdZQOMY4AjC4OwY4Bje5RjgBN7hGOme5Jj2T3QjHADmHCAA" target="_blank" rel="noopener">circuito base de la tarea</a>. Ábrelo siempre desde este enlace: ya trae las entradas y el display.</p>
+<p>2 - Las entradas (<strong>A</strong>, <strong>B</strong>, <strong>C</strong> y <strong>D</strong>) son cuatro entradas lógicas: cada una vale 0 o 1 y cambia al hacer clic sobre su número. <strong>A</strong> es el bit de mayor peso (8) y <strong>D</strong>, el de menor (1). Por ejemplo, para el número 5 (0101 en binario): A = 0, B = 1, C = 0 y D = 1. En esta tarea las variables son A, B, C y D, en mayúscula; las letras a–g son los segmentos del display, no variables. Escribid cada salida (S1, S2, …, S7) en función de A, B, C y D.</p>
+<p><img src="../content/resources/dec7seg_circuito_base.png" alt="Circuito base en CircuitJS: a la izquierda, las entradas A, B, C y D, todas a 0; a la derecha, el display de 7 segmentos con sus entradas a, b, c, d, e, f y g sin conectar." width="640" style="display: block; margin-left: auto; margin-right: auto; max-width: 100%; height: auto;"></p>
+<p>3 - La salida es el <strong>display de 7 segmentos de LED</strong>, que ya está en el circuito base. Tiene 7 entradas, de la <strong>a</strong> a la <strong>g</strong>, y cada una enciende un segmento. Vuestras salidas <strong>S1</strong> a <strong>S7</strong> se conectan, en este orden, a las entradas del display: S1 → a, S2 → b, S3 → c, S4 → d, S5 → e, S6 → f y S7 → g. La figura indica qué segmento enciende cada salida:</p>
+<p><img src="../content/resources/tarea04.png" alt="Display de 7 segmentos con los segmentos numerados: 1 arriba, 2 arriba a la derecha, 3 abajo a la derecha, 4 abajo, 5 abajo a la izquierda, 6 arriba a la izquierda y 7 en el centro." width="400" style="display: block; margin-left: auto; margin-right: auto; max-width: 100%; height: auto;"></p>
+<p>Las diferentes salidas deben ser las siguientes:</p>
+<table border="0" style="width: 44.5914%; margin-left: auto; margin-right: auto; height: 80px;">
+<tbody>
+<tr style="height: 80px;">
+<td style="width: 25%; text-align: center; height: 80px;"><img src="../content/resources/7seg-00.png" width="50" height="71" style="display: block; margin-left: auto; margin-right: auto;"></td>
+<td style="width: 25%; text-align: center; height: 80px;"><img src="../content/resources/7seg-01.png" alt="" width="50" height="73"></td>
+<td style="width: 25%; text-align: center; height: 80px;"><img src="../content/resources/7seg-02.png" alt="" width="50" height="72"></td>
+<td style="width: 25%; text-align: center; height: 80px;"><img src="../content/resources/7seg-03.png" alt="" width="50" height="72"></td>
+</tr>
+<tr style="height: 80px;">
+<td style="width: 25%; text-align: center; height: 80px;"><img src="../content/resources/7seg-04.png" width="50" height="73" style="display: block; margin-left: auto; margin-right: auto;"></td>
+<td style="width: 25%; text-align: center; height: 80px;"><img src="../content/resources/7seg-05.png" width="50" height="72"></td>
+<td style="width: 25%; text-align: center; height: 80px;"><img src="../content/resources/7seg-06.png" width="50" height="71"></td>
+<td style="width: 25%; text-align: center; height: 80px;"><img src="../content/resources/7seg-07.png" width="50" height="72"></td>
+</tr>
+<tr style="height: 80px;">
+<td style="width: 25%; text-align: center; height: 80px;"><img src="../content/resources/7seg-08.png" width="50" height="74" style="display: block; margin-left: auto; margin-right: auto;"></td>
+<td style="width: 25%; text-align: center; height: 80px;"><img src="../content/resources/7seg-09.png" width="50" height="72"></td>
+<td style="width: 25%; text-align: center; height: 80px;"><img src="../content/resources/7seg-10.png" width="50" height="72"></td>
+<td style="width: 25%; text-align: center; height: 80px;"><img src="../content/resources/7seg-11.png" width="50" height="72"></td>
+</tr>
+<tr>
+<td style="width: 25%; text-align: center;"><img src="../content/resources/7seg-12.png" alt="" width="50" height="73"></td>
+<td style="width: 25%; text-align: center;"><img src="../content/resources/seg7-13.png" alt="" width="50" height="72"></td>
+<td style="width: 25%; text-align: center;"><img src="../content/resources/7seg-14.png" alt="" width="50" height="72"></td>
+<td style="width: 25%; text-align: center;"><img src="../content/resources/7seg-15.png" alt="" width="50" height="72"></td>
+</tr>
+</tbody>
+</table>
+<p>4 - Escribir las tablas de verdad para las 7 salidas <strong>S1</strong>, <strong>S2</strong>, ..., <strong>S7</strong>&nbsp;en un documento que entregaréis en PDF con el nombre <strong>decodificador.pdf</strong>.</p>
+<p>5 - Simplificar mediante <strong>Karnaugh</strong> las 7 señales, obteniendo las expresiones booleanas más sencillas posibles para cada una. Incluir esta simplificación y las expresiones obtenidas en el documento anterior.</p>
+<p>6 - Montar el circuito con las puertas lógicas correspondientes (menú <em>Dibujar → Puertas lógicas, entrada y salida</em>: Inversor, Puerta AND, Puerta OR…), simulando y comprobando el correcto funcionamiento para los 16 casos posibles. Si abajo a la derecha aparece el aviso «conexiones incorrectas», queda algún cable por conectar. Que no aparezca no basta: el simulador no avisa de las entradas del display ni de las de las puertas que queden sueltas. Antes de entregar, comprobad que no queda ningún punto sin cable y probad los 16 casos. <strong>No se pueden usar</strong> los componentes «Añadir decodificador de 7 segmentos», «Añadir ROM» ni «Insertar lógica personalizada»: harían el trabajo por vosotros.</p>
+<p>7 - Entregar en la tarea «Proyecto · Decodificador para display de 7 segmentos» de Moodle tres cosas: el documento <strong>decodificador.pdf</strong>; el <strong>enlace</strong> del circuito (<em>Archivo → Exportar como enlace… → Copiar al portapapeles</em>), pegado en el texto en línea de la tarea; y el <strong>archivo</strong> del circuito (<em>Archivo → Guardar como…</em>, dejando el nombre que propone el simulador, y OK). El enlace de un circuito grande es muy largo: cópialo entero con el botón. Basta con que lo entregue una persona del equipo: la entrega queda hecha para todo el equipo. No pongáis vuestros nombres ni en el archivo ni dentro del circuito.</p>
+<p><strong>Entrega intermedia, obligatoria:</strong> al final de la primera sesión de montaje, entregad ya el enlace y el archivo, antes de apagar el ordenador, porque al reiniciarlo se borra lo que quede en él. En la sesión siguiente, abrid el enlace de vuestra entrega; si no abre, descargad el archivo de la entrega y usad <em>Archivo → Abrir archivo…</em>. Al terminar, sustituid el enlace y el archivo por los nuevos.</p>
+<p>8 - <strong>Memoria técnica, individual.</strong> Además del proyecto del equipo, cada persona escribe su propia memoria técnica de una página: cómo planificó el equipo el trabajo y qué papel tuviste, qué decisiones de diseño tomasteis, qué resultados obtuvisteis y qué mejorarías. Escríbela sobre la <a href="https://docs.google.com/document/d/1B6wJEiTkP05EBfWHtOTTkeUqfUzqvCPHalI_M1zndeQ/copy" target="_blank" rel="noopener noreferrer">plantilla de la memoria</a> (al abrir el enlace se crea tu propia copia), descárgala en PDF y entrégala en la tarea «Memoria · Decodificador para display de 7 segmentos» de Moodle.</p></div>
+</div>
+</div>
+</article>
+</div></main><div class="nav-buttons">
+<a href="../html/51-ejemplos-de-circuitos-combinacionales-integrado.html" title="Anterior" class="nav-button nav-button-left"><span>Anterior</span></a>
+<a href="../html/6-ejercicios-finales.html" title="Siguiente" class="nav-button nav-button-right"><span>Siguiente</span></a>
+</div>
+<footer id="siteFooter"><div id="siteFooterContent"> <div id="packageLicense" class="cc cc-by-nc-sa"> <p> <span class="license-label">Licencia: </span><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="license">Creative Commons: Reconocimiento - no comercial - compartir igual 4.0</a></p>
+</div>
+</div></footer>
+</div>
+
+</body>
+</html>

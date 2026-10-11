@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="es" id="exe-page-mtpmhm5f-e1v8vsgak">
+<head>
+<meta charset="utf-8">
+<meta name="generator" content="eXeLearning v4.0.5">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="license" type="text/html" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+<title>7. Ampliación: circuitos secuenciales | Electrónica digital</title>
+<link rel="icon" type="image/x-icon" href="../libs/favicon.ico">
+<meta name="description" content="Electrónica digital. Tecnología e Ingeniería II.">
+<script>document.querySelector("html").classList.add("js");</script><script src="../libs/jquery/jquery.min.js"> </script><script src="../libs/common_i18n.js"> </script><script src="../libs/common.js"> </script><script src="../libs/exe_export.js"> </script><script src="../libs/bootstrap/bootstrap.bundle.min.js"> </script><link rel="stylesheet" href="../libs/bootstrap/bootstrap.min.css">
+<script src="../idevices/text/text.js"></script><link rel="stylesheet" href="../idevices/text/text.css">
+<script src="../libs/exe_effects/exe_effects.js"> </script>
+<link rel="stylesheet" href="../libs/exe_effects/exe_effects.css">
+<link rel="stylesheet" href="../content/css/base.css"><script src="../theme/style.js"> </script><script src="../theme/zzz-majuelo.js"> </script><link rel="stylesheet" href="../theme/style.css"><link rel="stylesheet" href="../theme/zzz-majuelo.css">
+<script src="../libs/exe_math/tex-mml-svg.js"> </script>
+</head>
+<body class="exe-export exe-web-site">
+<script>document.body.className+=" js"</script>
+<div class="exe-content exe-export pre-js siteNav-hidden"><a href="#page-mtpmhm5f-e1v8vsgak" id="skipNav">Skip to content</a> <nav id="siteNav">
+<ul>
+<li> <a href="../index.html" class="main-node no-ch">Electrónica digital</a>
+</li>
+<li> <a href="../html/0-sistemas-de-numeracion.html" class="no-ch">0. Sistemas de numeración</a>
+</li>
+<li> <a href="../html/1-algebra-de-boole.html" class="no-ch">1. Álgebra de Boole</a>
+</li>
+<li> <a href="../html/2-funciones-logicas.html" class="no-ch">2. Funciones lógicas</a>
+</li>
+<li> <a href="../html/3-simplificacion-de-funciones-logicas.html" class="no-ch">3. Simplificación de funciones lógicas</a>
+</li>
+<li> <a href="../html/4-puertas-logicas.html" class="no-ch">4. Puertas lógicas</a>
+</li>
+<li> <a href="../html/5-diseno-de-circuitos-logicos-combinacionales.html" class="daddy">5. Diseño de circuitos lógicos combinacionales</a>
+<ul class="other-section">
+<li> <a href="../html/51-ejemplos-de-circuitos-combinacionales-integrado.html" class="no-ch">5.1. Ejemplos de circuitos combinacionales integrados</a>
+</li>
+<li> <a href="../html/52-herramientas-de-simulacion.html" class="no-ch">5.2. Herramientas de simulación</a>
+</li>
+</ul>
+</li>
+<li> <a href="../html/6-ejercicios-finales.html" class="no-ch">6. Ejercicios finales</a>
+</li>
+<li class="active"> <a href="../html/7-ampliacion-circuitos-secuenciales.html" class="active no-ch">7. Ampliación: circuitos secuenciales</a>
+</li>
+</ul>
+</nav><main id="page-mtpmhm5f-e1v8vsgak" class="page"> 
+<header class="main-header">
+<div class="package-header"><p class="package-title">Electrónica digital</p></div>
+<div class="page-header"><h1 class="page-title">7. Ampliación: circuitos secuenciales</h1></div>
+</header><div id="page-content-page-mtpmhm5f-e1v8vsgak" class="page-content">
+<article id="block-mtpmhm5g-0am6nv3fk" class="box no-header">
+<header class="box-head no-icon">
+<button class="box-toggle box-toggle-on" title="Toggle content">
+<span>Toggle content</span>
+</button></header>
+<div class="box-content">
+<div id="idevice-mtpmhm5g-drhfyiig7" class="idevice_node text" data-idevice-path="../idevices/text/" data-idevice-type="text" data-idevice-component-type="json" data-idevice-json-data="{&quot;ideviceId&quot;:&quot;idevice-mtpmhm5g-drhfyiig7&quot;}">
+<style class="chrome-sda">.exe-content{--chrome:#6b3d94;--chrome-osc:#522975;--chrome-tinte:#f4eff8;--chrome-linea:#d9c9e5}</style><div class="bloque bloque-nota"><p class="bloque-titulo">Ampliación</p>
+<p>Este apartado <strong>no forma parte del núcleo de la unidad</strong> ni entra en el examen: amplía lo estudiado con los circuitos <strong>secuenciales</strong> (biestables, contadores y registros), que son la base de cualquier sistema con memoria. Léelo si quieres entender cómo se pasa de las puertas lógicas a un ordenador; los ejercicios de la unidad son los del apartado 6.</p></div>
+<p>A los circuitos vistos hasta ahora se los estudia dentro de la llamada “<strong>lógica combinacional</strong>”. En todos ellos, dependiendo de los valores de las variables de entrada se obtiene una única salida.</p>
+<p>Los <strong>circuitos secuenciales</strong> son aquellos <strong>cuya salida en cualquier momento no depende sólo de la entrada al circuito sino también de la secuencia de entradas a las que estuvo sometido anteriormente (estado interno).</strong></p>
+<p>Los circuitos secuenciales se basan en los denominados <strong>biestables</strong>, que son circuitos muy básicos que tienen dos posibles estados (0 o 1 lógicos) y que tienen la capacidad de mantenerse en cualquiera de sus dos estados de forma indefinida si no los perturbamos. Es decir, son circuitos que permiten <strong>guardar memoria</strong> de un estado lógico.</p>
+<p>Cada uno de estos biestables solo puede almacenar un bit (0 o 1), pero podemos combinarlos para crear circuitos funcionales como, por ejemplo, <strong>registros de desplazamiento</strong>, <strong>contadores</strong> o hasta <strong>memorias RAM</strong>.</p>
+</div>
+</div>
+</article><article id="block-mtpmhm5g-5yss2uvwb" class="box">
+<header class="box-head no-icon">
+<h1 class="box-title">Biestables</h1>
+<button class="box-toggle box-toggle-on" title="Toggle content">
+<span>Toggle content</span>
+</button></header>
+<div class="box-content">
+<div id="idevice-mtpmhm5g-9649wn3e1" class="idevice_node text" data-idevice-path="../idevices/text/" data-idevice-type="text" data-idevice-component-type="json" data-idevice-json-data="{&quot;ideviceId&quot;:&quot;idevice-mtpmhm5g-9649wn3e1&quot;}">
+<p>Los biestables pueden clasificarse en dos grandes grupos:</p>
+<ul>
+<li><strong>Asíncronos:</strong> Los cambios de estado se producen cuando se modifican los valores de las entradas. El más utilizado es el <strong>R-S.</strong></li>
+<li><strong>Síncronos:</strong> Los cambios de estado se producen cuando, además de estar presentes las entradas adecuadas, se produce la transición de una señal compartida por los elementos del sistema y que sincroniza su funcionamiento. A esta señal se le llama <strong>señal de reloj</strong> o <strong>señal clock</strong>&nbsp;y es una onda cuadrada que va variando su valor de 0 a 1 cada cierto tiempo. El cambio en la salida puede activarse <strong>por nivel</strong>, alto (1) o bajo (0) o <strong>por flanco</strong>, de subida (0→1) o de bajada (1→0).
+<ul>
+<li>Activados por <strong>nivel</strong> (también se conocen como <strong>latches</strong>): estudiaremos el tipo <strong>D</strong></li>
+<li>Activados por<strong> flanco </strong>(conocidos como<strong> flip-flops</strong>): veremos los tipos <strong>J-K</strong>, <strong>D</strong> y <strong>T</strong>.</li>
+</ul>
+</li>
+</ul>
+<p>Si representamos una señal de reloj frente al tiempo, podemos identificar los diferentes niveles y flancos en esta imagen:</p>
+<p><img src="../content/resources/senal-reloj.jpeg" width="651" height="222" style="display: block; margin-left: auto; margin-right: auto;"></p>
+<h1>Biestables asíncronos</h1>
+<div class="exe-fx exe-accordion">
+<h2>Biestable R-S</h2>
+<p>Es un circuito que puede construirse con dos puertas NOR cuyas salidas se realimentan de una a otra.</p>
+<p>En el circuito tenemos dos entradas <strong>S</strong><strong> (set)</strong> y <strong>R</strong> <strong>(reset)</strong>, y dos salidas, que en realidad es una sola pero tanto en forma normal como invertida, <strong>Q</strong> y <strong><span style="text-decoration: overline;">Q</span></strong>.</p>
+<p><img src="../content/resources/biest-rs.png" alt="" width="831" height="242" style="display: block; margin-left: auto; margin-right: auto;"></p>
+<p>El valor Q<sub>t</sub> en la tabla es el valor que tiene la salida Q <strong>antes</strong> de aplicar un nuevo valor de entrada, el valor de la salida Q<sub>t+1</sub> es el valor que toma la salida Q dependiendo de los valores de entrada.</p>
+<p>El funcionamiento es el siguiente:</p>
+<ul>
+<li>Las dos entradas a cero (<strong>R = S = 0</strong>) no producen variación del valor de salida. El circuito mantiene su estado (se comporta como una <strong>memoria</strong>).</li>
+<li>Si la entrada <strong>S = 1</strong>, el valor de la salida pasa a 1 (señal "<strong>SET</strong>", pone a <strong>1</strong> el biestable).</li>
+<li>Si la entrada <strong>R = 1</strong>, el valor de la salida pasa a 0 (señal "RESET", pone a <strong>0</strong> el biestable).</li>
+<li>Las dos entradas a uno (<strong>R = S = 1</strong>) darían una salida <strong>indeterminada</strong>, por lo que <strong>nunca deben usarse</strong> en este biestable. Sería como intentar poner el biestable a 0 y a 1 a la vez, lo que no tiene sentido.</li>
+</ul>
+</div>
+<h1>Biestables síncronos por nivel (latches)</h1>
+<div class="exe-fx exe-accordion">
+<h2>Biestable tipo D síncrono por nivel</h2>
+<p>En el caso de los biestables síncronos por nivel, las variaciones de las entradas sólo afectan a las salidas en el momento en que el nivel del reloj está activo.</p>
+<p>El biestable tipo D posee una entrada <strong>D (data)</strong> y otra de habilitación <strong>E (enable)</strong>, de forma que:</p>
+<ul>
+<li>Cuando el biestable está habilitado <strong>(E = 1)</strong> la salida <strong>copia el valor de la entrada D.</strong></li>
+<li>Cuando el biestable no está habilitado <strong>(E = 0)</strong> mantiene (<strong>memoriza</strong>) su valor anterior, aunque cambie la entrada D.</li>
+</ul>
+<p>Está construido a partir de un latch R-S, pero nos permite eliminar la posibilidad de alcanzar el estado prohibido de los biestables R-S.</p>
+<p><img src="../content/resources/biest-d-nivel.png" alt="" width="800" height="217" style="display: block; margin-left: auto; margin-right: auto;"></p>
+<p>Si la entrada E del biestable la conectamos a la señal del reloj (clock - CLK), funcionará de forma síncrona:</p>
+<ul>
+<li>Cuando el reloj valga "1", el biestable tomará el valor que tenga puesto en ese momento en la entrada D.</li>
+<li>Cuando el reloj valga "0", el biestable mantendrá su último valor, sea cual sea el valor de D.</li>
+</ul>
+<p>Podemos representar un cronograma de ejemplo para ver cómo iría cambiando cada señal según el momento:</p>
+<p><img src="../content/resources/crono-d.png" alt="" width="300" height="231" style="display: block; margin-left: auto; margin-right: auto;"></p>
+</div>
+<h1>Biestables síncronos por flanco (flip-flops)</h1>
+<div class="exe-fx exe-accordion">
+<h2>Biestable tipo D síncrono por flanco</h2>
+<p>En un biestable tipo D activado por flanco, <strong>el valor presente en la entrada D&nbsp;se copia en la salida cuando el reloj hace un flanco ascendente o descendente</strong> (según el tipo de flip-flop) y <strong>se mantiene hasta el siguiente flanco</strong> (independientemente de lo que haga la señal de entrada).</p>
+<p>Es el elemento básico de memorización de 1 bit.</p>
+<p>Se puede construir un flip-flop tipo D a partir de dos biestables tipo D asíncronos, como los que hemos visto ya.</p>
+<p><img src="../content/resources/biest-d-sinc.png" width="852" height="221" style="display: block; margin-left: auto; margin-right: auto;"></p>
+<p>Aquí tienes un cronograma de ejemplo de funcionamiento de este biestable:</p>
+<p><img src="../content/resources/crono-d-sinc.png" width="649" height="202" style="display: block; margin-left: auto; margin-right: auto;"></p>
+<p>Cuando se produce un flanco de subida, a la salida Q se copia el dato que tenemos en la entrada D y el resto del tiempo se mantiene el dato que teníamos almacenado (por eso se considera la unidad básica de memoria)</p>
+<h2>Biestable tipo J-K</h2>
+<p>Tiene un funcionamiento similar al RS, pero la entrada K actúa para el borrado (Reset) y la J para la puesta a 1 (Set). La única diferencia es que se elimina la condición "prohibida" en la que tenemos R y S puestos a 1. En el caso de este biestable, cuando J = K = 1, se produce un <strong>volteo</strong>, es decir, en el siguiente ciclo de reloj el flip-flop <strong>cambia a su estado opuesto.</strong> Esto se llama&nbsp;<strong>basculación (toggle)</strong> y es un efecto muy útil en los contadores y en otros circuitos secuenciales.</p>
+<p>Este biestable puede construirse a partir de un tipo D síncrono por flanco, añadiéndole el circuito lógico correspondiente:</p>
+<p><img src="../content/resources/biest-jk.png" width="905" height="248" style="display: block; margin-left: auto; margin-right: auto;"></p>
+<p>Si escribimos la tabla de verdad de la señal "D" en función de las entradas J y K y de la salida Q en el estado anterior, podemos obtener la función lógica y entender el circuito lógico que hemos dibujado en la figura anterior:</p>
+<table class="tabla-datos">
+<thead>
+<tr>
+<th style="text-align: center;">J(t)</th>
+<th style="text-align: center;">K(t)</th>
+<th style="text-align: center;">Q(t)</th>
+<th style="text-align: center;">D = Q(t+1)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><strong>0</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;"><strong>1</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><strong>0</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;"><strong>0</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><strong>1</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;"><strong>1</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><strong>1</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;"><strong>0</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Si escribimos la primera forma canónica de la función, obtenemos:</p>
+<p class="formula-bloque">\[D=\overline{J}\cdot \overline{K}\cdot Q+J\cdot \overline{K}\cdot \overline{Q}+J\cdot \overline{K}\cdot Q+J\cdot K \cdot \overline{Q}\]</p>
+<p>Y, manipulando esa expresión, podemos obtener la expresión para implementar con puertas NAND:</p>
+<p class="formula-bloque">\[D=(J+ \overline{J})\cdot \overline{K}\cdot Q+J\cdot (K+ \overline{K})\cdot \overline{Q}=\overline{K}\cdot Q+J\cdot \overline{Q}=\overline{\overline{\overline{K}\cdot Q}\cdot \overline{J\cdot \overline{Q}}}\]</p>
+<p>Aquí puedes ver un cronograma de ejemplo de funcionamiento de este biestable J-K:</p>
+<p><img src="../content/resources/crono-jk.png" alt="" width="837" height="240" style="display: block; margin-left: auto; margin-right: auto;"></p>
+<h2>Biestable tipo T</h2>
+<p>Es, simplemente, un biestable J-K con sus dos entradas unidas (es decir, T = J = K). Por lo tanto, su funcionamiento es el siguiente:</p>
+<ul>
+<li>Si <strong>T = 0</strong>, su valor no cambia con el pulso de reloj, por lo que se comporta como una <strong>memoria</strong>.</li>
+<li>Si <strong>T = 1</strong>, su valor <strong>bascula</strong> con el pulso de reloj.</li>
+</ul>
+<p><img src="../content/resources/biest-t.png" alt="" width="822" height="203" style="display: block; margin-left: auto; margin-right: auto;"></p>
+<p>Aquí tienes un cronograma de ejemplo de funcionamiento:</p>
+<p><img src="../content/resources/crono-t.png" alt="" width="562" height="188" style="display: block; margin-left: auto; margin-right: auto;"></p>
+<p>Pese a su funcionamiento tan simple, es un biestable muy útil para construir contadores y divisores de frecuencia.</p>
+</div>
+</div>
+</div>
+</article><article id="block-mtpmhm5g-llmzt120z" class="box">
+<header class="box-head no-icon">
+<h1 class="box-title">Ejemplos de circuitos secuenciales</h1>
+<button class="box-toggle box-toggle-on" title="Toggle content">
+<span>Toggle content</span>
+</button></header>
+<div class="box-content">
+<div id="idevice-mtpmhm5g-a2a5g66ao" class="idevice_node text" data-idevice-path="../idevices/text/" data-idevice-type="text" data-idevice-component-type="json" data-idevice-json-data="{&quot;ideviceId&quot;:&quot;idevice-mtpmhm5g-a2a5g66ao&quot;}">
+<p>Dado que los biestables son los elementos básicos de memoria, son imprescindibles en los sistemas secuenciales. Las principales aplicaciones de los biestables son:</p>
+<ul>
+<li><strong>Contadores</strong>, que son capaces de <strong>generar una determinada secuencia</strong> y también pueden utilizarse como divisores de frecuencia.</li>
+<li><strong>Registros de desplazamiento</strong>, que permiten <strong>almacenar datos</strong> de distintas maneras.</li>
+</ul>
+<h1>CONTADORES</h1>
+<p>Un contador es un dispositivo constituido por flip-flops que genera una secuencia que se repite en el tiempo. Existen básicamente dos tipos: los asíncronos y los síncronos.</p>
+<div class="exe-fx exe-accordion">
+<h2>Contador asíncrono</h2>
+<p>En un contador asíncrono, los flip-flops no cambian de estado al mismo tiempo, dado que no comparten la misma señal de reloj.</p>
+<p><img src="../content/resources/contador-asinc.png" alt="" width="401" height="140" style="display: block; margin-left: auto; margin-right: auto;"></p>
+<p>La señal de reloj solamente está conectada al primer biestable; el segundo biestable se dispara mediante la señal \(\overline{Q_{0}}\) del primer biestable; y así sucesivamente.</p>
+<p>La transición se produce durante el flanco de subida, y en cada transición se produce un pequeño retardo, que se va acumulando según se propaga la señal. Este retardo acumulativo hace que se limite la velocidad y puede dar lugar a problemas, por lo que no es un contador muy utilizado.</p>
+<p><img src="../content/resources/crono-cont-asinc.png" alt="" width="684" height="232" style="display: block; margin-left: auto; margin-right: auto;"></p>
+<h2>Contador síncrono</h2>
+<p>En un contador síncrono, todos los flip-flops tienen la misma señal de reloj, por lo que se genera la secuencia deseada al ritmo de los flancos activos del reloj.</p>
+<p><img src="../content/resources/cont-sinc.png" alt="" width="383" height="140" style="display: block; margin-left: auto; margin-right: auto;"></p>
+<p>Los contadores son uno de los sistemas más empleados. Sirven para contar tiempo, como divisor de frecuencia o para generar secuencias de control.</p>
+<p><img src="../content/resources/crono-cont-sinc.png" alt="" width="677" height="236" style="display: block; margin-left: auto; margin-right: auto;"></p>
+</div>
+<h1>REGISTROS DE DESPLAZAMIENTO</h1>
+<p>Un&nbsp;registro de desplazamiento&nbsp;es un&nbsp;circuito digital&nbsp;secuencial consistente en una serie de&nbsp;biestables, generalmente de tipo D, conectados en cascada, que basculan de forma sincrónica con la misma señal de reloj.</p>
+<p>Según las conexiones entre los biestables, se tiene un desplazamiento a la izquierda (equivale a multiplicar por 2) o a la derecha (equivale a dividir entre 2) de la información almacenada. Existen registros de desplazamiento <strong>bidireccionales</strong>, que pueden funcionar en ambos sentidos. Los registros <strong>universales</strong>, además de bidireccionales, permiten la carga <strong>en paralelo</strong>&nbsp;(todos los bits de golpe).</p>
+<p>Dependiendo del tipo de entradas y salidas, los registros de desplazamiento se clasifican como:</p>
+<ul>
+<li><strong>Serie-Serie:</strong> sólo la entrada del primer flip-flop y la salida del último son accesibles externamente. Se emplean como líneas de <strong>retardo</strong> digitales y en tareas de <strong>sincronización</strong>.</li>
+<li><strong>Paralelo-Serie:</strong> son accesibles las entradas de todos los flip-flops, pero solo la salida del último. Normalmente también existe una entrada serie, que sólo altera el contenido del primer flip-flop, pudiendo funcionar como los del grupo anterior. Este tipo y el siguiente se emplean para <strong>convertir datos serie en paralelo y viceversa.</strong></li>
+<li><strong>Serie-Paralelo:</strong> son accesibles las salidas de todos los flip-flops, pero solo la entrada del primero. Este tipo y el anterior se emplean para <strong>convertir datos serie en paralelo y viceversa</strong>.</li>
+<li><strong>Paralelo-Paralelo:</strong> tanto las entradas como las salidas son accesibles. Se usan para <strong>cálculos aritméticos</strong>.</li>
+</ul>
+<p><img src="../content/resources/tipos-registros.png" alt="" width="900" height="256" style="display: block; margin-left: auto; margin-right: auto;"></p>
+<p>A continuación vemos las formas típicas de construir registros de desplazamiento:</p>
+<div class="exe-fx exe-accordion">
+<h2>Registros con entrada serie y salida serie (SISO)</h2>
+<p>A continuación se muestra un registro de desplazamiento con entrada y salida en serie de 5 bits formado con&nbsp;biestables&nbsp;maestro esclavo RS:</p>
+<p><img src="../content/resources/Registro_serie_serie.svg" alt="" width="897" height="217" style="display: block; margin-left: auto; margin-right: auto;">Observamos que la entrada del registro está conectada directamente a la entrada S y negada a la entrada R del primer biestable. Con esto se consigue que, cuando en la entrada haya un 1, el primer biestable contendrá un 1 (SET) y los demás un 0. Con la siguiente señal de reloj el bit almacenado en el primer biestable se desplazará al siguiente, (porque la salida Q está conectada a la S del siguiente biestable y lo pone también en SET) y así uno tras otro hasta la salida en serie.</p>
+<h2>Registros con entrada serie y salida paralelo (SIPO)</h2>
+<p>La estructura de un registro serie paralelo es muy similar a la de un registro con entrada y salidas en serie:</p>
+<p><img src="../content/resources/Registro_serie_paralelo.svg" alt="" width="820" height="280" style="display: block; margin-left: auto; margin-right: auto;"></p>
+<p>La única diferencia con el SISO es que se le añade una salida a cada una de las salidas Q del biestable: de esta manera se pueden obtener todos los datos a la vez. Por otro lado, también se puede obtener una salida en serie de cualquier salida Q o <span style="text-decoration: overline;">Q</span>.</p>
+<p>Habitualmente se suele añadir una entrada de puesta a cero asíncrona (CLEAR) cuya función es inicializar el registro.</p>
+<h2>Registros con entrada paralelo y salida serie</h2>
+<p>Se muestra un esquema de un registro con entrada paralelo y salida serie y carga asíncrona:</p>
+<p><img src="../content/resources/Registro_paralelo_serie.svg" alt="" width="843" height="535" style="display: block; margin-left: auto; margin-right: auto;"></p>
+<p>El funcionamiento es el siguiente: cuando en la entrada de selección <strong>"Desplazamiento/<span style="text-decoration: overline;">Carga</span> (D/<span style="text-decoration: overline;">C</span>)"</strong>, hay un 0 se realiza la carga. Con el inversor este cero se convierte en un 1 y por lo tanto las puertas&nbsp;NAND&nbsp;que hay arriba y debajo de los biestables se convierten en inversores.</p>
+<p>A continuación se introducen los datos: en el bit que haya un 1, se activa el Preset, y en el que haya un cero, se activa el Clear.</p>
+<p>Para el desplazamiento se coloca un 1 en D/<span style="text-decoration: overline;">C</span> de esta manera se consigue que nunca se activan las entradas ni PR ni CL, ya que <strong>de las puertas&nbsp;NAND&nbsp;siempre saldrá un 1</strong>. El desplazamiento se realiza como en un registro serie-serie.</p>
+<h2>Registro de entrada y salida en paralelo (PIPO)</h2>
+<p>En esta imagen se puede ver un registro de entrada y salida paralelo a partir de biestables D con entrada de habilitación:</p>
+<p><img src="../content/resources/Registro_paralelo_paralelo.svg" alt="" width="482" height="405" style="display: block; margin-left: auto; margin-right: auto;">La entrada de datos es cada una de las entradas D del biestable; las entradas de habilitación se unen a una entrada de habilitación global, de manera que cuando se activa, permite que se lean los datos. Hay otra entrada (Control Salida) que, al activarse, permite que se lean las salidas. Aquí hemos utilizado puertas AND, aunque también podríamos haber utilizado puertas OR y un inversor, o también buffers con entradas de alta impedancia.</p>
+</div>
+</div>
+</div>
+</article>
+</div></main><div class="nav-buttons">
+<a href="../html/6-ejercicios-finales.html" title="Anterior" class="nav-button nav-button-left"><span>Anterior</span></a>
+<span class="nav-button nav-button-right" aria-hidden="true"><span>Siguiente</span></span>
+</div>
+<footer id="siteFooter"><div id="siteFooterContent"> <div id="packageLicense" class="cc cc-by-nc-sa"> <p> <span class="license-label">Licencia: </span><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="license">Creative Commons: Reconocimiento - no comercial - compartir igual 4.0</a></p>
+</div>
+</div></footer>
+</div>
+
+</body>
+</html>

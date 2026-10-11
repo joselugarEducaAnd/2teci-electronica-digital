@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="es" id="exe-page-mtpmhm5f-v450nz47g">
+<head>
+<meta charset="utf-8">
+<meta name="generator" content="eXeLearning v4.0.5">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="license" type="text/html" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+<title>0. Sistemas de numeración | Electrónica digital</title>
+<link rel="icon" type="image/x-icon" href="../libs/favicon.ico">
+<meta name="description" content="Electrónica digital. Tecnología e Ingeniería II.">
+<script>document.querySelector("html").classList.add("js");</script><script src="../libs/jquery/jquery.min.js"> </script><script src="../libs/common_i18n.js"> </script><script src="../libs/common.js"> </script><script src="../libs/exe_export.js"> </script><script src="../libs/bootstrap/bootstrap.bundle.min.js"> </script><link rel="stylesheet" href="../libs/bootstrap/bootstrap.min.css">
+<script src="../idevices/text/text.js"></script><link rel="stylesheet" href="../idevices/text/text.css">
+<script src="../libs/exe_effects/exe_effects.js"> </script>
+<link rel="stylesheet" href="../libs/exe_effects/exe_effects.css">
+<script src="../libs/exe_tooltips/exe_tooltips.js"> </script>
+<script src="../libs/exe_tooltips/jquery.qtip.min.js"> </script>
+<script src="../libs/exe_tooltips/imagesloaded.pkg.min.js"> </script>
+<link rel="stylesheet" href="../libs/exe_tooltips/jquery.qtip.min.css">
+<link rel="stylesheet" href="../content/css/base.css"><script src="../theme/style.js"> </script><script src="../theme/zzz-majuelo.js"> </script><link rel="stylesheet" href="../theme/style.css"><link rel="stylesheet" href="../theme/zzz-majuelo.css">
+<script src="../libs/exe_math/tex-mml-svg.js"> </script>
+</head>
+<body class="exe-export exe-web-site">
+<script>document.body.className+=" js"</script>
+<div class="exe-content exe-export pre-js siteNav-hidden"><a href="#page-mtpmhm5f-v450nz47g" id="skipNav">Skip to content</a> <nav id="siteNav">
+<ul>
+<li> <a href="../index.html" class="main-node no-ch">Electrónica digital</a>
+</li>
+<li class="active"> <a href="../html/0-sistemas-de-numeracion.html" class="active no-ch">0. Sistemas de numeración</a>
+</li>
+<li> <a href="../html/1-algebra-de-boole.html" class="no-ch">1. Álgebra de Boole</a>
+</li>
+<li> <a href="../html/2-funciones-logicas.html" class="no-ch">2. Funciones lógicas</a>
+</li>
+<li> <a href="../html/3-simplificacion-de-funciones-logicas.html" class="no-ch">3. Simplificación de funciones lógicas</a>
+</li>
+<li> <a href="../html/4-puertas-logicas.html" class="no-ch">4. Puertas lógicas</a>
+</li>
+<li> <a href="../html/5-diseno-de-circuitos-logicos-combinacionales.html" class="daddy">5. Diseño de circuitos lógicos combinacionales</a>
+<ul class="other-section">
+<li> <a href="../html/51-ejemplos-de-circuitos-combinacionales-integrado.html" class="no-ch">5.1. Ejemplos de circuitos combinacionales integrados</a>
+</li>
+<li> <a href="../html/52-herramientas-de-simulacion.html" class="no-ch">5.2. Herramientas de simulación</a>
+</li>
+</ul>
+</li>
+<li> <a href="../html/6-ejercicios-finales.html" class="no-ch">6. Ejercicios finales</a>
+</li>
+<li> <a href="../html/7-ampliacion-circuitos-secuenciales.html" class="no-ch">7. Ampliación: circuitos secuenciales</a>
+</li>
+</ul>
+</nav><main id="page-mtpmhm5f-v450nz47g" class="page"> 
+<header class="main-header">
+<div class="package-header"><p class="package-title">Electrónica digital</p></div>
+<div class="page-header"><h1 class="page-title">0. Sistemas de numeración</h1></div>
+</header><div id="page-content-page-mtpmhm5f-v450nz47g" class="page-content">
+<article id="block-mtpmhm5f-nbk1hg8cf" class="box">
+<header class="box-head no-icon">
+<h1 class="box-title">Sistemas de numeración para circuitos digitales</h1>
+<button class="box-toggle box-toggle-on" title="Toggle content">
+<span>Toggle content</span>
+</button></header>
+<div class="box-content">
+<div id="idevice-mtpmhm5f-0t7vkyon2" class="idevice_node text" data-idevice-path="../idevices/text/" data-idevice-type="text" data-idevice-component-type="json" data-idevice-json-data="{&quot;ideviceId&quot;:&quot;idevice-mtpmhm5f-0t7vkyon2&quot;}">
+<style class="chrome-sda">.exe-content{--chrome:#6b3d94;--chrome-osc:#522975;--chrome-tinte:#f4eff8;--chrome-linea:#d9c9e5}</style><p>Los sistemas de numeración son los distintos <strong>conjuntos de símbolos</strong> capaces de <strong>representar la información numérica</strong>.</p>
+<p>Cada uno de ellos hace referencia a la <strong>base del sistema de numeración</strong>, que representa la <strong>cantidad de dígitos</strong> (símbolos distintos) que se utilizan para representar todos los números.</p>
+<p>Se pueden definir sistemas de numeración de cualquier base, aunque nos vamos a centrar en tres de ellos y ahora te explicaré por qué. Los tres sistemas que analizaremos son estos:</p>
+<table class="tabla-datos">
+<thead>
+<tr>
+<th style="text-align: center;">SISTEMA</th>
+<th style="text-align: center;">BASE</th>
+<th style="text-align: center;">DÍGITOS UTILIZADOS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">DECIMAL</td>
+<td style="text-align: center;">10</td>
+<td><strong>0 - 1 - 2 - 3 - 4 - 5 - 6 - 7 - 8 - 9</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">BINARIO</td>
+<td style="text-align: center;">2</td>
+<td><strong>0 - 1</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">HEXADECIMAL</td>
+<td style="text-align: center;">16</td>
+<td><strong>0 - 1 - 2 - 3 - 4 - 5 - 6 - 7 - 8 - 9 - A</strong><span style="font-size: 10pt;">(10)</span> <strong>- B</strong><span style="font-size: 10pt;">(11)</span> <strong>- C</strong><span style="font-size: 10pt;">(12)</span> <strong>- D</strong><span style="font-size: 10pt;">(13)</span> <strong>- E</strong><span style="font-size: 10pt;">(14)</span> <strong>- F</strong><span style="font-size: 10pt;">(15)</span></td>
+</tr>
+</tbody>
+</table>
+<h1>Notación para evitar ambigüedades</h1>
+<p>El sistema binario de numeración utiliza los dígitos 0 y 1 para representar cualquier número. Sin embargo, esos dígitos también se usan en el sistema decimal y en hexadecimal. Por lo tanto, el número 10011 podría ser un número binario, pero también podría ser el número "diez mil once" en decimal. Para evitar esta ambigüedad, podemos <strong>añadir la base en la que está el número mediante un subíndice.</strong> Así, si escribimos&nbsp;<strong>10011</strong><sub>2</sub>, sabemos que el número es binario y, si escribimos&nbsp;<strong>10011</strong><sub>10</sub>, sabemos que es decimal. Lo mismo ocurre para cualquier número hexadecimal que pueda ser confundido con uno decimal.</p>
+<h1>Importancia de estos tres sistemas en circuitos digitales</h1>
+<p>¿Por qué estudiamos estos sistemas en concreto y no otros? Vamos por partes:</p>
+<div class="exe-fx exe-accordion">
+<h2>Sistema decimal</h2>
+<p>Los humanos tenemos 10 dedos en las manos, por lo que nuestros antepasados contaban a menudo con ellos. Por lo tanto, se podían contar hasta 10 cantidades diferentes y, si se necesitaba contar más, se anotaban los grupos de 10 cosas que se habían contado antes.</p>
+<p>Por consiguiente, de manera natural, nació el&nbsp;<strong>sistema decimal&nbsp;</strong>para numerar todas las cosas y es el que usamos hoy en día prácticamente para todo. Así, es nuestro sistema de referencia natural para los otros dos.</p>
+<h2>Sistema binario</h2>
+<p>Los circuitos digitales no pueden trabajar con 10 niveles diferentes de tensiones, porque sería muy difícil tanto generarlos como manipularlos matemáticamente e incluso diferenciarlos entre sí, por lo que <strong>un sistema digital no puede trabajar en sistema decimal.</strong> En su lugar, los circuitos digitales sólo trabajan con <strong>dos niveles de tensión</strong>, por lo que sólo pueden usar dos "dígitos" distintos para hacer sus cálculos. Por tanto, <strong>los sistemas digitales usan el</strong> <strong>sistema binario</strong> de numeración.</p>
+<p>Al ser el sistema nativo de los circuitos digitales, hay una serie de términos que debemos controlar:</p>
+<ul>
+<li>Cada dígito del sistema binario se denomina <strong>"bit"</strong> (abreviatura de <strong>bi</strong>nary digi<strong>t</strong>).</li>
+<li>Al <a href="#ta64adbf5-7600-e9b9-f57a-43a50b246637" id="linka64adbf5-7600-e9b9-f57a-43a50b246637" class="exe-tooltip definition-tt">conjunto de 8 bits</a> consecutivos se le denomina <strong>"byte"</strong>.</li>
+<li>En el sistema binario, multiplicar por 2 equivale a añadir un cero al final del número. Es tan sencillo como para nosotros multiplicar por 10. Por eso, en los sistemas digitales, <strong>se utilizan más a menudo las potencias de 2 que los múltiplos de 10.</strong> Así, lo normal en un ordenador es tener 8, 16, 32 o 64 GB de RAM (y no, por ejemplo, 10, 20, 30, 50, etc). Esto incluso se llega a utilizar para los <strong>prefijos</strong>, así 1 kilobyte (kB) = 1024 bytes, 1 megabyte (MB) = 1024 kB, 1 gigabyte (GB) = 1024 MB, etc. <a href="#t4803a612-90bd-98f5-3050-83b843b12a02" id="link4803a612-90bd-98f5-3050-83b843b12a02" class="exe-tooltip definition-tt">porque 1024 es la potencia de 2 más cercana al número 1000 (1024 = 2<sup>10</sup>)</a>.</li>
+</ul>
+<h2>Sistema hexadecimal</h2>
+<p>El sistema binario es muy útil para los circuitos digitales, pero implica usar muchísimas cifras para codificar números grandes. Si intentamos leer números en binario, tenemos que leer muchos dígitos (bits) y, con confundir un 1 y un 0, el número resultante puede ser muy diferente.</p>
+<p>Para facilitar la lectura de números binarios, los dígitos se suelen agrupar en <strong>grupos de cuatro</strong>, que es un número fácil de visualizar por un humano. Si tenemos cuatro dígitos binarios, podemos representar <strong>16 valores diferentes</strong> (2<sup>4</sup>). Si le asignamos a cada uno de ellos un dígito del sistema hexadecimal (que es el que tiene 16 dígitos), cada grupo estará representado por un único dígito y será mucho más "legible" y manejable.</p>
+<p>Por tanto, el sistema hexadecimal se utiliza como un <strong>sistema de compromiso, fácil de leer y entender por un humano pero, a la vez, directamente traducible en binario para una máquina</strong>.</p>
+<p>Los dígitos del sistema hexadecimal del 0 al 9 valen exactamente lo mismo que los del sistema decimal y los que son letras tienen los siguientes valores: <strong>A = 10, B = 11, C = 12, D = 13, E = 14 y F = 15</strong>.</p>
+</div>
+<p>A continuación, aprenderemos a representar cualquier número en cualquiera de estos sistemas de numeración.</p>
+<div id="ta64adbf5-7600-e9b9-f57a-43a50b246637" class="exe-tooltip-text">
+<p>Originalmente el byte fue elegido para ser un submúltiplo del tamaño de palabra de un ordenador, <strong>desde cinco a doce bits.</strong> La popularidad de la arquitectura IBM S/360 que empezó en los años 1960 y la explosión de las microcomputadoras basadas en microprocesadores de 8 bits en los años 1980 ha hecho obsoleta la utilización de otra cantidad que no sean <strong>8 bits.</strong></p>
+</div>
+<div id="t4803a612-90bd-98f5-3050-83b843b12a02" class="exe-tooltip-text">
+<p>En ocasiones, sí se utiliza el número 1000 para los prefijos (sobre todo en transmisiones de bits, no tanto en almacenamiento de información). De hecho, para evitar la posible ambigüedad, hasta se definió un conjunto nuevo de prefijos para el sistema binario -kibi (ki) en vez de kilo, mebi (Mi) en vez de mega, gibi (Gi) en vez de giga,...- Nosotros no los utilizaremos, pero es recomendable que los conozcas.</p>
+</div>
+</div>
+</div>
+</article><article id="block-mtpmhm5f-16yx4db7c" class="box">
+<header class="box-head no-icon">
+<h1 class="box-title">Conversiones binario ↔ decimal</h1>
+<button class="box-toggle box-toggle-on" title="Toggle content">
+<span>Toggle content</span>
+</button></header>
+<div class="box-content">
+<div id="idevice-mtpmhm5f-n7omy10u4" class="idevice_node text" data-idevice-path="../idevices/text/" data-idevice-type="text" data-idevice-component-type="json" data-idevice-json-data="{&quot;ideviceId&quot;:&quot;idevice-mtpmhm5f-n7omy10u4&quot;}">
+<h1><span style="font-size: 1.05em;"><strong>Conversión BINARIO →&nbsp;DECIMAL</strong></span></h1>
+<p>En el sistema decimal empleamos los diez dígitos para expresar cualquier cantidad, en forma de <strong>suma de potencias de 10</strong>, es decir, 10<sup>n</sup>. Por ejemplo, el número 3.457 se puede expresar en potencias de 10 así:</p>
+<p class="formula-bloque">\[3457_{10}=3\cdot 10^{3}+4\cdot 10^{2} + 5\cdot 10^{1} + 7\cdot 10^{0}\]</p>
+<p>De forma análoga, para convertir cualquier número binario en decimal, <strong>multiplicaremos cada cifra (bit) por una</strong> <strong>potencia de 2.</strong>&nbsp;El resultado, calculado en decimal, será el número en <strong>base 10</strong>:</p>
+<p class="formula-bloque">\[\begin{matrix} \boldsymbol{10011}_{2} = 1\cdot 2^{4} + 0\cdot 2^{3}+0\cdot 2^{2} + 1\cdot 2^{1}+ 1\cdot 2^{0} = \\=1\cdot 16 + 0\cdot 8+0\cdot 4+1\cdot 2+1\cdot 1=16 + 2 + 1 = \boldsymbol{19}_{10}\end{matrix}\]</p>
+<h2>Conversión DECIMAL&nbsp;→ BINARIO</h2>
+<p>Existen varias formas de codificar un número decimal en binario. Se puede cambiar&nbsp;matemáticamente de base 10 a base 2 todo el número, que sería la <strong>codificación natural</strong>. Sin embargo, en ocasiones, dependiendo de la aplicación concreta, es mejor <strong>codificar el número cifra a cifra</strong>, en vez de hacerlo todo de golpe, en lo que se llama <strong>codificación BCD</strong>.</p>
+<div class="exe-fx exe-accordion">
+<h2>Código binario natural</h2>
+<br>
+<p>Es la conversión directa del número mediante un <strong>cambio de base matemático</strong>. La forma de convertir cualquier número decimal en binario es <strong>dividir</strong><span style="font-size: 1.05em;">&nbsp;el número en decimal </span><span style="font-size: 1.05em;"><strong>entre 2</strong></span><span style="font-size: 1.05em;"> hasta que el <strong>último </strong></span><span style="font-size: 1.05em;"><strong>cociente sea inferior a 2</strong></span><span style="font-size: 1.05em;">&nbsp;(será 1 si el número es impar o 0 si es par).</span></p>
+<p><img src="../content/resources/d2b-1.jpeg" width="200" height="150" style="display: block; margin-left: auto; margin-right: auto;"></p>
+<p>El número binario se construye tomando <strong>primero el último cociente</strong> y luego <strong>añadiendo los restos en el orden inverso en que se han ido obteniendo</strong>:</p>
+<p><img src="../content/resources/d2b-2.jpeg" width="230" height="271" style="display: block; margin-left: auto; margin-right: auto;"></p>
+<h2>Códigos BCD (decimal codificado en binario)</h2>
+<p>Consisten en <strong>codificar cada cifra del número por separado, utilizando 4 bits para cada una</strong> (con 3 bits no tendríamos suficiente para las 10 cifras decimales, porque sólo podríamos codificar 2<sup>3</sup> = 8 cifras).</p>
+<p>Esa codificación puede hacerse cambiando directamente de base&nbsp;la cifra, pero también se pueden cambiar las ponderaciones de cada bit para obtener diferentes codificaciones. Las más utilizadas son:</p>
+<h3>Código BCD natural (8421)</h3>
+<p>Se usan las <strong>ponderaciones naturales de cada bit</strong> (2<sup>3</sup> = <strong>8</strong>, 2<sup>2</sup> = <strong>4</strong>, 2<sup>1</sup> = <strong>2</strong> y 2<sup>0</sup> = <strong>1</strong>), por lo que es simplemente cambiar de base cada cifra como vimos en el código binario natural:</p>
+<p style="text-align: center;"><strong>19</strong><sub>10</sub> = 1(0001)&nbsp; 9(1001) = <strong>0001 1001</strong><sub>2</sub>&nbsp; &nbsp;(porque 1 = 0·8 + 0·4 + 0·2 + 1·1 y 9 = 1·8 + 0·4 + 0·2 + 1·1)</p>
+<h3>Código Aiken (2421)</h3>
+<p>Se usan unas ponderaciones diferentes para cada bit (en este caso, 2, 4, 2 y 1), siempre <strong>empezando a asignar pesos&nbsp;por la derecha</strong>, por lo que se codificaría de esta manera:</p>
+<p style="text-align: center;"><strong>19</strong><sub>10</sub> = 1(0001)&nbsp; 9(1111) = <strong>0001 1111</strong><sub>2</sub>&nbsp; &nbsp;(porque 1 = 0·2 + 0·4 + 0·2 + 1·1 y 9 = 1·2 + 1·4 + 1·2 + 1·1)</p>
+<p style="text-align: left;">Como ves, este código se utiliza para que la menor cifra posible (el 0) se codifique con todos los bits a cero y la mayor cifra posible (el 9), se codifique con todos los bits a 1. Además, las cifras del 0 al 9 codificadas en código Aiken son simétricas entre sí, lo que hace que este código sea muy eficiente para realizar <strong>operaciones de resta y división</strong>.</p>
+<p style="text-align: left;">Es importante que tengas en cuenta que <strong>hay que empezar a asignar pesos siempre por la derecha</strong>, por lo que la cifra "5" no sería nunca el 0101 (que podría ser si empezamos a asignar por la izquierda), sino que debe ser el 1011.</p>
+<h3 style="text-align: left;">Código exceso tres</h3>
+<p style="text-align: left;">El&nbsp;<b>código exceso 3</b>&nbsp;es un código en donde <strong>la ponderación no existe</strong> (no hay “pesos” como en el código BCD natural y el código Aiken). En su lugar, simplemente se toma la cifra a codificar, <strong>se le suma tres</strong>, y se codifica en binario natural:</p>
+<p style="text-align: center;"><strong>19</strong><sub>10</sub> = (1+3)(0100) (9+3)(1100) = <strong>0100 1100</strong><sub>2</sub>&nbsp;(porque 4 = 0·8 + 1·4 + 0·2 + 0·1 y 12 = 1·8 + 1·4 + 0·2 + 0·1)</p>
+<p style="text-align: left;">Con esta codificación se consigue lo mismo que con el código Aiken: una <strong>simetría</strong> entre las cifras que lo hace muy eficiente para operaciones de resta y división.</p>
+</div>
+<p>En esta tabla puedes ver una comparativa entre los diferentes tipos de codificación para todas las cifras decimales (del 0 al 9):</p>
+<table class="tabla-datos">
+<thead>
+<tr>
+<th style="text-align: center;">DECIMAL</th>
+<th colspan="4" style="text-align: center;">BCD NATURAL</th>
+<th colspan="4" style="text-align: center;">BCD AIKEN</th>
+<th colspan="4" style="text-align: center;">EXCESO TRES</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>0</strong></td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>1</strong></td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>2</strong></td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>3</strong></td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>4</strong></td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>5</strong></td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>6</strong></td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>7</strong></td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>8</strong></td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>9</strong></td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</article><article id="block-mtpmhm5f-9xhbnnzlk" class="box">
+<header class="box-head no-icon">
+<h1 class="box-title">Conversiones binario ↔ hexadecimal</h1>
+<button class="box-toggle box-toggle-on" title="Toggle content">
+<span>Toggle content</span>
+</button></header>
+<div class="box-content">
+<div id="idevice-mtpmhm5f-n0k2h0nb4" class="idevice_node text" data-idevice-path="../idevices/text/" data-idevice-type="text" data-idevice-component-type="json" data-idevice-json-data="{&quot;ideviceId&quot;:&quot;idevice-mtpmhm5f-n0k2h0nb4&quot;}">
+<h1>Conversión BINARIO → HEXADECIMAL</h1>
+<p>Para convertir un número binario a hexadecimal tenemos que <strong>agrupar los bits del número binario de cuatro en cuatro</strong>, empezando desde la derecha (si no tenemos suficientes bits para completar un grupo de cuatro, rellenamos con ceros a la izquierda). Después convertiremos cada grupo de cuatro bits a decimal, como ya hemos visto, y a cada valor obtenido le asignamos la cifra hexadecimal que corresponda.</p>
+<p><strong>Ejemplo: convertir el número 11101101101<sub>2</sub> a hexadecimal.</strong></p>
+<p>1 - Se <strong>agrupan los bits de cuatro en cuatro</strong>, rellenando con ceros a la izquierda si es necesario:</p>
+<p style="text-align: center;">11101101101 = 0111&nbsp; &nbsp;0110&nbsp; &nbsp;1101&nbsp;</p>
+<p style="text-align: left;">2 - Se convierte a <strong>decimal</strong> cada grupo de cuatro bits:</p>
+<ul>
+<li style="text-align: left;">0111 = 0·2<sup>3</sup> + 1·2<sup>2</sup> + 1·2<sup>1</sup> + 1·2<sup>0</sup> = 0·8 + 1·4 + 1·2 + 1·1 = 4 + 2 + 1 = <strong>7</strong></li>
+<li>0110 = 0·2<sup>3</sup> + 1·2<sup>2</sup> + 1·2<sup>1</sup> + 0·2<sup>0</sup> = 0·8 + 1·4 + 1·2 + 0·1 = 4 + 2 = <strong>6</strong></li>
+<li>1101 = 1·2<sup>3</sup> + 1·2<sup>2</sup> + 0·2<sup>1</sup> + 1·2<sup>0</sup> = 1·8 + 1·4 + 0·2 + 1·1 = 8 + 4 + 1 = <strong>13</strong></li>
+</ul>
+<p>3 - Se asigna a cada valor obtenido la <strong>cifra hexadecimal</strong> que corresponda:</p>
+<ul>
+<li>7<sub>10</sub> = <strong>7</strong><sub>16</sub></li>
+<li>6<sub>10</sub> = <strong>6</strong><sub>16</sub></li>
+<li>13<sub>10</sub> = <strong>D</strong><sub>16</sub></li>
+</ul>
+<p>Por lo tanto, la conversión es la siguiente:</p>
+<p style="text-align: center;"><strong>11101101101</strong><sub>2</sub> = <strong>76D</strong><sub>16</sub></p>
+<h1><strong>Conversión HEXADECIMAL</strong><strong>&nbsp;</strong><strong>→&nbsp;</strong><strong>BINARIO</strong></h1>
+<p>Se toman las cifras del número hexadecimal por separado y se expresan en decimal. Después, cada valor decimal se convierte a binario como ya vimos en la sección anterior.</p>
+<p><strong>Ejemplo: convertir el número&nbsp;76D<sub>16</sub> a binario</strong></p>
+<p>1 - Se toman las cifras por separado:</p>
+<p style="text-align: center;">76D = 7&nbsp; &nbsp; 6&nbsp; &nbsp; D</p>
+<p style="text-align: left;">2 - Se expresan en decimal:</p>
+<ul>
+<li style="text-align: left;">7<sub>16</sub> = <strong>7</strong><sub>10</sub></li>
+<li style="text-align: left;">6<sub>16</sub> = <strong>6</strong><sub>10</sub></li>
+<li style="text-align: left;">D<sub>16</sub> = <strong>13</strong><sub>10</sub></li>
+</ul>
+<p>3 - Se convierte cada valor decimal a binario:</p>
+<ul>
+<li style="text-align: left;">7<sub>10</sub> = <strong>0111</strong><sub>2</sub></li>
+<li>6<sub>10</sub> = <strong>0110</strong><sub>2</sub></li>
+<li>13<sub>10</sub> = <strong>1101</strong><sub>2</sub></li>
+</ul>
+<p>Por lo tanto, la conversión es la siguiente:</p>
+<p style="text-align: center;"><strong>76D</strong><sub>16</sub> = <strong>0</strong><strong>111</strong><sub>2</sub><strong> 0110</strong><sub>2</sub><strong> 1101</strong><sub>2</sub> =&nbsp;<strong>11101101101</strong><sub>2</sub></p>
+</div>
+</div>
+</article><article id="block-mtpmhm5f-xhuhvpix7" class="box">
+<header class="box-head no-icon">
+<h1 class="box-title">Conversiones hexadecimal ↔ decimal</h1>
+<button class="box-toggle box-toggle-on" title="Toggle content">
+<span>Toggle content</span>
+</button></header>
+<div class="box-content">
+<div id="idevice-mtpmhm5f-xkm05iaq4" class="idevice_node text" data-idevice-path="../idevices/text/" data-idevice-type="text" data-idevice-component-type="json" data-idevice-json-data="{&quot;ideviceId&quot;:&quot;idevice-mtpmhm5f-xkm05iaq4&quot;}">
+<p>Estas conversiones se realizan <strong>exactamente igual que las que hemos visto BINARIO ↔ DECIMAL</strong>, pero <strong>utilizando el 16 en lugar del 2</strong>.</p>
+<h1>Conversión HEXADECIMAL → DECIMAL</h1>
+<p>Al igual que en la transformación de binario a decimal, se multiplica el número hexadecimal por las potencias, ahora de 16. Sólo tienes que recordar sustituir las cifras hexadecimales por sus valores decimales si es necesario. Después, se realiza la suma y se obtiene el número en el sistema decimal.</p>
+<p>Por ejemplo, para convertir el número E4A1<sub>16</sub> a decimal:</p>
+<p class="formula-bloque">\[\begin{matrix}\boldsymbol{E4A1}_{16} = E\cdot 16^{3}+4\cdot 16^{2}+A\cdot 16^{1}+1\cdot 16^{0} = \\=14\cdot 16^{3}+4\cdot 16^{2}+10\cdot 16^{1}+1\cdot 16^{0} = \\=14\cdot 4096+4\cdot 256+10\cdot 16+1\cdot 1 = \\=57344+1024+160+1 = \boldsymbol{58529}_{10}\end{matrix}\]</p>
+<h1>Conversión DECIMAL → HEXADECIMAL</h1>
+<p>Se va dividiendo el número decimal entre 16 hasta que se obtenga un cociente menor de 16. A continuación, se toma <strong>el último cociente</strong> y los diferentes<strong> restos en orden inverso al que se han obtenido</strong>. Si alguno de esos valores es mayor que 9, se le asigna la cifra hexadecimal correspondiente.</p>
+<p>Lo vemos con un ejemplo, que sería convertir el número&nbsp;<strong>58529<sub>10</sub></strong> a hexadecimal:</p>
+<p><img src="../content/resources/d2h-2.jpeg" width="300" height="348" style="display: block; margin-left: auto; margin-right: auto;"></p>
+</div>
+</div>
+</article><article id="block-mtpmhm5f-bgi118qs6" class="box">
+<header class="box-head no-icon">
+<h1 class="box-title">EJERCICIO</h1>
+<button class="box-toggle box-toggle-on" title="Toggle content">
+<span>Toggle content</span>
+</button></header>
+<div class="box-content">
+<div id="idevice-mtpmhm5f-wmrtt3wct" class="idevice_node text" data-idevice-path="../idevices/text/" data-idevice-type="text" data-idevice-component-type="json" data-idevice-json-data="{&quot;ideviceId&quot;:&quot;idevice-mtpmhm5f-wmrtt3wct&quot;}">
+<div class="bloque bloque-actividad"><p>Completa la siguiente tabla con los valores de los números A, B y C en las diferentes bases:</p>
+<table class="tabla-datos">
+<thead>
+<tr>
+<th style="text-align: center;">NÚMERO</th>
+<th style="text-align: center;">DECIMAL</th>
+<th style="text-align: center;">HEXADECIMAL</th>
+<th style="text-align: center;">BINARIO</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>A</strong></td>
+<td style="text-align: center;">237</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>B</strong></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">1F6</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>C</strong></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">1011001101</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</article>
+</div></main><div class="nav-buttons">
+<a href="../index.html" title="Anterior" class="nav-button nav-button-left"><span>Anterior</span></a>
+<a href="../html/1-algebra-de-boole.html" title="Siguiente" class="nav-button nav-button-right"><span>Siguiente</span></a>
+</div>
+<footer id="siteFooter"><div id="siteFooterContent"> <div id="packageLicense" class="cc cc-by-nc-sa"> <p> <span class="license-label">Licencia: </span><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="license">Creative Commons: Reconocimiento - no comercial - compartir igual 4.0</a></p>
+</div>
+</div></footer>
+</div>
+
+</body>
+</html>

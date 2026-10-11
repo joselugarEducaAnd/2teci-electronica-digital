@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="es" id="exe-page-mtpmhm5f-sj2id2t45">
+<head>
+<meta charset="utf-8">
+<meta name="generator" content="eXeLearning v4.0.5">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="license" type="text/html" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+<title>5.1. Ejemplos de circuitos combinacionales integrados | Electrónica digital</title>
+<link rel="icon" type="image/x-icon" href="../libs/favicon.ico">
+<meta name="description" content="Electrónica digital. Tecnología e Ingeniería II.">
+<script>document.querySelector("html").classList.add("js");</script><script src="../libs/jquery/jquery.min.js"> </script><script src="../libs/common_i18n.js"> </script><script src="../libs/common.js"> </script><script src="../libs/exe_export.js"> </script><script src="../libs/bootstrap/bootstrap.bundle.min.js"> </script><link rel="stylesheet" href="../libs/bootstrap/bootstrap.min.css">
+<script src="../idevices/text/text.js"></script><link rel="stylesheet" href="../idevices/text/text.css">
+<link rel="stylesheet" href="../content/css/base.css"><script src="../theme/style.js"> </script><script src="../theme/zzz-majuelo.js"> </script><link rel="stylesheet" href="../theme/style.css"><link rel="stylesheet" href="../theme/zzz-majuelo.css">
+<script src="../libs/exe_math/tex-mml-svg.js"> </script>
+</head>
+<body class="exe-export exe-web-site">
+<script>document.body.className+=" js"</script>
+<div class="exe-content exe-export pre-js siteNav-hidden"><a href="#page-mtpmhm5f-sj2id2t45" id="skipNav">Skip to content</a> <nav id="siteNav">
+<ul>
+<li> <a href="../index.html" class="main-node no-ch">Electrónica digital</a>
+</li>
+<li> <a href="../html/0-sistemas-de-numeracion.html" class="no-ch">0. Sistemas de numeración</a>
+</li>
+<li> <a href="../html/1-algebra-de-boole.html" class="no-ch">1. Álgebra de Boole</a>
+</li>
+<li> <a href="../html/2-funciones-logicas.html" class="no-ch">2. Funciones lógicas</a>
+</li>
+<li> <a href="../html/3-simplificacion-de-funciones-logicas.html" class="no-ch">3. Simplificación de funciones lógicas</a>
+</li>
+<li> <a href="../html/4-puertas-logicas.html" class="no-ch">4. Puertas lógicas</a>
+</li>
+<li class="current-page-parent"> <a href="../html/5-diseno-de-circuitos-logicos-combinacionales.html" class="daddy">5. Diseño de circuitos lógicos combinacionales</a>
+<ul class="other-section">
+<li class="active"> <a href="../html/51-ejemplos-de-circuitos-combinacionales-integrado.html" class="active no-ch">5.1. Ejemplos de circuitos combinacionales integrados</a>
+</li>
+<li> <a href="../html/52-herramientas-de-simulacion.html" class="no-ch">5.2. Herramientas de simulación</a>
+</li>
+</ul>
+</li>
+<li> <a href="../html/6-ejercicios-finales.html" class="no-ch">6. Ejercicios finales</a>
+</li>
+<li> <a href="../html/7-ampliacion-circuitos-secuenciales.html" class="no-ch">7. Ampliación: circuitos secuenciales</a>
+</li>
+</ul>
+</nav><main id="page-mtpmhm5f-sj2id2t45" class="page"> 
+<header class="main-header">
+<div class="package-header"><p class="package-title">Electrónica digital</p></div>
+<div class="page-header"><h1 class="page-title">5.1. Ejemplos de circuitos combinacionales integrados</h1></div>
+</header><div id="page-content-page-mtpmhm5f-sj2id2t45" class="page-content">
+<article id="block-mtpmhm5g-06vavzxgz" class="box no-header">
+<header class="box-head no-icon">
+<button class="box-toggle box-toggle-on" title="Toggle content">
+<span>Toggle content</span>
+</button></header>
+<div class="box-content">
+<div id="idevice-mtpmhm5g-934sgbxdo" class="idevice_node text" data-idevice-path="../idevices/text/" data-idevice-type="text" data-idevice-component-type="json" data-idevice-json-data="{&quot;ideviceId&quot;:&quot;idevice-mtpmhm5g-934sgbxdo&quot;}">
+<style class="chrome-sda">.exe-content{--chrome:#6b3d94;--chrome-osc:#522975;--chrome-tinte:#f4eff8;--chrome-linea:#d9c9e5}</style><p>A continuación vamos a ver una serie de circuitos lógicos combinacionales que realizan cada uno de ellos una misión determinada. Veremos la función que desempeñan y la expresión lógica. Son solo algunos ejemplos seleccionados de circuitos muy usados pero, como te imaginarás, existen infinidad de circuitos para realizar diferentes tareas.</p>
+</div>
+</div>
+</article><article id="block-mtpmhm5g-hztgxhj4s" class="box">
+<header class="box-head no-icon">
+<h1 class="box-title">Decodificadores</h1>
+<button class="box-toggle box-toggle-on" title="Toggle content">
+<span>Toggle content</span>
+</button></header>
+<div class="box-content">
+<div id="idevice-mtpmhm5g-vlud7mu0k" class="idevice_node text" data-idevice-path="../idevices/text/" data-idevice-type="text" data-idevice-component-type="json" data-idevice-json-data="{&quot;ideviceId&quot;:&quot;idevice-mtpmhm5g-vlud7mu0k&quot;}">
+<p>Un <strong>decodificador</strong> es un circuito combinacional que tiene <strong>n entradas</strong> y <strong>2<sup>n</sup> salidas</strong>.</p>
+<p>Su función consiste en que, cuando se presenta una determinada combinación binaria a la entrada, se activa una de las salidas, mientras que el resto permanecen desactivadas.</p>
+<p>Los decodificadores se utilizan en muchos tipos de aplicaciones. Por ejemplo, en los ordenadores, para seleccionar los puertos de entrada/salida a través de los que se comunica con la impresora, el módem, el escáner, etc. Se emplea un decodificador para seleccionar el puerto de entrada/salida determinado por el ordenador, de forma que los datos puedan ser enviados o recibidos desde algún dispositivo externo concreto.</p>
+<p>También se pueden usar para representar cifras en un display de 7 segmentos, para generar y convertir códigos, etc.</p>
+<p>Aquí puedes ver el esquema de un decodificador de 2 entradas a 4 salidas (decodificador de 2 a 4):</p>
+<p><img src="../content/resources/decod01.png" alt="" width="300" height="201" style="display: block; margin-left: auto; margin-right: auto;"></p>
+<p>Las entradas A y B indican qué salida hay que activar mediante código binario natural. La señal de entrada INH (señal de inhibición) pone <strong>todas las salidas a 0, sea cual sea el valor de A y B</strong>. La tabla de verdad de este decodificador sería, por tanto:</p>
+<table class="tabla-datos">
+<thead>
+<tr>
+<th style="text-align: center;">INH</th>
+<th style="text-align: center;">A</th>
+<th style="text-align: center;">B</th>
+<th style="text-align: center;">D<sub>0</sub></th>
+<th style="text-align: center;">D<sub>1</sub></th>
+<th style="text-align: center;">D<sub>2</sub></th>
+<th style="text-align: center;">D<sub>3</sub></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><strong>1</strong></td>
+<td style="text-align: center;"><strong>0</strong></td>
+<td style="text-align: center;"><strong>0</strong></td>
+<td style="text-align: center;"><strong>0</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;"><strong>0</strong></td>
+<td style="text-align: center;"><strong>1</strong></td>
+<td style="text-align: center;"><strong>0</strong></td>
+<td style="text-align: center;"><strong>0</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><strong>0</strong></td>
+<td style="text-align: center;"><strong>0</strong></td>
+<td style="text-align: center;"><strong>1</strong></td>
+<td style="text-align: center;"><strong>0</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;"><strong>0</strong></td>
+<td style="text-align: center;"><strong>0</strong></td>
+<td style="text-align: center;"><strong>0</strong></td>
+<td style="text-align: center;"><strong>1</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">X</td>
+<td style="text-align: center;">X</td>
+<td style="text-align: center;"><strong>0</strong></td>
+<td style="text-align: center;"><strong>0</strong></td>
+<td style="text-align: center;"><strong>0</strong></td>
+<td style="text-align: center;"><strong>0</strong></td>
+</tr>
+</tbody>
+</table>
+<p>El esquema lógico de este decodificador sería el siguiente:</p>
+<p><img src="../content/resources/DECOD24.png" alt="" width="450" height="579" style="display: block; margin-left: auto; margin-right: auto;"></p>
+<h3>Ejemplo de aplicación: control de semáforo</h3>
+<p><img src="../content/resources/decod02.png" alt="" width="701" height="266" style="display: block; margin-left: auto; margin-right: auto;"></p>
+<p>Si utilizamos un decodificador de 2 a 4, conseguiremos controlar el semáforo asegurándonos de que solo estará activa una luz en cada momento. Además, el circuito de control que diseñemos sólo debe tener 2 salidas para el semáforo, por lo que será más simple que si tuviera que proporcionar las cuatro salidas por separado.</p>
+<p>Si el circuito de control envía el número 2 en binario (1 0), se encenderá la luz verde (que tiene asociado el número 2) y sólo la luz verde. Esto es porque, como hemos visto, un decodificador activa sólo una de las salidas, la salida que tiene un número igual al que se ha introducido por la entrada. Si el circuito de control envía el número 3, se activa la salida O<sub>3</sub> y se encenderá la luz azul para indicar avería (y sólo esa).</p>
+<h3>DECODIFICADORES CON ACTIVACIÓN SIMULTÁNEA DE VARIAS SALIDAS</h3>
+<p>Permiten activar varias salidas a la vez según la combinación deseada. El más típico es el decodificador BCD-7 segmentos usado en los displays de calculadoras, relojes, etc. Si las salidas se notan como a, b, c, d, e, f y g, tendremos que:</p>
+<p><img src="../content/resources/display7seg.png" alt="" width="700" height="297" style="display: block; margin-left: auto; margin-right: auto;"></p>
+<p>Tendrás que hacer una tarea que consistirá, precisamente, en diseñar un circuito decodificador de este estilo.</p>
+</div>
+</div>
+</article><article id="block-mtpmhm5g-f0k6smx3g" class="box">
+<header class="box-head no-icon">
+<h1 class="box-title">Codificadores</h1>
+<button class="box-toggle box-toggle-on" title="Toggle content">
+<span>Toggle content</span>
+</button></header>
+<div class="box-content">
+<div id="idevice-mtpmhm5g-hx59q8irw" class="idevice_node text" data-idevice-path="../idevices/text/" data-idevice-type="text" data-idevice-component-type="json" data-idevice-json-data="{&quot;ideviceId&quot;:&quot;idevice-mtpmhm5g-hx59q8irw&quot;}">
+<p>Un codificador es un circuito integrado que permite compactar la información generando un código de salida a partir de la información de entrada. <strong>Realiza la función inversa al decodificador</strong>.</p>
+<p><img src="../content/resources/codificador.png" alt="" width="700" height="492" style="display: block; margin-left: auto; margin-right: auto;"></p>
+<h3>Codificador con prioridad</h3>
+<p>En caso de producirse acciones simultáneas de varias de sus entradas, en la salida se presentará el código <strong>de aquella entrada que tenga asignada un mayor peso,</strong> normalmente la de mayor valor decimal.</p>
+<p><img src="../content/resources/tabla-codif-prio.png" width="380" height="146" style="display: block; margin-left: auto; margin-right: auto;"></p>
+<h3>Convertidores de código</h3>
+<p>Sirven para cambiar de código (de BCD natural a Aiken, de binario natural a Aiken, de BCD natural a binario natural, etc).</p>
+</div>
+</div>
+</article><article id="block-mtpmhm5g-us6a87cko" class="box">
+<header class="box-head no-icon">
+<h1 class="box-title">Multiplexores y demultiplexores</h1>
+<button class="box-toggle box-toggle-on" title="Toggle content">
+<span>Toggle content</span>
+</button></header>
+<div class="box-content">
+<div id="idevice-mtpmhm5g-uuwzxyvtx" class="idevice_node text" data-idevice-path="../idevices/text/" data-idevice-type="text" data-idevice-component-type="json" data-idevice-json-data="{&quot;ideviceId&quot;:&quot;idevice-mtpmhm5g-uuwzxyvtx&quot;}">
+<h1>Multiplexor</h1>
+<p>Un <strong>multiplexor</strong> es un circuito integrado en el que las entradas de control <strong>seleccionan una entrada entre varias</strong> para llevar la información de esta entrada <strong>a una única salida</strong>.</p>
+<p>Estos circuitos tienen:</p>
+<ul>
+<li><strong>2<sup>n</sup></strong> entradas de señal</li>
+<li><strong>n</strong> entradas de control</li>
+<li><strong>1</strong> salida</li>
+</ul>
+<p>Aquí puedes ver el diseño&nbsp;de un <strong>multiplexor 4:1</strong>. Puede haber una entrada de habilitación (enabled - E): si está a “1” la salida sigue igual, si está a “0”, la salida es “0”. Esto permite sacar la salida solo en un momento determinado y sincronizarla con otro circuito (indispensable para la comunicación en serie, por ejemplo).</p>
+<p><img src="../content/resources/multiplex.png" alt="" width="899" height="564" style="display: block; margin-left: auto; margin-right: auto;"></p>
+<h1>Demultiplexor</h1>
+<p>Los <strong>demultiplexores</strong> realizan una función contraria a los anteriores, dirigiendo la información a la salida seleccionada mediante las entradas de control.</p>
+<p><img src="../content/resources/demultiplex.png" alt="" width="600" height="526" style="display: block; margin-left: auto; margin-right: auto;"></p>
+</div>
+</div>
+</article><article id="block-mtpmhm5g-v93y4k2i5" class="box">
+<header class="box-head no-icon">
+<h1 class="box-title">Comparadores</h1>
+<button class="box-toggle box-toggle-on" title="Toggle content">
+<span>Toggle content</span>
+</button></header>
+<div class="box-content">
+<div id="idevice-mtpmhm5g-c20njxk23" class="idevice_node text" data-idevice-path="../idevices/text/" data-idevice-type="text" data-idevice-component-type="json" data-idevice-json-data="{&quot;ideviceId&quot;:&quot;idevice-mtpmhm5g-c20njxk23&quot;}">
+<p>Son circuitos que detectan las relaciones mayor (M >), menor (m &lt;) e igual (I =).</p>
+<p>Presentan dos grupos de n líneas de entrada (A y B) que son la expresión en binario de los números que queremos comparar y tres señales de salida (M, I, m).</p>
+<p><img src="../content/resources/comparador.png" alt="" width="399" height="234" style="display: block; margin-left: auto; margin-right: auto;"></p>
+<div class="bloque bloque-actividad"><p class="bloque-titulo">Ejercicio</p><p>Diseña un circuito comparador de palabras de 3 bits.</p></div>
+</div>
+</div>
+</article>
+</div></main><div class="nav-buttons">
+<a href="../html/5-diseno-de-circuitos-logicos-combinacionales.html" title="Anterior" class="nav-button nav-button-left"><span>Anterior</span></a>
+<a href="../html/52-herramientas-de-simulacion.html" title="Siguiente" class="nav-button nav-button-right"><span>Siguiente</span></a>
+</div>
+<footer id="siteFooter"><div id="siteFooterContent"> <div id="packageLicense" class="cc cc-by-nc-sa"> <p> <span class="license-label">Licencia: </span><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="license">Creative Commons: Reconocimiento - no comercial - compartir igual 4.0</a></p>
+</div>
+</div></footer>
+</div>
+
+</body>
+</html>

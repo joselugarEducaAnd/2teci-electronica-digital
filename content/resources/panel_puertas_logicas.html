@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simulador de puertas lógicas</title>
+  <style>
+    :root {
+      --card: #ffffff;
+      --border: #cbd5e1;
+      --primary: #1e40af;
+      --primary-light: #3b82f6;
+      --text: #1e293b;
+      --muted: #64748b;
+      --on: #16a34a;
+      --off: #dc2626;
+      --wire: #334155;
+      --shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: Verdana, 'DejaVu Sans', Arial, sans-serif;
+      background: transparent;
+      color: var(--text);
+      line-height: 1.45;
+      padding: 4px;
+    }
+
+    .panel {
+      max-width: 780px;
+      margin: 0 auto;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .panel-header {
+      background: linear-gradient(135deg, #1e3a8a, #1e40af);
+      color: white;
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .panel-header h2 { font-size: 1.1rem; font-weight: 600; }
+    .gate-thumb:focus-visible, .style-toggle button:focus-visible, .switch:focus-visible {
+      outline: 3px solid #f59e0b;
+      outline-offset: 2px;
+    }
+    .style-toggle button:focus-visible { outline-offset: -3px; }
+    .visually-hidden {
+      position: absolute; width: 1px; height: 1px; overflow: hidden;
+      clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap;
+    }
+
+    .toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      padding: 12px 10px;
+      background: #e2e8f0;
+      border-bottom: 1px solid var(--border);
+      justify-content: center;
+    }
+
+    .gate-thumb {
+      width: 64px;
+      height: 62px;
+      background: white;
+      border: 2px solid var(--border);
+      border-radius: 10px;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.15s;
+      padding: 4px 2px 2px;
+      user-select: none;
+    }
+    .gate-thumb:hover {
+      border-color: var(--primary-light);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(30,64,175,0.15);
+    }
+    .gate-thumb.active {
+      border-color: var(--primary);
+      background: #dbeafe;
+      box-shadow: 0 0 0 2px rgba(30,64,175,0.25);
+    }
+    .gate-thumb svg {
+      width: 56px;
+      height: 36px;
+      overflow: visible;
+    }
+    .gate-thumb .thumb-label {
+      font-size: 0.68rem;
+      font-weight: 700;
+      color: var(--muted);
+      margin-top: 1px;
+      letter-spacing: 0.02em;
+    }
+    .gate-thumb.active .thumb-label { color: var(--primary); }
+
+    .style-bar {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 8px 14px;
+      background: #f8fafc;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.85rem;
+    }
+    .style-bar span { color: var(--muted); font-weight: 500; }
+    .style-toggle {
+      display: flex;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .style-toggle button {
+      border: none;
+      background: white;
+      padding: 5px 14px;
+      font-size: 0.82rem;
+      cursor: pointer;
+      color: var(--muted);
+      transition: all 0.15s;
+    }
+    .style-toggle button.active {
+      background: var(--primary);
+      color: white;
+      font-weight: 600;
+    }
+    .style-toggle button:first-child { border-right: 1px solid var(--border); }
+
+    .workspace {
+      display: grid;
+      grid-template-columns: 1fr;
+    }
+    @media (min-width: 620px) {
+      .workspace { grid-template-columns: 1.35fr 0.9fr; }
+    }
+
+    .gate-stage {
+      position: relative;
+      padding: 20px 12px 28px;
+      min-height: 320px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: #fff;
+    }
+
+    .gate-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 2px;
+    }
+    .gate-desc {
+      font-size: 0.82rem;
+      color: var(--muted);
+      text-align: center;
+      max-width: 300px;
+      margin-bottom: 4px;
+    }
+    .gate-expr {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text);
+      text-align: center;
+      margin-bottom: 10px;
+    }
+    .gate-expr .neg { text-decoration: overline; }
+    .estado {
+      display: block;
+      font-size: 0.8rem;
+      color: var(--muted);
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .symbol-wrap {
+      position: relative;
+      width: 100%;
+      max-width: 380px;
+      height: 240px;
+    }
+    .symbol-wrap svg {
+      width: 100%;
+      height: 100%;
+      overflow: visible;
+    }
+
+    .pin-control {
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3px;
+      z-index: 5;
+    }
+    .pin-control .pin-name {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: #334155;
+    }
+    .switch {
+      display: block;
+      width: 48px;
+      height: 26px;
+      padding: 0;
+      font: inherit;
+      background: #e2e8f0;
+      border-radius: 999px;
+      cursor: pointer;
+      border: 2px solid #94a3b8;
+      position: relative;
+      transition: background 0.18s, border-color 0.18s;
+    }
+    .switch.on {
+      background: var(--on);
+      border-color: #15803d;
+    }
+    .switch::after {
+      content: "";
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      width: 18px;
+      height: 18px;
+      background: white;
+      border-radius: 50%;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.25);
+      transition: transform 0.18s;
+    }
+    .switch.on::after { transform: translateX(22px); }
+
+    .val-tag {
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 1px 7px;
+      border-radius: 5px;
+      min-width: 22px;
+      text-align: center;
+    }
+    .val-tag.high { background: #dcfce7; color: #166534; }
+    .val-tag.low  { background: #fee2e2; color: #991b1b; }
+
+    .out-led {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      border: 3px solid #94a3b8;
+      background: #e2e8f0;
+      box-shadow: inset 0 2px 4px rgba(0,0,0,0.12);
+      transition: all 0.2s;
+    }
+    .out-led.on {
+      background: #22c55e;
+      border-color: #16a34a;
+      box-shadow: 0 0 14px rgba(34,197,94,0.65);
+    }
+    .out-led.off {
+      background: #ef4444;
+      border-color: #dc2626;
+      box-shadow: 0 0 10px rgba(239,68,68,0.45);
+    }
+
+    .side-panel {
+      padding: 16px;
+      background: #f8fafc;
+      border-top: 1px solid var(--border);
+    }
+    @media (min-width: 620px) {
+      .side-panel {
+        border-top: none;
+        border-left: 1px solid var(--border);
+      }
+    }
+    .side-panel h3 {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+
+    .truth-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+    }
+    .truth-table th, .truth-table td {
+      border: 1px solid var(--border);
+      padding: 6px 8px;
+      text-align: center;
+    }
+    .truth-table th { background: #e2e8f0; font-weight: 600; }
+    .truth-table tr.current { background: #dbeafe; font-weight: 600; }
+    .truth-table td.out-1 { color: #166534; font-weight: 700; }
+    .truth-table td.out-0 { color: #991b1b; }
+
+    .footer-note {
+      font-size: 0.72rem;
+      color: var(--muted);
+      text-align: center;
+      padding: 8px 14px;
+      border-top: 1px solid var(--border);
+      background: #e2e8f0;
+    }
+
+    .wire { stroke: var(--wire); stroke-width: 2.8; fill: none; }
+    .gate-body { fill: #e0f2fe; stroke: #0369a1; stroke-width: 2.6; }
+    .gate-body.iso { fill: #f0fdf4; stroke: #15803d; }
+    .bubble { fill: #fff; stroke: #0369a1; stroke-width: 2.2; }
+    .bubble.iso { stroke: #15803d; }
+    .label-text { font-family: Verdana, 'DejaVu Sans', Arial, sans-serif; font-size: 15px; font-weight: 700; fill: #1e293b; }
+
+    .thumb-wire { stroke: #475569; stroke-width: 2; fill: none; }
+    .thumb-body { fill: #e0f2fe; stroke: #0369a1; stroke-width: 2; }
+    .thumb-bubble { fill: #fff; stroke: #0369a1; stroke-width: 1.6; }
+  </style>
+</head>
+<body>
+  <div class="panel" id="logic-panel">
+    <div class="panel-header">
+      <h2>Puertas lógicas</h2>
+    </div>
+
+    <div class="toolbar" id="toolbar" role="toolbar" aria-label="Seleccionar puerta lógica">
+    </div>
+
+    <div class="style-bar">
+      <span id="style-label">Símbolo:</span>
+      <div class="style-toggle" id="style-toggle" role="group" aria-labelledby="style-label">
+        <button type="button" data-style="ansi" class="active" aria-pressed="true">ANSI / EE.UU.</button>
+        <button type="button" data-style="iso" aria-pressed="false">ISO / IEC</button>
+      </div>
+    </div>
+
+    <div class="workspace">
+      <div class="gate-stage">
+        <div class="gate-title" id="gate-name">AND</div>
+        <div class="gate-desc" id="gate-desc" aria-live="polite">Salida = 1 solo si todas las entradas son 1</div>
+        <p class="gate-expr" id="gate-expr"></p>
+        <div class="symbol-wrap" id="symbol-wrap">
+        </div>
+        <output class="estado" id="estado" aria-live="polite"></output>
+      </div>
+
+      <div class="side-panel">
+        <h3 id="tt-title">Tabla de verdad</h3>
+        <table class="truth-table" id="truth-table" aria-labelledby="tt-title"></table>
+      </div>
+    </div>
+
+    <div class="footer-note">
+      Pulsa una miniatura para elegir la puerta · Cambia las entradas con los interruptores (también con Tab y Espacio)
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      "use strict";
+
+      const GATES = {
+        NOT: {
+          name: "NOT",
+          desc: "Inversor: la salida es el complemento de la entrada",
+          inputs: 1,
+          fn: (a) => a === 0 ? 1 : 0,
+          truth: [[0,1],[1,0]]
+        },
+        AND: {
+          name: "AND",
+          desc: "Salida = 1 solo si todas las entradas son 1",
+          inputs: 2,
+          fn: (a,b) => (a && b) ? 1 : 0,
+          truth: [[0,0,0],[0,1,0],[1,0,0],[1,1,1]]
+        },
+        OR: {
+          name: "OR",
+          desc: "Salida = 1 si al menos una entrada es 1",
+          inputs: 2,
+          fn: (a,b) => (a || b) ? 1 : 0,
+          truth: [[0,0,0],[0,1,1],[1,0,1],[1,1,1]]
+        },
+        NAND: {
+          name: "NAND",
+          desc: "Negación de AND: salida = 0 solo si todas las entradas son 1",
+          inputs: 2,
+          fn: (a,b) => (a && b) ? 0 : 1,
+          truth: [[0,0,1],[0,1,1],[1,0,1],[1,1,0]]
+        },
+        NOR: {
+          name: "NOR",
+          desc: "Negación de OR: salida = 1 solo si todas las entradas son 0",
+          inputs: 2,
+          fn: (a,b) => (a || b) ? 0 : 1,
+          truth: [[0,0,1],[0,1,0],[1,0,0],[1,1,0]]
+        },
+        XOR: {
+          name: "XOR",
+          desc: "O exclusiva: salida = 1 si las entradas son distintas",
+          inputs: 2,
+          fn: (a,b) => (a !== b) ? 1 : 0,
+          truth: [[0,0,0],[0,1,1],[1,0,1],[1,1,0]]
+        },
+        XNOR: {
+          name: "XNOR",
+          desc: "Equivalencia: salida = 1 si las entradas son iguales",
+          inputs: 2,
+          fn: (a,b) => (a === b) ? 1 : 0,
+          truth: [[0,0,1],[0,1,0],[1,0,0],[1,1,1]]
+        }
+      };
+
+      const ORDER = ["NOT","AND","OR","NAND","NOR","XOR","XNOR"];
+
+      // Expresión algebraica con la notación del material (S, entradas A y B). Solo presentación.
+      const EXPR = {
+        NOT:  'S = <span class="neg">A</span>',
+        AND:  'S = A · B',
+        OR:   'S = A + B',
+        NAND: 'S = <span class="neg">A · B</span>',
+        NOR:  'S = <span class="neg">A + B</span>',
+        XOR:  'S = A ⊕ B',
+        XNOR: 'S = <span class="neg">A ⊕ B</span>'
+      };
+      const SYM_DESC = {
+        ansi: "Símbolo ANSI de la puerta",
+        iso: "Símbolo IEC de la puerta"
+      };
+
+      let currentGate = "AND";
+      let symbolStyle = "ansi";
+      let inputs = [0, 0];
+
+      const el = {
+        toolbar: document.getElementById("toolbar"),
+        styleToggle: document.getElementById("style-toggle"),
+        symbolWrap: document.getElementById("symbol-wrap"),
+        truthTable: document.getElementById("truth-table"),
+        gateName: document.getElementById("gate-name"),
+        gateDesc: document.getElementById("gate-desc"),
+        gateExpr: document.getElementById("gate-expr"),
+        estado: document.getElementById("estado")
+      };
+
+      function thumbSVG(gate) {
+        if (gate === "NOT") {
+          return '<svg viewBox="0 0 60 40" aria-hidden="true" focusable="false"><polygon points="12,8 12,32 38,20" class="thumb-body"/><circle cx="42" cy="20" r="4" class="thumb-bubble"/><line x1="2" y1="20" x2="12" y2="20" class="thumb-wire"/><line x1="46" y1="20" x2="56" y2="20" class="thumb-wire"/></svg>';
+        }
+        if (gate === "AND" || gate === "NAND") {
+          let s = '<path d="M10,8 L26,8 Q42,8 42,20 Q42,32 26,32 L10,32 Z" class="thumb-body"/>';
+          if (gate === "NAND") s += '<circle cx="46" cy="20" r="4" class="thumb-bubble"/>';
+          const ox = gate === "NAND" ? 50 : 42;
+          s += '<line x1="2" y1="14" x2="10" y2="14" class="thumb-wire"/><line x1="2" y1="26" x2="10" y2="26" class="thumb-wire"/><line x1="' + ox + '" y1="20" x2="56" y2="20" class="thumb-wire"/>';
+          return '<svg viewBox="0 0 60 40" aria-hidden="true" focusable="false">' + s + '</svg>';
+        }
+        if (gate === "OR" || gate === "NOR") {
+          let s = '<path d="M10,8 C26,8 36,12 44,20 C36,28 26,32 10,32 C22,20 22,20 10,8 Z" class="thumb-body"/>';
+          if (gate === "NOR") s += '<circle cx="48" cy="20" r="4" class="thumb-bubble"/>';
+          const ox = gate === "NOR" ? 52 : 44;
+          s += '<line x1="2" y1="14" x2="14" y2="14" class="thumb-wire"/><line x1="2" y1="26" x2="14" y2="26" class="thumb-wire"/><line x1="' + ox + '" y1="20" x2="56" y2="20" class="thumb-wire"/>';
+          return '<svg viewBox="0 0 60 40" aria-hidden="true" focusable="false">' + s + '</svg>';
+        }
+        let s = '<path d="M16,8 C30,8 38,12 46,20 C38,28 30,32 16,32 C26,20 26,20 16,8 Z" class="thumb-body"/><path d="M8,8 C18,20 18,20 8,32" fill="none" stroke="#0369a1" stroke-width="2"/>';
+        if (gate === "XNOR") s += '<circle cx="50" cy="20" r="4" class="thumb-bubble"/>';
+        const ox = gate === "XNOR" ? 54 : 46;
+        s += '<line x1="2" y1="14" x2="14" y2="14" class="thumb-wire"/><line x1="2" y1="26" x2="14" y2="26" class="thumb-wire"/><line x1="' + ox + '" y1="20" x2="56" y2="20" class="thumb-wire"/>';
+        return '<svg viewBox="0 0 60 40" aria-hidden="true" focusable="false">' + s + '</svg>';
+      }
+
+      function buildToolbar() {
+        let html = "";
+        ORDER.forEach(function(g) {
+          html += '<button type="button" class="gate-thumb' + (g === currentGate ? " active" : "") + '" data-gate="' + g + '" aria-pressed="' + (g === currentGate) + '" aria-label="Puerta ' + g + '">' +
+            thumbSVG(g) +
+            '<span class="thumb-label">' + g + '</span></button>';
+        });
+        el.toolbar.innerHTML = html;
+        el.toolbar.querySelectorAll(".gate-thumb").forEach(function(btn) {
+          btn.addEventListener("click", function() {
+            currentGate = btn.dataset.gate;
+            inputs = currentGate === "NOT" ? [0] : [0, 0];
+            updateAll();
+          });
+        });
+        // Teclado: flechas para recorrer las miniaturas (la elegida se activa con Enter o Espacio)
+        el.toolbar.addEventListener("keydown", function(e) {
+          if (e.key !== "ArrowLeft" && e.key !== "ArrowRight" && e.key !== "Home" && e.key !== "End") return;
+          var btns = Array.prototype.slice.call(el.toolbar.querySelectorAll(".gate-thumb"));
+          var i = btns.indexOf(document.activeElement);
+          if (i < 0) return;
+          e.preventDefault();
+          if (e.key === "ArrowLeft") i = (i - 1 + btns.length) % btns.length;
+          else if (e.key === "ArrowRight") i = (i + 1) % btns.length;
+          else if (e.key === "Home") i = 0;
+          else i = btns.length - 1;
+          btns[i].focus();
+        });
+      }
+
+      function svgANSI(gate) {
+        var vb = "0 0 360 220";
+        var body = "", wires = "";
+
+        if (gate === "NOT") {
+          body = '<polygon points="130,55 130,165 240,110" class="gate-body"/><circle cx="250" cy="110" r="10" class="bubble"/>';
+          wires = '<line x1="70" y1="110" x2="130" y2="110" class="wire"/><line x1="260" y1="110" x2="320" y2="110" class="wire"/>';
+        } else if (gate === "AND" || gate === "NAND") {
+          body = '<path d="M120,50 L185,50 Q255,50 255,110 Q255,170 185,170 L120,170 Z" class="gate-body"/>';
+          if (gate === "NAND") body += '<circle cx="265" cy="110" r="10" class="bubble"/>';
+          var ox = gate === "NAND" ? 275 : 255;
+          wires = '<line x1="60" y1="75" x2="120" y2="75" class="wire"/><line x1="60" y1="145" x2="120" y2="145" class="wire"/><line x1="' + ox + '" y1="110" x2="320" y2="110" class="wire"/>';
+        } else if (gate === "OR" || gate === "NOR") {
+          body = '<path d="M115,50 C175,50 220,65 250,110 C220,155 175,170 115,170 C155,110 155,110 115,50 Z" class="gate-body"/>';
+          if (gate === "NOR") body += '<circle cx="260" cy="110" r="10" class="bubble"/>';
+          var ox2 = gate === "NOR" ? 270 : 250;
+          wires = '<line x1="60" y1="75" x2="130" y2="75" class="wire"/><line x1="60" y1="145" x2="130" y2="145" class="wire"/><line x1="' + ox2 + '" y1="110" x2="320" y2="110" class="wire"/>';
+        } else {
+          body = '<path d="M135,50 C190,50 230,65 260,110 C230,155 190,170 135,170 C170,110 170,110 135,50 Z" class="gate-body"/><path d="M110,50 C145,110 145,110 110,170" fill="none" stroke="#0369a1" stroke-width="2.6"/>';
+          if (gate === "XNOR") body += '<circle cx="270" cy="110" r="10" class="bubble"/>';
+          var ox3 = gate === "XNOR" ? 280 : 260;
+          wires = '<line x1="60" y1="75" x2="130" y2="75" class="wire"/><line x1="60" y1="145" x2="130" y2="145" class="wire"/><line x1="' + ox3 + '" y1="110" x2="320" y2="110" class="wire"/>';
+        }
+        return '<svg viewBox="' + vb + '" xmlns="http://www.w3.org/2000/svg">' + body + wires + '</svg>';
+      }
+
+      function svgISO(gate) {
+        var vb = "0 0 360 220";
+        var body = "", wires = "", symbol = "";
+        var rect = '<rect x="130" y="55" width="110" height="110" rx="4" class="gate-body iso"/>';
+
+        if (gate === "NOT") {
+          body = rect + '<circle cx="250" cy="110" r="10" class="bubble iso"/>';
+          symbol = '<text x="185" y="118" class="label-text" text-anchor="middle">1</text>';
+          wires = '<line x1="70" y1="110" x2="130" y2="110" class="wire"/><line x1="260" y1="110" x2="320" y2="110" class="wire"/>';
+        } else {
+          body = rect;
+          var syms = { AND:"&", OR:"≥1", NAND:"&", NOR:"≥1", XOR:"=1", XNOR:"=1" };
+          symbol = '<text x="185" y="118" class="label-text" text-anchor="middle">' + syms[gate] + '</text>';
+          var hasBubble = (gate === "NAND" || gate === "NOR" || gate === "XNOR");
+          if (hasBubble) body += '<circle cx="250" cy="110" r="10" class="bubble iso"/>';
+          var ox = hasBubble ? 260 : 240;
+          wires = '<line x1="60" y1="80" x2="130" y2="80" class="wire"/><line x1="60" y1="140" x2="130" y2="140" class="wire"/><line x1="' + ox + '" y1="110" x2="320" y2="110" class="wire"/>';
+        }
+        return '<svg viewBox="' + vb + '" xmlns="http://www.w3.org/2000/svg">' + body + symbol + wires + '</svg>';
+      }
+
+      function getPinPositions(gate, style) {
+        if (gate === "NOT") {
+          return { inputs: [{ x: 8, y: 46 }], output: { x: 90, y: 46 } };
+        }
+        if (style === "iso") {
+          return { inputs: [{ x: 8, y: 30 }, { x: 8, y: 62 }], output: { x: 90, y: 46 } };
+        }
+        return { inputs: [{ x: 8, y: 28 }, { x: 8, y: 64 }], output: { x: 90, y: 46 } };
+      }
+
+      function renderSymbol() {
+        var g = GATES[currentGate];
+        var svg = symbolStyle === "ansi" ? svgANSI(currentGate) : svgISO(currentGate);
+        svg = svg.replace('<svg ', '<svg role="img" aria-labelledby="sym-title sym-desc" ')
+                 .replace('>', '><title id="sym-title">' + SYM_DESC[symbolStyle] + ' ' + g.name + '</title><desc id="sym-desc">' + g.desc + '. Entradas a la izquierda, salida S a la derecha.</desc>');
+        var pos = getPinPositions(currentGate, symbolStyle);
+        var controls = "";
+
+        pos.inputs.forEach(function(p, i) {
+          var val = inputs[i] || 0;
+          var name = String.fromCharCode(65 + i);
+          controls += '<div class="pin-control" style="left:' + p.x + '%; top:' + p.y + '%; transform:translate(-50%,-50%);">' +
+            '<span class="pin-name" aria-hidden="true">' + name + '</span>' +
+            '<button type="button" class="switch ' + (val ? "on" : "") + '" data-idx="' + i + '" aria-pressed="' + (val ? "true" : "false") + '" aria-label="Entrada ' + name + '"></button>' +
+            '<output class="val-tag ' + (val ? "high" : "low") + '" aria-label="Valor de ' + name + '">' + val + '</output></div>';
+        });
+
+        var y = g.fn.apply(null, inputs);
+        controls += '<div class="pin-control" style="left:' + pos.output.x + '%; top:' + pos.output.y + '%; transform:translate(-50%,-50%);">' +
+          '<span class="pin-name" aria-hidden="true">S</span>' +
+          '<div class="out-led ' + (y ? "on" : "off") + '" aria-hidden="true"></div>' +
+          '<output class="val-tag ' + (y ? "high" : "low") + '" aria-label="Salida S">' + y + '</output></div>';
+
+        el.symbolWrap.innerHTML = svg + controls;
+
+        el.symbolWrap.querySelectorAll(".switch").forEach(function(sw) {
+          sw.addEventListener("click", function() {
+            var idx = +sw.dataset.idx;
+            inputs[idx] = inputs[idx] ? 0 : 1;
+            updateAll();
+            // el símbolo se redibuja: devolver el foco al mismo interruptor
+            var again = el.symbolWrap.querySelector('.switch[data-idx="' + idx + '"]');
+            if (again) again.focus();
+          });
+        });
+        var partes = [];
+        for (var k = 0; k < g.inputs; k++) partes.push(String.fromCharCode(65 + k) + " = " + (inputs[k] || 0));
+        el.estado.textContent = partes.join(", ") + "  →  S = " + y;
+      }
+
+      function renderTruthTable() {
+        var g = GATES[currentGate];
+        var nIn = g.inputs;
+        var html = "<thead><tr>";
+        for (var i = 0; i < nIn; i++) html += '<th scope="col">' + String.fromCharCode(65 + i) + "</th>";
+        html += '<th scope="col">S</th></tr></thead><tbody>';
+
+        g.truth.forEach(function(row) {
+          var inVals = row.slice(0, nIn);
+          var out = row[nIn];
+          var isCurrent = inVals.every(function(v, i) { return v === inputs[i]; });
+          html += '<tr class="' + (isCurrent ? "current" : "") + '"' + (isCurrent ? ' aria-current="true"' : "") + '>';
+          inVals.forEach(function(v) { html += "<td>" + v + "</td>"; });
+          html += '<td class="out-' + out + '">' + out + "</td></tr>";
+        });
+        html += "</tbody>";
+        el.truthTable.innerHTML = html;
+      }
+
+      function updateAll() {
+        var g = GATES[currentGate];
+        el.gateName.textContent = g.name;
+        el.gateDesc.textContent = g.desc;
+        el.gateExpr.innerHTML = EXPR[g.name];
+
+        el.toolbar.querySelectorAll(".gate-thumb").forEach(function(btn) {
+          var on = btn.dataset.gate === currentGate;
+          btn.classList.toggle("active", on);
+          btn.setAttribute("aria-pressed", on ? "true" : "false");
+        });
+
+        while (inputs.length < g.inputs) inputs.push(0);
+        inputs = inputs.slice(0, g.inputs);
+
+        renderSymbol();
+        renderTruthTable();
+      }
+
+      el.styleToggle.querySelectorAll("button").forEach(function(btn) {
+        btn.addEventListener("click", function() {
+          el.styleToggle.querySelectorAll("button").forEach(function(b) { b.classList.remove("active"); b.setAttribute("aria-pressed", "false"); });
+          btn.classList.add("active");
+          btn.setAttribute("aria-pressed", "true");
+          symbolStyle = btn.dataset.style;
+          renderSymbol();
+        });
+      });
+
+      buildToolbar();
+      updateAll();
+    })();
+  </script>
+</body>
+</html>

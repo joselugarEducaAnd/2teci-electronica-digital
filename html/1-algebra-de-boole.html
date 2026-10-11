@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="es" id="exe-page-mtpmhm5f-s7ik2vxaf">
+<head>
+<meta charset="utf-8">
+<meta name="generator" content="eXeLearning v4.0.5">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="license" type="text/html" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+<title>1. Álgebra de Boole | Electrónica digital</title>
+<link rel="icon" type="image/x-icon" href="../libs/favicon.ico">
+<meta name="description" content="Electrónica digital. Tecnología e Ingeniería II.">
+<script>document.querySelector("html").classList.add("js");</script><script src="../libs/jquery/jquery.min.js"> </script><script src="../libs/common_i18n.js"> </script><script src="../libs/common.js"> </script><script src="../libs/exe_export.js"> </script><script src="../libs/bootstrap/bootstrap.bundle.min.js"> </script><link rel="stylesheet" href="../libs/bootstrap/bootstrap.min.css">
+<script src="../idevices/text/text.js"></script><link rel="stylesheet" href="../idevices/text/text.css">
+<link rel="stylesheet" href="../content/css/base.css"><script src="../theme/style.js"> </script><script src="../theme/zzz-majuelo.js"> </script><link rel="stylesheet" href="../theme/style.css"><link rel="stylesheet" href="../theme/zzz-majuelo.css">
+<script src="../libs/exe_math/tex-mml-svg.js"> </script>
+</head>
+<body class="exe-export exe-web-site">
+<script>document.body.className+=" js"</script>
+<div class="exe-content exe-export pre-js siteNav-hidden"><a href="#page-mtpmhm5f-s7ik2vxaf" id="skipNav">Skip to content</a> <nav id="siteNav">
+<ul>
+<li> <a href="../index.html" class="main-node no-ch">Electrónica digital</a>
+</li>
+<li> <a href="../html/0-sistemas-de-numeracion.html" class="no-ch">0. Sistemas de numeración</a>
+</li>
+<li class="active"> <a href="../html/1-algebra-de-boole.html" class="active no-ch">1. Álgebra de Boole</a>
+</li>
+<li> <a href="../html/2-funciones-logicas.html" class="no-ch">2. Funciones lógicas</a>
+</li>
+<li> <a href="../html/3-simplificacion-de-funciones-logicas.html" class="no-ch">3. Simplificación de funciones lógicas</a>
+</li>
+<li> <a href="../html/4-puertas-logicas.html" class="no-ch">4. Puertas lógicas</a>
+</li>
+<li> <a href="../html/5-diseno-de-circuitos-logicos-combinacionales.html" class="daddy">5. Diseño de circuitos lógicos combinacionales</a>
+<ul class="other-section">
+<li> <a href="../html/51-ejemplos-de-circuitos-combinacionales-integrado.html" class="no-ch">5.1. Ejemplos de circuitos combinacionales integrados</a>
+</li>
+<li> <a href="../html/52-herramientas-de-simulacion.html" class="no-ch">5.2. Herramientas de simulación</a>
+</li>
+</ul>
+</li>
+<li> <a href="../html/6-ejercicios-finales.html" class="no-ch">6. Ejercicios finales</a>
+</li>
+<li> <a href="../html/7-ampliacion-circuitos-secuenciales.html" class="no-ch">7. Ampliación: circuitos secuenciales</a>
+</li>
+</ul>
+</nav><main id="page-mtpmhm5f-s7ik2vxaf" class="page"> 
+<header class="main-header">
+<div class="package-header"><p class="package-title">Electrónica digital</p></div>
+<div class="page-header"><h1 class="page-title">1. Álgebra de Boole</h1></div>
+</header><div id="page-content-page-mtpmhm5f-s7ik2vxaf" class="page-content">
+<article id="block-mtpmhm5f-f9i46yem0" class="box">
+<header class="box-head no-icon">
+<h1 class="box-title">Conceptos básicos del álgebra de Boole</h1>
+<button class="box-toggle box-toggle-on" title="Toggle content">
+<span>Toggle content</span>
+</button></header>
+<div class="box-content">
+<div id="idevice-mtpmhm5f-mk3ghjpox" class="idevice_node text" data-idevice-path="../idevices/text/" data-idevice-type="text" data-idevice-component-type="json" data-idevice-json-data="{&quot;ideviceId&quot;:&quot;idevice-mtpmhm5f-mk3ghjpox&quot;}">
+<style class="chrome-sda">.exe-content{--chrome:#6b3d94;--chrome-osc:#522975;--chrome-tinte:#f4eff8;--chrome-linea:#d9c9e5}</style><p>George Boole fue un matemático británico que desarrolló el álgebra que lleva su nombre en 1847 y que es la <strong>base de la actual electrónica digital.</strong></p>
+<h1>Variables booleanas</h1>
+<p>El álgebra de Boole opera con <strong>variables booleanas</strong> que únicamente pueden tomar dos valores: falso o verdadero. Normalmente esos valores se designan por cero y uno (0 y 1) y representan estados diferentes de un dispositivo, interruptor abierto o cerrado, etc. En los circuitos electrónicos digitales representan si hay o no voltaje. Se pueden utilizar dos tipos diferentes de lógica:</p>
+<ul>
+<li><strong>Lógica positiva:</strong> se asocia el número <strong>1</strong> a un valor <strong>alto</strong> de tensión y el <strong>0</strong> a un valor <strong>bajo</strong>.</li>
+<li><strong>Lógica negativa:</strong> se asocia el número <strong>1</strong> a un valor <strong>bajo</strong> de tensión y el <strong>0</strong> a un valor <strong>alto</strong>.</li>
+</ul>
+<p>En realidad, los niveles altos y bajos no se definen por un único valor de voltaje, sino por una franja o zona en la que podemos considerar que tenemos un valor alto o bajo. Por ejemplo, en el caso de los circuitos TTL (transistor-transistor logic), si se aplica una tensión que varía entre 2,4 V y 5 V se interpreta como un nivel <strong>alto</strong>, mientras que, si se aplica una tensión de entre 0 V y 0,8 V se interpreta como un nivel <strong>bajo</strong>.</p>
+<h1>Operaciones booleanas</h1>
+<p>A dichas variables booleanas se les pueden aplicar una serie de <strong>operaciones del álgebra de Boole</strong>, que dan como resultado otras variables también booleanas. Las tres operaciones básicas que se pueden utilizar en el álgebra de Boole son las siguientes:</p>
+<ul>
+<li><strong>Conjunción lógica (y):</strong> el resultado de la operación es verdadero sólo si <strong>todas las variables</strong> sobre las que se aplica <strong>son verdaderas.</strong> Por asimilación al álgebra numérica habitual, a esta operación se le denomina <strong>producto lógico</strong> y se representa mediante un punto (·) al igual que el producto algebraico numérico habitual (A·B). Funciona como el producto numérico normal al identificar verdadero como 1 y falso como 0, es decir:
+<ul>
+<li>0 · 0 = 0</li>
+<li>0 · 1 = 1 · 0 = 0</li>
+<li>1 · 1 = 1</li>
+</ul>
+</li>
+<li><strong>Disyunción lógica (o):</strong> el resultado de la operación es verdadero con que <strong>una sola (o más)</strong> de las variables sobre las que se aplique <strong>sea verdadera.</strong> Por asimilación al álgebra numérica, a esta operación se le denomina <strong>suma lógica</strong> y se representa por el signo más (+), al igual que la suma algebraica numérica habitual (<strong>A+B</strong>). Se comporta como la suma numérica normal, salvo en el caso de sumar 1 + 1, cuyo resultado es 1:
+<ul>
+<li>0 + 0 = 0</li>
+<li>0 + 1 = 1 + 0 = 1</li>
+<li>1 + 1 = 1</li>
+</ul>
+</li>
+<li><strong>Negación lógica (no):</strong> esta operación se aplica sobre una variable lógica y cambia su valor al contrario. Es decir, si la variable era verdadera la cambia a falsa y si era falsa la cambia a verdadera. Esta operación no tiene equivalente en el álgebra numérica habitual y se representa mediante una barra horizontal sobre la variable que se va a negar (<strong><span style="text-decoration: overline;">A</span></strong>).</li>
+</ul>
+</div>
+</div>
+</article><article id="block-mtpmhm5f-3wc4vrizy" class="box">
+<header class="box-head no-icon">
+<h1 class="box-title">Principios del álgebra de Boole</h1>
+<button class="box-toggle box-toggle-on" title="Toggle content">
+<span>Toggle content</span>
+</button></header>
+<div class="box-content">
+<div id="idevice-mtpmhm5f-d1kxqibi1" class="idevice_node text" data-idevice-path="../idevices/text/" data-idevice-type="text" data-idevice-component-type="json" data-idevice-json-data="{&quot;ideviceId&quot;:&quot;idevice-mtpmhm5f-d1kxqibi1&quot;}">
+<p>Para definir el álgebra de Boole se parte de una serie de axiomas necesarios, a partir de los cuales se pueden deducir ciertos teoremas. Tenemos que conocer tanto los axiomas como los teoremas para poder operar correctamente y, sobre todo, simplificar las funciones lógicas.</p>
+<p>Como existe un principio llamado <strong>principio de dualidad,</strong> que dice que&nbsp;a toda relación o ley lógica le corresponderá su <strong>dual</strong>, formada mediante el <strong>intercambio de los operadores&nbsp;suma</strong>&nbsp;con los de&nbsp;<strong>producto</strong>, y del <strong>elemento 1</strong> con el <strong>0</strong>. Por lo tanto, podemos estudiar los axiomas y los teoremas en paralelo para la suma y para el producto lógico, pues son análogos aplicando la dualidad entre unos y otros.</p>
+<h1>Axiomas</h1>
+<table class="tabla-datos">
+<thead>
+<tr>
+<th style="text-align: center;">AXIOMA</th>
+<th style="text-align: center;">PARA LA SUMA</th>
+<th style="text-align: center;">PARA EL PRODUCTO</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Propiedad <strong>conmutativa</strong></td>
+<td style="text-align: center;"><strong>A + B = B + A</strong></td>
+<td style="text-align: center;"><strong>A · B = B · A</strong></td>
+</tr>
+<tr>
+<td>Propiedad <strong>asociativa</strong></td>
+<td style="text-align: center;"><strong>(A + B) + C = A + (B + C)</strong></td>
+<td style="text-align: center;"><strong>(A · B) · C = A · (B · C)</strong></td>
+</tr>
+<tr>
+<td>Propiedad <strong>distributiva</strong></td>
+<td style="text-align: center;"><strong>A + (B · C) = (A + B) · (A + C)</strong></td>
+<td style="text-align: center;">A · (B + C) = (A · B) + (A · C)</td>
+</tr>
+<tr>
+<td>Elemento <strong>neutro</strong></td>
+<td style="text-align: center;">A + 0 = A</td>
+<td style="text-align: center;">A · 1 = A</td>
+</tr>
+<tr>
+<td>Elemento <strong>complementario</strong></td>
+<td style="text-align: center;">A + <span style="text-decoration: overline;">A</span> = 1</td>
+<td style="text-align: center;">A · <span style="text-decoration: overline;">A</span> = 0</td>
+</tr>
+</tbody>
+</table>
+<h1>Teoremas</h1>
+<table class="tabla-datos">
+<thead>
+<tr>
+<th style="text-align: center;">TEOREMA</th>
+<th style="text-align: center;">PARA LA SUMA</th>
+<th style="text-align: center;">PARA EL PRODUCTO</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ley de<strong> idempotencia</strong></td>
+<td style="text-align: center;"><strong>A + A = A</strong></td>
+<td style="text-align: center;"><strong>A · A = A</strong></td>
+</tr>
+<tr>
+<td>Ley de <strong>dominación</strong></td>
+<td style="text-align: center;"><strong>A + 1 = 1</strong></td>
+<td style="text-align: center;"><strong>A · 0 = 0</strong></td>
+</tr>
+<tr>
+<td>Ley de <strong>involución</strong></td>
+<td style="text-align: center;"><span style="text-decoration: overline; text-decoration-style: double;">A</span> = A</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td>Ley de&nbsp;<strong>absorción</strong></td>
+<td style="text-align: center;">A + (A · B) = A</td>
+<td style="text-align: center;">A · (A + B) = A</td>
+</tr>
+<tr>
+<td>Leyes de&nbsp;<strong>Morgan</strong></td>
+<td style="text-align: center;"><span style="text-decoration-line: overline;">A + B</span>&nbsp;=&nbsp;<span style="text-decoration: overline;">A</span>&nbsp;·&nbsp;<span style="text-decoration: overline;">B</span></td>
+<td style="text-align: center;"><span style="text-decoration-line: overline;">A · B</span>&nbsp;=&nbsp;<span style="text-decoration: overline;">A</span>&nbsp;+&nbsp;<span style="text-decoration: overline;">B</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</article>
+</div></main><div class="nav-buttons">
+<a href="../html/0-sistemas-de-numeracion.html" title="Anterior" class="nav-button nav-button-left"><span>Anterior</span></a>
+<a href="../html/2-funciones-logicas.html" title="Siguiente" class="nav-button nav-button-right"><span>Siguiente</span></a>
+</div>
+<footer id="siteFooter"><div id="siteFooterContent"> <div id="packageLicense" class="cc cc-by-nc-sa"> <p> <span class="license-label">Licencia: </span><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="license">Creative Commons: Reconocimiento - no comercial - compartir igual 4.0</a></p>
+</div>
+</div></footer>
+</div>
+
+</body>
+</html>

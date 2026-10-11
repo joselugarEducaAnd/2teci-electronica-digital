@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="es" id="exe-page-mtpmhm5f-sv5s2dhn2">
+<head>
+<meta charset="utf-8">
+<meta name="generator" content="eXeLearning v4.0.5">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="license" type="text/html" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+<title>2. Funciones lógicas | Electrónica digital</title>
+<link rel="icon" type="image/x-icon" href="../libs/favicon.ico">
+<meta name="description" content="Electrónica digital. Tecnología e Ingeniería II.">
+<script>document.querySelector("html").classList.add("js");</script><script src="../libs/jquery/jquery.min.js"> </script><script src="../libs/common_i18n.js"> </script><script src="../libs/common.js"> </script><script src="../libs/exe_export.js"> </script><script src="../libs/bootstrap/bootstrap.bundle.min.js"> </script><link rel="stylesheet" href="../libs/bootstrap/bootstrap.min.css">
+<script src="../idevices/text/text.js"></script><link rel="stylesheet" href="../idevices/text/text.css">
+<script src="../libs/exe_effects/exe_effects.js"> </script>
+<link rel="stylesheet" href="../libs/exe_effects/exe_effects.css">
+<link rel="stylesheet" href="../content/css/base.css"><script src="../theme/style.js"> </script><script src="../theme/zzz-majuelo.js"> </script><link rel="stylesheet" href="../theme/style.css"><link rel="stylesheet" href="../theme/zzz-majuelo.css">
+<script src="../libs/exe_math/tex-mml-svg.js"> </script>
+</head>
+<body class="exe-export exe-web-site">
+<script>document.body.className+=" js"</script>
+<div class="exe-content exe-export pre-js siteNav-hidden"><a href="#page-mtpmhm5f-sv5s2dhn2" id="skipNav">Skip to content</a> <nav id="siteNav">
+<ul>
+<li> <a href="../index.html" class="main-node no-ch">Electrónica digital</a>
+</li>
+<li> <a href="../html/0-sistemas-de-numeracion.html" class="no-ch">0. Sistemas de numeración</a>
+</li>
+<li> <a href="../html/1-algebra-de-boole.html" class="no-ch">1. Álgebra de Boole</a>
+</li>
+<li class="active"> <a href="../html/2-funciones-logicas.html" class="active no-ch">2. Funciones lógicas</a>
+</li>
+<li> <a href="../html/3-simplificacion-de-funciones-logicas.html" class="no-ch">3. Simplificación de funciones lógicas</a>
+</li>
+<li> <a href="../html/4-puertas-logicas.html" class="no-ch">4. Puertas lógicas</a>
+</li>
+<li> <a href="../html/5-diseno-de-circuitos-logicos-combinacionales.html" class="daddy">5. Diseño de circuitos lógicos combinacionales</a>
+<ul class="other-section">
+<li> <a href="../html/51-ejemplos-de-circuitos-combinacionales-integrado.html" class="no-ch">5.1. Ejemplos de circuitos combinacionales integrados</a>
+</li>
+<li> <a href="../html/52-herramientas-de-simulacion.html" class="no-ch">5.2. Herramientas de simulación</a>
+</li>
+</ul>
+</li>
+<li> <a href="../html/6-ejercicios-finales.html" class="no-ch">6. Ejercicios finales</a>
+</li>
+<li> <a href="../html/7-ampliacion-circuitos-secuenciales.html" class="no-ch">7. Ampliación: circuitos secuenciales</a>
+</li>
+</ul>
+</nav><main id="page-mtpmhm5f-sv5s2dhn2" class="page"> 
+<header class="main-header">
+<div class="package-header"><p class="package-title">Electrónica digital</p></div>
+<div class="page-header"><h1 class="page-title">2. Funciones lógicas</h1></div>
+</header><div id="page-content-page-mtpmhm5f-sv5s2dhn2" class="page-content">
+<article id="block-mtpmhm5f-8q60vqb1z" class="box">
+<header class="box-head no-icon">
+<h1 class="box-title">Funciones lógicas</h1>
+<button class="box-toggle box-toggle-on" title="Toggle content">
+<span>Toggle content</span>
+</button></header>
+<div class="box-content">
+<div id="idevice-mtpmhm5f-27khgyfs2" class="idevice_node text" data-idevice-path="../idevices/text/" data-idevice-type="text" data-idevice-component-type="json" data-idevice-json-data="{&quot;ideviceId&quot;:&quot;idevice-mtpmhm5f-27khgyfs2&quot;}">
+<style class="chrome-sda">.exe-content{--chrome:#6b3d94;--chrome-osc:#522975;--chrome-tinte:#f4eff8;--chrome-linea:#d9c9e5}</style><p>Una función lógica es un conjunto de&nbsp;<strong>operaciones booleanas</strong>&nbsp;que se aplican sobre una serie de <strong>variables booleanas</strong> y que dan como resultado un <strong>valor booleano</strong> (verdadero o falso).</p>
+<p>Las funciones lógicas se pueden representar de dos formas distintas: mediante una expresión algebraica o mediante una tabla de verdad.</p>
+<div class="exe-fx exe-accordion">
+<h2>Expresión algebraica</h2>
+<p>Como ya hemos visto que las operaciones booleanas se representan mediante los símbolos <strong>·</strong>, <strong>+</strong> y&nbsp;<strong><span style="text-decoration: overline;">A</span></strong>, podemos expresar algebraicamente cualquier combinación de operaciones que se nos ocurra. Por ejemplo, esta podría ser una función lógica:</p>
+<p class="formula-bloque">\[\begin{matrix}S=A\cdot \overline{B}+A\cdot \overline{C\cdot D}+\\+\overline{A\cdot \overline{C}\cdot D}\end{matrix}\]</p>
+<h2>Tabla de verdad</h2>
+<p>Una función lógica también se puede expresar mediante una <strong>tabla de verdad</strong>, que consiste en colocar, en forma de tabla, <strong>todos los posibles valores de la función lógica para cada combinación de valores de sus variables booleanas</strong>.</p>
+<p>Como cada variable booleana puede tomar dos valores (0 y 1), el número de posibles combinaciones de valores será <strong>2<sup>n</sup></strong>, siendo <strong>n el número de variables booleanas de la función</strong>. Así pues, la tabla de verdad tendrá <strong>2<sup>n</sup> filas</strong>, <strong>n columnas</strong> para las diferentes variables y una columna extra para el <strong>valor de la función lógica</strong>.</p>
+<p>Para rellenar la tabla con todas las combinaciones posibles y no repetir ni olvidar ninguna, <strong>las filas de la tabla se rellenan con los valores que corresponderían a escribir en binario natural el número de cada fila, empezando por la fila cero.</strong></p>
+<p>Por ejemplo, para una función lógica con <strong>tres variables booleanas</strong> que tenga esta expresión algebraica:</p>
+<p class="formula-bloque">\[S=A\cdot (\overline{B}+ \overline{C})+\overline{A\cdot B}\cdot C\]</p>
+<p>La tabla de verdad sería la siguiente:</p>
+<table class="tabla-datos">
+<thead>
+<tr>
+<th style="text-align: center;">A</th>
+<th style="text-align: center;">B</th>
+<th style="text-align: center;">C</th>
+<th style="text-align: center;">S</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><strong>0</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;"><strong>1</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><strong>0</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;"><strong>1</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><strong>1</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;"><strong>1</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><strong>1</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;"><strong>0</strong></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</article><article id="block-mtpmhm5f-l7ths4jfh" class="box">
+<header class="box-head no-icon">
+<h1 class="box-title">Formas canónicas de una función lógica</h1>
+<button class="box-toggle box-toggle-on" title="Toggle content">
+<span>Toggle content</span>
+</button></header>
+<div class="box-content">
+<div id="idevice-mtpmhm5f-ci1enaxnp" class="idevice_node text" data-idevice-path="../idevices/text/" data-idevice-type="text" data-idevice-component-type="json" data-idevice-json-data="{&quot;ideviceId&quot;:&quot;idevice-mtpmhm5f-ci1enaxnp&quot;}">
+<p>Como todas las funciones lógicas que se nos ocurran sólo pueden dar los mismos dos resultados (o <strong>verdadero</strong> o <strong>falso</strong>), es fácil ver que habrá muchas funciones lógicas equivalentes entre sí. De entre todas esas funciones lógicas existen <strong>dos</strong> que tienen una estructura algebraica especial y que se denominan formas canónicas de las funciones lógicas. Tienen las siguientes características:</p>
+<p><strong>Primera forma canónica:</strong>&nbsp;la expresión algebraica de la función es una <strong>suma</strong> de <strong>productos lógicos</strong> en los que <strong>intervienen todas las variables de la función</strong>&nbsp;(ya sea de forma directa o negada). A cada uno de esos productos lógicos que contienen todas las variables se le denomina <strong>minitérmino (minterm)</strong>.</p>
+<p><strong>Segunda forma canónica:</strong>&nbsp;la expresión algebraica de la función es un <strong>producto</strong> de <strong>sumas lógicas</strong> en los que <strong>intervienen todas las variables de la función&nbsp;</strong>(ya sea de forma directa o negada). A cada una de esas sumas lógicas que contienen todas las variables se le denomina <strong>maxitérmino (maxterm)</strong>.</p>
+<h1>Obtención de las formas canónicas de una función lógica</h1>
+<p>Podemos obtener las formas canónicas de una función lógica cualquiera tanto a partir de su expresión algebraica como a partir de su tabla de verdad.</p>
+<div class="exe-fx exe-accordion">
+<h2>A partir de su forma algebraica</h2>
+<p>Podremos aplicar las propiedades que hemos visto para el álgebra de Boole a la expresión de la función lógica hasta obtener todos los minitérminos (o maxitérminos). Lo vemos con el ejemplo de la función lógica que ya pusimos antes:</p>
+<p class="formula-bloque">\[S=A\cdot (\overline{B}+ \overline{C})+\overline{A\cdot B}\cdot C\]</p>
+<p>Vamos a ir aplicando axiomas y leyes poco a poco hasta obtener una suma de minitérminos (primera forma canónica).</p>
+<p><strong>Primer paso:</strong></p>
+<ul>
+<li>Aplicamos la propiedad distributiva en el primer término:</li>
+</ul>
+<p class="formula-bloque">\[A\cdot (\overline{B}+ \overline{C}) = A\cdot \overline{B} + A\cdot \overline{C}\]</p>
+<ul>
+<li>Aplicamos la ley de Morgan del producto en el segundo término:</li>
+</ul>
+<p class="formula-bloque">\[\overline{A\cdot B}\cdot C=(\overline{A}+\overline{B})\cdot C\]</p>
+<p>La función quedaría así:</p>
+<p class="formula-bloque">\[\begin{matrix}S=A\cdot \overline{B} + A\cdot \overline{C}+\\+(\overline{A}+\overline{B})\cdot C\end{matrix}\]</p>
+<p>Segundo paso:</p>
+<ul>
+<li>Aplicamos la propiedad distributiva del producto al tercer término de la función:</li>
+</ul>
+<p class="formula-bloque">\[(\overline{A}+\overline{B})\cdot C=\overline{A}\cdot C+\overline{B}\cdot C\]</p>
+<p>La función queda ahora así:</p>
+<p class="formula-bloque">\[\begin{matrix}S=A\cdot \overline{B} + A\cdot \overline{C}+\\+\overline{A}\cdot C+\overline{B}\cdot C\end{matrix}\]</p>
+<p><strong>Tercer paso:</strong></p>
+<p>Hasta ahora ya hemos conseguido tener una <strong>suma de productos</strong>, estamos cerca de la primera forma canónica pero necesitamos que, en los productos, <strong>aparezcan las tres variables lógicas</strong>, no solo dos. Para añadir en cada producto la variable que falta, podemos aprovechar la ley del <strong>elemento</strong> <strong>complementario de la suma</strong> (<strong>A + <span style="text-decoration: overline;">A</span> = 1</strong>). En efecto, podemos multiplicar cualquiera de los productos que tenemos por una expresión que valga 1 (por lo que no afecta al resultado) pero que añada la variable lógica que nos falte.&nbsp;</p>
+<ul>
+<li>Multiplicamos el primer término por&nbsp;<strong>C +&nbsp;<span style="text-decoration: overline;">C</span></strong>&nbsp;y aplicamos la propiedad <strong>distributiva</strong>&nbsp;y la <strong>conmutativa</strong>:</li>
+</ul>
+<p class="formula-bloque">\[\begin{matrix}A\cdot \overline{B} = A\cdot \overline{B}\cdot (C+\overline{C})=\\=A\cdot \overline{B}\cdot C+A\cdot \overline{B}\cdot \overline{C}\end{matrix}\]</p>
+<ul>
+<li>Multiplicamos el segundo y el tercer término por&nbsp;<strong>B +&nbsp;<span style="text-decoration: overline;">B</span></strong> y aplicamos la propiedad&nbsp;<strong>distributiva</strong>&nbsp;y la <strong>conmutativa</strong>:</li>
+</ul>
+<p class="formula-bloque">\[\begin{matrix}A\cdot \overline{C}=A\cdot \overline{C}\cdot(B+\overline{B})=\\=A\cdot B\cdot \overline{C}+A\cdot \overline{B}\cdot \overline{C}\\[6pt] \overline{A}\cdot C=\overline{A}\cdot C \cdot(B+\overline{B})=\\=\overline{A}\cdot B\cdot C + \overline{A}\cdot \overline{B}\cdot C\end{matrix}\]</p>
+<ul>
+<li>Multiplicamos el cuarto término por&nbsp;<strong>A +&nbsp;<span style="text-decoration: overline;">A</span></strong> y aplicamos la propiedad&nbsp;<strong>distributiva</strong>&nbsp;y la <strong>conmutativa</strong>:</li>
+</ul>
+<p class="formula-bloque">\[\begin{matrix}\overline{B}\cdot C = \overline{B}\cdot C\cdot (A+\overline{A})=\\=A\cdot \overline{B}\cdot C+\overline{A}\cdot \overline{B}\cdot C\end{matrix}\]</p>
+<p>La función lógica tendrá ya por lo tanto forma de <strong>suma de minitérminos</strong>.</p>
+<p class="formula-bloque">\[\begin{matrix}S=A\cdot \overline{B}\cdot C+A\cdot \overline{B}\cdot \overline{C} +\\+ A\cdot B\cdot \overline{C}+A\cdot \overline{B}\cdot \overline{C}+\\+\overline{A}\cdot B\cdot C + \overline{A}\cdot \overline{B}\cdot C+\\+A\cdot \overline{B}\cdot C+\overline{A}\cdot \overline{B}\cdot C\end{matrix}\]</p>
+<p>Eso sí, si te fijas, <strong>algunos minitérminos están repetidos</strong>. Se pueden eliminar los duplicados sin problemas aprovechando la idempotencia de la suma (A + A = A), por lo que ya podemos escribir directamente la <strong>primera forma canónica de esta función</strong>:</p>
+<p class="formula-bloque">\[\begin{matrix}1^{a}FC: \ \ S=A\cdot \overline{B}\cdot C+\\+A\cdot \overline{B}\cdot \overline{C} + A\cdot B\cdot \overline{C}+\\+\overline{A}\cdot B\cdot C + \overline{A}\cdot \overline{B}\cdot C\end{matrix}\]</p>
+<p>Para conseguir la segunda forma canónica a partir de la expresión algebraica, tendríamos que haber actuado de forma análoga, aplicado propiedades del álgebra de Boole pero ahora buscando obtener <strong>sumas de maxitérminos.</strong> Este proceso es intuitivamente más complicado y <strong>no os recomiendo intentarlo.</strong> En su lugar, es más sencillo obtener la <strong>tabla de verdad</strong> de la función lógica a partir de la primera forma canónica y, a partir de la tabla, será sencillo escribir directamente la segunda forma canónica.</p>
+<h2>A partir de su tabla de verdad</h2>
+<p>Obtener las formas canónicas de una función a partir de su tabla de verdad es un proceso mucho más automático y sencillo que hacerlo a partir de su expresión algebraica. Tan solo hay que seguir una serie de pasos ordenados que, además, son los mismos para las dos formas canónicas pero utilizando la dualidad entre ellas:</p>
+<table class="tabla-datos">
+<thead>
+<tr>
+<th style="text-align: center;">PRIMERA FORMA CANÓNICA</th>
+<th style="text-align: center;">SEGUNDA FORMA CANÓNICA</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1 - Seleccionar todas las filas que tengan un <strong>uno (1)</strong> en la columna de salida de la tabla de verdad.</td>
+<td>1 - Seleccionar todas las filas que tengan un <strong>cero (0)</strong> en la columna de salida de la tabla de verdad.</td>
+</tr>
+<tr>
+<td>
+<p>2 - Para cada una de estas filas, escribir un <strong>minitérmino</strong> <strong>multiplicando</strong> todas las variables de la función de la siguiente forma:</p>
+<ul>
+<li>Si la variable vale <strong>1</strong>, ponerla <strong>sin negar</strong></li>
+<li>Si la variable vale <strong>0</strong>, ponerla <strong>negada</strong></li>
+</ul>
+</td>
+<td>2 - Para cada una de estas filas, escribir un&nbsp;<strong>maxitérmino</strong>&nbsp;<strong>sumando</strong> todas las variables de la función de la siguiente forma:
+<ul>
+<li>Si la variable vale <strong>1</strong>, ponerla <strong>negada</strong></li>
+<li>Si la variable vale <strong>0</strong>, ponerla <strong>sin negar</strong></li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>3 - <strong>Sumar</strong> todos los minitérminos anteriores entre sí.</td>
+<td>3 - <strong>Multiplicar</strong> todos los maxitérminos anteriores entre sí.</td>
+</tr>
+</tbody>
+</table>
+<p>Como siempre, lo veremos mejor con un ejemplo. Dada la función lógica cuya tabla de la verdad es esta:</p>
+<table class="tabla-datos">
+<thead>
+<tr>
+<th style="text-align: center;">A</th>
+<th style="text-align: center;">B</th>
+<th style="text-align: center;">C</th>
+<th style="text-align: center;">S</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><strong>0</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;"><strong>1</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><strong>0</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;"><strong>1</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><strong>1</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;"><strong>1</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><strong>1</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;"><strong>0</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Escribir la primera y la segunda formas canónicas.</p>
+<h3>Primera forma canónica</h3>
+<p>Escribimos los <strong>minitérminos</strong> correspondientes a las filas de la tabla de verdad que tienen como salida un <strong>uno</strong>, poniendo las variables <strong>que valen uno sin negar</strong> y las <strong>que valen cero negadas</strong>:</p>
+<table class="tabla-datos">
+<thead>
+<tr>
+<th style="text-align: center;">A</th>
+<th style="text-align: center;">B</th>
+<th style="text-align: center;">C</th>
+<th style="text-align: center;">S</th>
+<th style="text-align: center;">minitérmino&nbsp;</th>
+<th style="text-align: center;">fila</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><strong>0</strong></td>
+<td><strong>&nbsp;</strong></td>
+<td style="text-align: center;"><strong>0</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;"><span style="color: #0000ff;">0</span></td>
+<td style="text-align: center;"><span style="color: #0000ff;">0</span></td>
+<td style="text-align: center;"><span style="color: #0000ff;">1</span></td>
+<td style="text-align: center;"><span style="color: #0000ff;"><strong>1</strong></span></td>
+<td><span style="color: #0000ff;"><strong><span style="text-decoration: overline;">A</span> ·&nbsp;</strong></span><span style="color: #0000ff;"><strong><span style="text-decoration: overline;">B</span> · C</strong></span></td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><strong>0</strong></td>
+<td><strong>&nbsp;</strong></td>
+<td style="text-align: center;"><strong>2</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;"><span style="color: #0000ff;">0</span></td>
+<td style="text-align: center;"><span style="color: #0000ff;">1</span></td>
+<td style="text-align: center;"><span style="color: #0000ff;">1</span></td>
+<td style="text-align: center;"><span style="color: #0000ff;"><strong>1</strong></span></td>
+<td><span style="color: #0000ff;"><strong>&nbsp;</strong></span><span style="color: #0000ff;"><strong><span style="text-decoration: overline;">A</span>&nbsp;· B · C</strong></span></td>
+<td style="text-align: center;">3</td>
+</tr>
+<tr>
+<td style="text-align: center;"><span style="color: #0000ff;">1</span></td>
+<td style="text-align: center;"><span style="color: #0000ff;">0</span></td>
+<td style="text-align: center;"><span style="color: #0000ff;">0</span></td>
+<td style="text-align: center;"><span style="color: #0000ff;"><strong>1</strong></span></td>
+<td><span style="color: #0000ff;"><strong>&nbsp;</strong></span><span style="color: #0000ff;"><strong>A ·&nbsp;<span style="text-decoration: overline;">B</span> ·&nbsp;</strong></span><span style="color: #0000ff;"><strong><span style="text-decoration: overline;">C</span></strong></span></td>
+<td style="text-align: center;">4</td>
+</tr>
+<tr>
+<td style="text-align: center;"><span style="color: #0000ff;">1</span></td>
+<td style="text-align: center;"><span style="color: #0000ff;">0</span></td>
+<td style="text-align: center;"><span style="color: #0000ff;">1</span></td>
+<td style="text-align: center;"><span style="color: #0000ff;"><strong>1</strong></span></td>
+<td><span style="color: #0000ff;"><strong>&nbsp;</strong></span><span style="color: #0000ff;"><strong>A ·&nbsp;<span style="text-decoration: overline;">B</span> · C</strong></span></td>
+<td style="text-align: center;">5</td>
+</tr>
+<tr>
+<td style="text-align: center;"><span style="color: #0000ff;">1</span></td>
+<td style="text-align: center;"><span style="color: #0000ff;">1</span></td>
+<td style="text-align: center;"><span style="color: #0000ff;">0</span></td>
+<td style="text-align: center;"><span style="color: #0000ff;"><strong>1</strong></span></td>
+<td><span style="color: #0000ff;"><strong>&nbsp;</strong></span><span style="color: #0000ff;"><strong>A · B&nbsp;·&nbsp;<span style="text-decoration: overline;">C</span></strong></span></td>
+<td style="text-align: center;">6</td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;"><strong>0</strong></td>
+<td><strong>&nbsp;</strong></td>
+<td style="text-align: center;"><strong>7</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Por lo tanto, la <strong>primera forma canónica de la función</strong> será (sumando los minitérminos):</p>
+<p class="formula-bloque">\[\begin{matrix}1^{a}FC: \ \ S=\overline{A}\cdot \overline{B}\cdot C+\\+\overline{A}\cdot B\cdot C +A\cdot \overline{B}\cdot \overline{C}+\\+A\cdot \overline{B}\cdot C + A\cdot B\cdot \overline{C}\end{matrix}\]</p>
+<p>Los minitérminos se denotan por <strong>m<sub>i</sub></strong>, donde i es el <strong>índice de la fila</strong> de la tabla de verdad a la que corresponden. Así, la forma canónica anterior puede expresarse, de forma mucho más compacta, así:</p>
+<p class="formula-bloque">\[\begin{matrix}1^{a}FC: \ \ S= m_{1}+m_{3}+\\+m_{4}+m_{5}+m_{6}=\\=\sum m(1,3,4,5,6)\end{matrix}\]</p>
+<h3>Segunda forma canónica</h3>
+<p>Escribimos los <strong>maxitérminos</strong> correspondientes a las filas de la tabla de verdad que tienen como salida un <strong>cero</strong>, poniendo las variables <strong>que valen uno negadas</strong> y las <strong>que valen cero sin negar</strong>:</p>
+<table class="tabla-datos">
+<thead>
+<tr>
+<th style="text-align: center;">A</th>
+<th style="text-align: center;">B</th>
+<th style="text-align: center;">C</th>
+<th style="text-align: center;">S</th>
+<th style="text-align: center;">maxitérmino&nbsp;</th>
+<th style="text-align: center;">fila</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><span style="color: #0000ff;">0</span></td>
+<td style="text-align: center;"><span style="color: #0000ff;">0</span></td>
+<td style="text-align: center;"><span style="color: #0000ff;">0</span></td>
+<td style="text-align: center;"><span style="color: #0000ff;"><strong>0</strong></span></td>
+<td><span style="color: #0000ff;"><strong>&nbsp;</strong></span><span style="color: #0000ff;"><strong>A + B +&nbsp;C</strong></span></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;"><strong>1</strong></td>
+<td></td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;"><span style="color: #0000ff;">0</span></td>
+<td style="text-align: center;"><span style="color: #0000ff;">1</span></td>
+<td style="text-align: center;"><span style="color: #0000ff;">0</span></td>
+<td style="text-align: center;"><span style="color: #0000ff;"><strong>0</strong></span></td>
+<td><span style="color: #0000ff;"><strong>&nbsp;</strong></span><span style="color: #0000ff;"><strong>A +&nbsp;<span style="text-decoration: overline;">B</span> + C</strong></span></td>
+<td style="text-align: center;">2</td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;"><strong>1</strong></td>
+<td></td>
+<td style="text-align: center;">3</td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><strong>1</strong></td>
+<td></td>
+<td style="text-align: center;">4</td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;"><strong>1</strong></td>
+<td></td>
+<td style="text-align: center;">5</td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><strong>1</strong></td>
+<td></td>
+<td style="text-align: center;">6</td>
+</tr>
+<tr>
+<td style="text-align: center;"><span style="color: #0000ff;">1</span></td>
+<td style="text-align: center;"><span style="color: #0000ff;">1</span></td>
+<td style="text-align: center;"><span style="color: #0000ff;">1</span></td>
+<td style="text-align: center;"><span style="color: #0000ff;"><strong>0</strong></span></td>
+<td><span style="color: #0000ff;"><strong>&nbsp;</strong></span><span style="color: #0000ff;"><strong><span style="text-decoration: overline;">A</span> +&nbsp;<span style="text-decoration: overline;">B</span> +&nbsp;</strong></span><span style="color: #0000ff;"><strong><span style="text-decoration: overline;">C</span></strong></span></td>
+<td style="text-align: center;">7</td>
+</tr>
+</tbody>
+</table>
+<p>Por lo tanto, la <strong>segunda forma canónica de la función</strong> será (multiplicando los maxitérminos):</p>
+<p class="formula-bloque">\[\begin{matrix}2^{a}FC: \ \ S=(A+ B+ C)\cdot\\\cdot(A+ \overline{B}+ C) \cdot (\overline{A}+ \overline{B}+ \overline{C})\end{matrix}\]</p>
+<p>Los maxitérminos se denotan por <strong>M<sub>i</sub></strong>, donde i es el <strong>índice de la fila</strong> de la tabla de verdad a la que corresponden. Así, la forma canónica anterior puede expresarse, de forma mucho más compacta, así:</p>
+<p class="formula-bloque">\[\begin{matrix}2^{a}FC: \ \ S= M_{0}\cdot M_{2}\cdot\\\cdot M_{7}=\prod M(0,2,7)\end{matrix}\]</p>
+</div>
+</div>
+</div>
+</article><article id="block-mtpmhm5f-39t3cfz57" class="box">
+<header class="box-head no-icon">
+<h1 class="box-title">Obtención de la tabla de verdad de una función lógica</h1>
+<button class="box-toggle box-toggle-on" title="Toggle content">
+<span>Toggle content</span>
+</button></header>
+<div class="box-content">
+<div id="idevice-mtpmhm5f-oibd2yxwp" class="idevice_node text" data-idevice-path="../idevices/text/" data-idevice-type="text" data-idevice-component-type="json" data-idevice-json-data="{&quot;ideviceId&quot;:&quot;idevice-mtpmhm5f-oibd2yxwp&quot;}">
+<p>La tabla de verdad de una función lógica puede obtenerse a partir de su expresión algebraica <strong>evaluando el valor de la función para cada una de las filas de la tabla de verdad.</strong> Este proceso puede ser lento y es fácil equivocarse (si tenemos cuatro variables lógicas, habría que evaluar la función en 16 filas, por ejemplo), por lo que es recomendable <strong>obtener la primera forma canónica</strong> y, a partir de ella, <strong>rellenar directamente la tabla</strong> poniendo un uno (1) en las filas que se correspondan con los minitérminos y un cero (0) en las filas para las que no haya ningún minitérmino.</p>
+</div>
+</div>
+</article><article id="block-mtpmhm5f-zkp21wzpl" class="box">
+<header class="box-head no-icon">
+<h1 class="box-title">Ejercicios</h1>
+<button class="box-toggle box-toggle-on" title="Toggle content">
+<span>Toggle content</span>
+</button></header>
+<div class="box-content">
+<div id="idevice-mtpmhm5f-eouu867yg" class="idevice_node text" data-idevice-path="../idevices/text/" data-idevice-type="text" data-idevice-component-type="json" data-idevice-json-data="{&quot;ideviceId&quot;:&quot;idevice-mtpmhm5f-eouu867yg&quot;}">
+<div class="bloque bloque-actividad"><p class="bloque-titulo">Ejercicio 1</p><p>Dada la función lógica siguiente:</p>
+<p class="formula-bloque">\[\begin{matrix}S=\overline{A}\cdot B\cdot \overline{C}\cdot \overline{D}+\\+A \cdot \overline{B}\cdot C\cdot \overline{D}+C\cdot \overline{D}\cdot \overline{A}+\\+A\cdot B+A\cdot B\cdot \overline{C}\end{matrix}\]</p>
+<ol style="list-style-type: lower-alpha;">
+<li>Obtener la primera forma canónica aplicando las propiedades del álgebra de Boole.</li>
+<li>Escribir la tabla de verdad correspondiente a esta función lógica.</li>
+<li>Obtener la segunda forma canónica de la función.</li>
+</ol></div>
+<div class="bloque bloque-actividad"><p class="bloque-titulo">Ejercicio 2</p><p>Dada la siguiente tabla de verdad:</p>
+<table class="tabla-datos">
+<thead>
+<tr>
+<th style="text-align: center;">A</th>
+<th style="text-align: center;">B</th>
+<th style="text-align: center;">C</th>
+<th style="text-align: center;">D</th>
+<th style="text-align: center;">S</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><strong>0</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;"><strong>0</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><strong>1</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;"><strong>0</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><strong>0</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;"><strong>1</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><strong>1</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;"><strong>1</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><strong>0</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;"><strong>0</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><strong>1</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;"><strong>1</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><strong>1</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;"><strong>0</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><strong>1</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;"><strong>0</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Escribir la primera y la segunda formas canónicas de la función lógica correspondiente a esa tabla.</p></div>
+</div>
+</div>
+</article>
+</div></main><div class="nav-buttons">
+<a href="../html/1-algebra-de-boole.html" title="Anterior" class="nav-button nav-button-left"><span>Anterior</span></a>
+<a href="../html/3-simplificacion-de-funciones-logicas.html" title="Siguiente" class="nav-button nav-button-right"><span>Siguiente</span></a>
+</div>
+<footer id="siteFooter"><div id="siteFooterContent"> <div id="packageLicense" class="cc cc-by-nc-sa"> <p> <span class="license-label">Licencia: </span><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="license">Creative Commons: Reconocimiento - no comercial - compartir igual 4.0</a></p>
+</div>
+</div></footer>
+</div>
+
+</body>
+</html>
