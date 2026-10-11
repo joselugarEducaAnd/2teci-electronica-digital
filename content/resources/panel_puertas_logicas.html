@@ -193,7 +193,10 @@
       position: relative;
       width: 100%;
       max-width: 380px;
-      height: 240px;
+      /* misma proporción que el viewBox del símbolo (360 × 220): así un % de la caja es un
+         % del dibujo y los controles caen justo sobre los cables */
+      aspect-ratio: 360 / 220;
+      height: auto;
     }
     .symbol-wrap svg {
       width: 100%;
@@ -208,8 +211,24 @@
       align-items: center;
       gap: 3px;
       z-index: 5;
+      /* se ancla por el centro del interruptor o del piloto (no por el centro de la columna):
+         rótulo 16 px + hueco 3 px + medio control 13 px = 32 px */
+      transform: translate(-50%, -32px);
     }
+    /* entradas de una puerta de dos: el rótulo y el valor van FUERA del hueco entre los dos
+       cables (encima de la de arriba, debajo de la de abajo), así no se pisan en pantallas
+       estrechas; el ancla sigue siendo el centro del interruptor */
+    .pin-control .pin-info {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      height: 18px;
+    }
+    .pin-control.arriba { transform: translate(-50%, -34px); }   /* 18 + 3 + 13 */
+    .pin-control.abajo  { transform: translate(-50%, -13px); }
     .pin-control .pin-name {
+      height: 16px;
+      line-height: 16px;
       font-size: 0.78rem;
       font-weight: 700;
       color: #334155;
@@ -257,6 +276,7 @@
     .val-tag.low  { background: #fee2e2; color: #991b1b; }
 
     .out-led {
+      box-sizing: border-box;
       width: 26px;
       height: 26px;
       border-radius: 50%;
@@ -270,10 +290,11 @@
       border-color: #16a34a;
       box-shadow: 0 0 14px rgba(34,197,94,0.65);
     }
+    /* a 0 el piloto está apagado (gris); solo se ilumina, en verde, cuando la salida vale 1 */
     .out-led.off {
-      background: #ef4444;
-      border-color: #dc2626;
-      box-shadow: 0 0 10px rgba(239,68,68,0.45);
+      background: #e2e8f0;
+      border-color: #94a3b8;
+      box-shadow: inset 0 2px 4px rgba(0,0,0,0.12);
     }
 
     .side-panel {
@@ -559,14 +580,14 @@
         return '<svg viewBox="' + vb + '" xmlns="http://www.w3.org/2000/svg">' + body + symbol + wires + '</svg>';
       }
 
+      // Posiciones en % del viewBox 360 × 220: la y es la de cada cable y la salida cae en el
+      // extremo del cable de salida (x = 320).
       function getPinPositions(gate, style) {
-        if (gate === "NOT") {
-          return { inputs: [{ x: 8, y: 46 }], output: { x: 90, y: 46 } };
-        }
-        if (style === "iso") {
-          return { inputs: [{ x: 8, y: 30 }, { x: 8, y: 62 }], output: { x: 90, y: 46 } };
-        }
-        return { inputs: [{ x: 8, y: 28 }, { x: 8, y: 64 }], output: { x: 90, y: 46 } };
+        var px = function (x, y) { return { x: x / 360 * 100, y: y / 220 * 100 }; };
+        var out = px(320, 110);
+        if (gate === "NOT") return { inputs: [{ x: 8, y: px(0, 110).y }], output: out };
+        var ys = style === "iso" ? [80, 140] : [75, 145];
+        return { inputs: ys.map(function (y) { return { x: 8, y: px(0, y).y }; }), output: out };
       }
 
       function renderSymbol() {
@@ -580,14 +601,21 @@
         pos.inputs.forEach(function(p, i) {
           var val = inputs[i] || 0;
           var name = String.fromCharCode(65 + i);
-          controls += '<div class="pin-control" style="left:' + p.x + '%; top:' + p.y + '%; transform:translate(-50%,-50%);">' +
-            '<span class="pin-name" aria-hidden="true">' + name + '</span>' +
-            '<button type="button" class="switch ' + (val ? "on" : "") + '" data-idx="' + i + '" aria-pressed="' + (val ? "true" : "false") + '" aria-label="Entrada ' + name + '"></button>' +
-            '<output class="val-tag ' + (val ? "high" : "low") + '" aria-label="Valor de ' + name + '">' + val + '</output></div>';
+          var rotulo = '<span class="pin-name" aria-hidden="true">' + name + '</span>';
+          var boton = '<button type="button" class="switch ' + (val ? "on" : "") + '" data-idx="' + i + '" aria-pressed="' + (val ? "true" : "false") + '" aria-label="Entrada ' + name + '"></button>';
+          var valor = '<output class="val-tag ' + (val ? "high" : "low") + '" aria-label="Valor de ' + name + '">' + val + '</output>';
+          var sitio = 'style="left:' + p.x + '%; top:' + p.y + '%;"';
+          if (pos.inputs.length === 1) {
+            controls += '<div class="pin-control" ' + sitio + '>' + rotulo + boton + valor + '</div>';
+          } else if (i === 0) {
+            controls += '<div class="pin-control arriba" ' + sitio + '><div class="pin-info">' + rotulo + valor + '</div>' + boton + '</div>';
+          } else {
+            controls += '<div class="pin-control abajo" ' + sitio + '>' + boton + '<div class="pin-info">' + rotulo + valor + '</div></div>';
+          }
         });
 
         var y = g.fn.apply(null, inputs);
-        controls += '<div class="pin-control" style="left:' + pos.output.x + '%; top:' + pos.output.y + '%; transform:translate(-50%,-50%);">' +
+        controls += '<div class="pin-control" style="left:' + pos.output.x + '%; top:' + pos.output.y + '%;">' +
           '<span class="pin-name" aria-hidden="true">S</span>' +
           '<div class="out-led ' + (y ? "on" : "off") + '" aria-hidden="true"></div>' +
           '<output class="val-tag ' + (y ? "high" : "low") + '" aria-label="Salida S">' + y + '</output></div>';
